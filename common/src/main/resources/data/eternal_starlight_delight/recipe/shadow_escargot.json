@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "eternal_starlight:velvetumoss_ball"
+    },
+    {
+      "item": "eternal_starlight_delight:cooked_shadow_snail_meat_cuts"
+    },
+    {
+      "item": "eternal_starlight:shadow_snail_shell"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight:shadow_escargot"
+  }
+}

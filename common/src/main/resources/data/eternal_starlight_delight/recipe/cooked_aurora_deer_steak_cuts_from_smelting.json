@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "eternal_starlight_delight:aurora_deer_steak_cuts"
+  },
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:cooked_aurora_deer_steak_cuts"
+  }
+}

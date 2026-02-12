@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_aurora_deer_steak": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/raw_aurora_deer_steak"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eternal_starlight_delight:cooking/aurora_deer_dice_steak_pasta"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_aurora_deer_steak"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eternal_starlight_delight:cooking/aurora_deer_dice_steak_pasta"
+    ]
+  }
+}

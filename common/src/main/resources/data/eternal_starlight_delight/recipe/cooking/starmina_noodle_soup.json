@@ -1,0 +1,26 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "c:foods/pasta"
+    },
+    {
+      "tag": "eternal_starlight_delight:usable_pungency_fruit"
+    },
+    {
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "tag": "c:foods/raw_ratlin_meat"
+    },
+    {
+      "item": "eternal_starlight:starlight_flower"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:starmina_noodle_soup"
+  }
+}

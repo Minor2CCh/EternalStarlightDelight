@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lunar_berries": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eternal_starlight:lunar_berries"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eternal_starlight_delight:cooking/starlight_soup"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lunar_berries"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eternal_starlight_delight:cooking/starlight_soup"
+    ]
+  }
+}

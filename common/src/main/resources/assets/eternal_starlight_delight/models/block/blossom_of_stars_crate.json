@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "farmersdelight:block/crate_bottom",
+    "side": "eternal_starlight_delight:block/blossom_of_stars_crate_side",
+    "top": "eternal_starlight_delight:block/blossom_of_stars_crate_top"
+  }
+}

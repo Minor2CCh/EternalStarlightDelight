@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "eternal_starlight:twining_armor_trim_smithing_template"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 1,
+        "id": "eternal_starlight:blooming_armor_trim_smithing_template"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/shear"
+  }
+}

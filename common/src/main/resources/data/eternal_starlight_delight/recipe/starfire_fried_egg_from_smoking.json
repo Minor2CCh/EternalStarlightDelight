@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "eternal_starlight:starfire_bird_egg"
+  },
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:starfire_fried_egg"
+  }
+}

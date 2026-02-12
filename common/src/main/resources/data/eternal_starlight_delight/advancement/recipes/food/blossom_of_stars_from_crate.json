@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blossom_of_stars_crate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eternal_starlight_delight:blossom_of_stars_crate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eternal_starlight_delight:blossom_of_stars_from_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_blossom_of_stars_crate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eternal_starlight_delight:blossom_of_stars_from_crate"
+    ]
+  }
+}

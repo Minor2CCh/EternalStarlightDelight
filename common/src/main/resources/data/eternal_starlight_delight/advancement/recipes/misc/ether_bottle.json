@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ether_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eternal_starlight:ether_bucket"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eternal_starlight_delight:ether_bottle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ether_bucket"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eternal_starlight_delight:ether_bottle"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_thermal_springstone_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/thermal_springstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eternal_starlight_delight:thermal_springstone_knife"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_thermal_springstone_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eternal_starlight_delight:thermal_springstone_knife"
+    ]
+  }
+}

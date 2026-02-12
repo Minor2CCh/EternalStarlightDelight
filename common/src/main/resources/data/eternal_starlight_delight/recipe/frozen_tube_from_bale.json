@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "eternal_starlight_delight:frozen_tube_bale"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "eternal_starlight:frozen_tube"
+  }
+}

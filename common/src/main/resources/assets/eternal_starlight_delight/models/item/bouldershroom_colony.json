@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "eternal_starlight_delight:block/bouldershroom_colony_stage3"
+  }
+}

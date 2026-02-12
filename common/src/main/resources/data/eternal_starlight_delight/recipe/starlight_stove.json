@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "eternal_starlight:nebulaite_bricks"
+    },
+    "C": {
+      "item": "eternal_starlight:torreya_campfire"
+    },
+    "i": {
+      "tag": "c:ingots/deepsilver"
+    },
+    "F": {
+      "item": "eternal_starlight:starfire"
+    }
+  },
+  "pattern": [
+    "iii",
+    "BFB",
+    "BCB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:starlight_stove"
+  }
+}

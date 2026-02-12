@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "eternal_starlight:blossom_of_stars"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:blossom_of_stars_crate"
+  }
+}

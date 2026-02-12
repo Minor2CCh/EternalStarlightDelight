@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "F": {
+      "item": "eternal_starlight_delight:pungency_fruit_slice"
+    },
+    "G": {
+      "tag": "c:gunpowders"
+    },
+    "M": {
+      "tag": "c:gems/malarite"
+    }
+  },
+  "pattern": [
+    "FGF",
+    "GMG",
+    "FGF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight:tear_bomb"
+  }
+}

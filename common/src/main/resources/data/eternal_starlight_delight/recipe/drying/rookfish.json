@@ -1,0 +1,12 @@
+{
+  "type": "eternal_starlight:drying",
+  "duration_ticks": 600,
+  "fire_below": true,
+  "input": {
+    "item": "eternal_starlight:rookfish"
+  },
+  "output": {
+    "count": 1,
+    "id": "eternal_starlight_delight:dried_rookfish"
+  }
+}

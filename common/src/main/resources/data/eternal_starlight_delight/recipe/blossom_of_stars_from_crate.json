@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "eternal_starlight_delight:blossom_of_stars_crate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "eternal_starlight:blossom_of_stars"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "farmersdelight:add_features_by_filter",
+  "allowed_biomes": "#eternal_starlight_delight:in_eternal_starlight",
+  "min_temperature": 0.4,
+  "max_temperature": 0.9,
+  "features": "eternal_starlight_delight:patch_wild_carrots",
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,28 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "tag": "eternal_starlight_delight:dusted_gravels"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 1,
+        "id": "eternal_starlight:dusted_gravel"
+      }
+    },
+    {
+      "chance": 0.1,
+      "item": {
+        "count": 1,
+        "id": "eternal_starlight:dusted_shard"
+      }
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:item_ability",
+    "fabric:type": "farmersdelight:item_ability",
+    "action": "shovel_dig"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "variants": {
+    "facing=down,age=0": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage0",
+      "x": 180,
+      "y": 90
+    },
+    "facing=down,age=1": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage1",
+      "x": 180,
+      "y": 90
+    },
+    "facing=down,age=2": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage2",
+      "x": 180,
+      "y": 90
+    },
+    "facing=down,age=3": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage3",
+      "x": 180,
+      "y": 90
+    },
+    "facing=east,age=0": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage0",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,age=1": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage1",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,age=2": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage2",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,age=3": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage3",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,age=0": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage0",
+      "x": 90
+    },
+    "facing=north,age=1": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage1",
+      "x": 90
+    },
+    "facing=north,age=2": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage2",
+      "x": 90
+    },
+    "facing=north,age=3": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage3",
+      "x": 90
+    },
+    "facing=south,age=0": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage0",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,age=1": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage1",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,age=2": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage2",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,age=3": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage3",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,age=0": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage0",
+      "y": 90
+    },
+    "facing=up,age=1": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage1",
+      "y": 90
+    },
+    "facing=up,age=2": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage2",
+      "y": 90
+    },
+    "facing=up,age=3": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage3",
+      "y": 90
+    },
+    "facing=west,age=0": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage0",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,age=1": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage1",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,age=2": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage2",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,age=3": {
+      "model": "eternal_starlight_delight:block/bouldershroom_colony_stage3",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

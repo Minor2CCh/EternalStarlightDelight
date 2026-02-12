@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:music_discs"
+    },
+    {
+      "item": "eternal_starlight:ether_bucket"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight:music_disc_ether_rain"
+  }
+}

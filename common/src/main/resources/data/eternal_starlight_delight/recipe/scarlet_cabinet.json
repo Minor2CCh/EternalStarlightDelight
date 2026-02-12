@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "fd_cabinet",
+  "key": {
+    "D": {
+      "item": "eternal_starlight:scarlet_trapdoor"
+    },
+    "_": {
+      "item": "eternal_starlight:scarlet_slab"
+    }
+  },
+  "pattern": [
+    "___",
+    "D D",
+    "___"
+  ],
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:scarlet_cabinet"
+  }
+}

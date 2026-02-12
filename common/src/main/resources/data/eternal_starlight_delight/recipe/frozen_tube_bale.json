@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "eternal_starlight:frozen_tube"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:frozen_tube_bale"
+  }
+}

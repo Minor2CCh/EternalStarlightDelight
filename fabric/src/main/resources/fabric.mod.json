@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "eternal_starlight_delight",
+  "version": "${version}",
+  "name": "Eternal Starlight's Delight",
+  "description": "A unofficial mod that adds collaborative elements between Farmer's Delight and Eternal Starlight.",
+  "authors": [
+    "Minor2CCh"
+  ],
+  "contact": {
+    "homepage": ""
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.minor2cch.eternalstarlightdelight.fabric.EternalStarlightDelightFabric"
+    ],
+    "client": [
+      "com.minor2cch.eternalstarlightdelight.fabric.client.EternalStarlightDelightFabricClient"
+    ],
+    "jei_mod_plugin": [
+      "com.minor2cch.eternalstarlightdelight.compat.JEIPlugin"
+    ]
+  },
+  "mixins": [
+    "eternal_starlight_delight.mixins.json",
+    "eternal_starlight_delight-fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.0",
+    "minecraft": "1.21.1",
+    "farmersdelight": "*",
+    "eternal_starlight": ">0.6.3",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

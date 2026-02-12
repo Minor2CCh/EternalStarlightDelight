@@ -1,0 +1,45 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "botanypots",
+        "bookshelf"
+      ]
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:and",
+      "values": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "botanypots"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "bookshelf"
+        }
+      ]
+    }
+  ],
+  "type": "botanypots:block_derived_crop",
+  "block": "eternal_starlight_delight:glowing_mushroom_colony",
+  "input": {
+    "item": "eternal_starlight_delight:glowing_mushroom_colony"
+  },
+  "soil": {
+    "type": "bookshelf:either",
+    "fabric:type": "bookshelf:either",
+    "ingredients": [
+      {
+        "type": "bookshelf:block_tag",
+        "fabric:type": "bookshelf:block_tag",
+        "tag": "minecraft:mushroom_grow_block"
+      },
+      {
+        "tag": "botanypots:soil/mushroom"
+      }
+    ]
+  }
+}

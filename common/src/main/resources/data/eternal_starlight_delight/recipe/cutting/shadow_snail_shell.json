@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "eternal_starlight:shadow_snail_shell"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 6,
+        "id": "eternal_starlight:shadow_snail_shell_powder"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "eternal_starlight:hammers"
+  }
+}

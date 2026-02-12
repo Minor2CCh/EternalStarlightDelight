@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "eternal_starlight:lunaris_cactus_gel"
+    },
+    {
+      "item": "eternal_starlight:lunaris_cactus_gel"
+    },
+    {
+      "item": "eternal_starlight:lunar_berries"
+    },
+    {
+      "item": "eternal_starlight:frozen_tube"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:lunaris_sherbet"
+  }
+}

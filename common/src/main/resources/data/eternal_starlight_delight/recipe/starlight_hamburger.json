@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:foods/crinoa_bread"
+    },
+    {
+      "item": "eternal_starlight_delight:cooked_ratlin_meat_cuts"
+    },
+    {
+      "item": "eternal_starlight:velvetumoss_ball"
+    },
+    {
+      "item": "eternal_starlight:lunar_berries"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:starlight_hamburger"
+  }
+}

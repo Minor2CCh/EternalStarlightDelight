@@ -1,0 +1,19 @@
+{
+  "values": [
+    "eternal_starlight:abyssal_magma_block",
+    "eternal_starlight:thermabyssal_magma_block",
+    "eternal_starlight:cryobyssal_magma_block",
+    "eternal_starlight:molten_stellagmite",
+    "eternal_starlight:molten_stellagmite_slab",
+    "eternal_starlight:molten_stellagmite_stairs",
+    "eternal_starlight:blazing_starcore_block",
+    "eternal_starlight:starcore_light",
+    "eternal_starlight:thermal_springstone",
+    "eternal_starlight:thermal_springstone_slab",
+    "eternal_starlight:thermal_springstone_stairs",
+    "eternal_starlight:thermal_springstone_bricks",
+    "eternal_starlight:thermal_springstone_brick_slab",
+    "eternal_starlight:thermal_springstone_brick_stairs",
+    "eternal_starlight_delight:starlight_stove"
+  ]
+}

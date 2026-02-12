@@ -1,0 +1,28 @@
+{
+  "required": true,
+  "package": "com.minor2cch.eternalstarlightdelight.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "AbstractArrowMixin",
+    "AbstractContainerMenuInvoker",
+    "BlockBehaviourMixin",
+    "CookingPotMenuMixin",
+    "DualWieldingSwordItemMixin",
+    "MarimoldBlockInvoker",
+    "PlayerMixin",
+    "RecipeManagerMixin",
+    "RichSoilMixin",
+    "SkilletBlockEntityAccessor",
+    "SkilletBlockEntityMixin",
+    "SkilletEventsMixin",
+    "SkilletItemInvoker",
+    "StoveBlockEntityMixin",
+    "TagLoaderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

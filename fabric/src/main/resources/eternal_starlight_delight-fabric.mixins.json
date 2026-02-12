@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.minor2cch.eternalstarlightdelight.fabric.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "PungencyFruitVinesBlockMixin",
+    "CookingPotBlockEntityMixinFabric"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_tooth_of_hunger": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eternal_starlight:tooth_of_hunger"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eternal_starlight_delight:knife_of_hunger"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tooth_of_hunger"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eternal_starlight_delight:knife_of_hunger"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "farmersdelight:add_features_by_filter",
+  "allowed_biomes": "#eternal_starlight_delight:wild_rice_whitelist",
+  "features": "eternal_starlight_delight:patch_wild_rice",
+  "step": "vegetal_decoration"
+}

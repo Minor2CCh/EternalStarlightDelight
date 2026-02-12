@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "eternal_starlight:blazing_starcore_block"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 1,
+        "id": "eternal_starlight:starcore_light"
+      }
+    }
+  ],
+  "tool": {
+    "item": "eternal_starlight:thermal_springstone_pickaxe"
+  }
+}

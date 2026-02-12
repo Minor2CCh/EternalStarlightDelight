@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "eternal_starlight_delight:block/starlight_stove_bottom",
+    "front": "eternal_starlight_delight:block/starlight_stove_front",
+    "side": "eternal_starlight_delight:block/starlight_stove_side",
+    "top": "eternal_starlight_delight:block/starlight_stove_top"
+  }
+}

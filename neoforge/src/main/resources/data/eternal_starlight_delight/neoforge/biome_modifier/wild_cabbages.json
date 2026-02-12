@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#eternal_starlight_delight:wild_cabbage_whitelist",
+  "features": "eternal_starlight_delight:patch_wild_cabbages",
+  "step": "vegetal_decoration"
+}

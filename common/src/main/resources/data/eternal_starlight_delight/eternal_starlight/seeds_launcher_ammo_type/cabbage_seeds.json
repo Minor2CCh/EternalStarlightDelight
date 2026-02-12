@@ -1,0 +1,6 @@
+{
+  "cooldown": 1.0,
+  "damage_multiplier": 1.1,
+  "item": "farmersdelight:cabbage_seeds",
+  "speed_multiplier": 1.1
+}

@@ -1,0 +1,48 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "eternal_starlight_delight"
+version = "${version}"
+displayName = "Eternal Starlight's Delight"
+authors = "Minor2CCh"
+description = '''
+A unofficial mod that adds collaborative elements between Farmer's Delight and Eternal Starlight.
+'''
+logoFile = "icon.png"
+
+[[dependencies.eternal_starlight_delight]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.eternal_starlight_delight]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.eternal_starlight_delight]]
+modId = "farmersdelight"
+type = "required"
+versionRange = "*"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.eternal_starlight_delight]]
+modId = "eternal_starlight"
+type = "required"
+versionRange = "[0.6.4,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "eternal_starlight_delight.mixins.json"
+
+[[mixins]]
+config = "eternal_starlight_delight-neoforge.mixins.json"

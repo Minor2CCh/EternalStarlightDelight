@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "eternal_starlight_delight:shadow_snail_meat_cuts"
+  },
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:cooked_shadow_snail_meat_cuts"
+  }
+}

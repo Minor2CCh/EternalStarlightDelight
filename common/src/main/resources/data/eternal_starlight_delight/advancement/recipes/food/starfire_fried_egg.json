@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "starfire_fried_egg": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eternal_starlight:starfire_bird_egg"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eternal_starlight_delight:starfire_fried_egg"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "starfire_fried_egg"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eternal_starlight_delight:starfire_fried_egg"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=east,lit=false": {
+      "model": "eternal_starlight_delight:block/starlight_stove",
+      "y": 90
+    },
+    "facing=east,lit=true,starfire=false": {
+      "model": "eternal_starlight_delight:block/starlight_stove_on",
+      "y": 90
+    },
+    "facing=east,lit=true,starfire=true": {
+      "model": "eternal_starlight_delight:block/starlight_stove_on_starfire",
+      "y": 90
+    },
+    "facing=north,lit=false": {
+      "model": "eternal_starlight_delight:block/starlight_stove"
+    },
+    "facing=north,lit=true,starfire=false": {
+      "model": "eternal_starlight_delight:block/starlight_stove_on"
+    },
+    "facing=north,lit=true,starfire=true": {
+      "model": "eternal_starlight_delight:block/starlight_stove_on_starfire"
+    },
+    "facing=south,lit=false": {
+      "model": "eternal_starlight_delight:block/starlight_stove",
+      "y": 180
+    },
+    "facing=south,lit=true,starfire=false": {
+      "model": "eternal_starlight_delight:block/starlight_stove_on",
+      "y": 180
+    },
+    "facing=south,lit=true,starfire=true": {
+      "model": "eternal_starlight_delight:block/starlight_stove_on_starfire",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "eternal_starlight_delight:block/starlight_stove",
+      "y": 270
+    },
+    "facing=west,lit=true,starfire=false": {
+      "model": "eternal_starlight_delight:block/starlight_stove_on",
+      "y": 270
+    },
+    "facing=west,lit=true,starfire=true": {
+      "model": "eternal_starlight_delight:block/starlight_stove_on_starfire",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:crops/crinoa"
+    },
+    {
+      "tag": "c:crops/crinoa"
+    },
+    {
+      "tag": "c:crops/crinoa"
+    },
+    {
+      "tag": "eternal_starlight_delight:usable_crinoa_dough_egg"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "id": "eternal_starlight_delight:crinoa_dough"
+  }
+}

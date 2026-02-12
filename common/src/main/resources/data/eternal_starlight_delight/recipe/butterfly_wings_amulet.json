@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "eternal_starlight_delight:ether_convertable_accessories"
+    },
+    {
+      "tag": "eternal_starlight_delight:usable_for_ether"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight:butterfly_wings_amulet"
+  }
+}

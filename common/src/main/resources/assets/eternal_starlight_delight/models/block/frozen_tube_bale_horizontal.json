@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "eternal_starlight_delight:block/frozen_tube_bale_top",
+    "side": "eternal_starlight_delight:block/frozen_tube_bale_side"
+  }
+}

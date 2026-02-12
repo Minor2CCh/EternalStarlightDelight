@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "eternal_starlight_delight:block/scarlet_cabinet_front_open",
+    "side": "eternal_starlight_delight:block/scarlet_cabinet_side",
+    "top": "eternal_starlight_delight:block/scarlet_cabinet_top"
+  }
+}

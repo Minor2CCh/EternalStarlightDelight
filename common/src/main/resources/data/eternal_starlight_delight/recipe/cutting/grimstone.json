@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "eternal_starlight:grimstone"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 1,
+        "id": "eternal_starlight:cobbled_grimstone"
+      }
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:item_ability",
+    "fabric:type": "farmersdelight:item_ability",
+    "action": "pickaxe_dig"
+  }
+}

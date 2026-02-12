@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "com.minor2cch.eternalstarlightdelight.neoforge.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "CompostBlockMixin",
+    "CookingPotBlockEntityAccessor",
+    "CookingPotBlockEntityMixinNeoForge"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

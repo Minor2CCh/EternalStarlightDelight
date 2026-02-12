@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "eternal_starlight:lunar_berries"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:lunar_berry_crate"
+  }
+}

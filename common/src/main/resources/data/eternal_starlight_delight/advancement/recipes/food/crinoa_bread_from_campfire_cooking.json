@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crinoa_dough": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eternal_starlight_delight:crinoa_dough"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eternal_starlight_delight:crinoa_bread_from_campfire_cooking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_crinoa_dough"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eternal_starlight_delight:crinoa_bread_from_campfire_cooking"
+    ]
+  }
+}

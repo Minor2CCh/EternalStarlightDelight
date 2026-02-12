@@ -1,0 +1,81 @@
+plugins {
+    id 'com.github.johnrengelman.shadow'
+}
+
+architectury {
+    platformSetupLoomIde()
+    fabric()
+}
+
+configurations {
+    common {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentFabric.extendsFrom common
+
+    // Files in this configuration will be bundled into your mod using the Shadow plugin.
+    // Don't use the `shadow` configuration from the plugin itself as it's meant for excluding files.
+    shadowBundle {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+}
+
+repositories {
+    // Add repositories to retrieve artifacts from in here.
+    // You should only use this when depending on other mods because
+    // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+    // See https://docs.gradle.org/current/userguide/declaring_repositories.html
+    // for more information about repositories.
+    maven {
+        url = "https://cursemaven.com"
+        allowInsecureProtocol = true
+    }
+    maven { // for Porting Lib: Fabric ASM
+        url = "https://jitpack.io/"
+    }
+    maven { url = "https://mvn.devos.one/snapshots/" } // Porting Lib Betas
+    maven { url = "https://mvn.devos.one/releases/" } // Porting Lib
+    //maven { url = "https://repo.greenhouse.house/snapshots/" } // Porting Lib Hotfixes
+
+}
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
+
+    modImplementation "net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version"
+    modRuntimeOnly "curse.maven:modmenu-308702:5810603"
+    modImplementation("curse.maven:farmers-delight-refabricated-993166:7199554")//公式のmavenはarchitectury環境では使用できない？
+    modRuntimeOnly("com.github.Chocohead:Fabric-ASM:v2.3")//architectury環境ではFabric-ASMを手動で入れる必要あり
+    // compile against the JEI API but do not include it at runtime
+    modCompileOnly("mezz.jei:jei-${mc_version}-fabric-api:${jei_version}")
+    // at runtime, use the full JEI jar for Fabric
+    modRuntimeOnly("mezz.jei:jei-${mc_version}-fabric:${jei_version}")
+    modRuntimeOnly("curse.maven:jade-324717:6738760")
+    modRuntimeOnly("curse.maven:just-enough-effect-descriptions-jeed-532286:7346554")
+    modRuntimeOnly("curse.maven:food-effect-tooltips-695850:6024177")
+    modRuntimeOnly("curse.maven:cloth-config-348521:5729125")
+    modRuntimeOnly("curse.maven:appleskin-248787:5864741")
+    modImplementation("curse.maven:eternal-starlight-1080592:7545991")
+    common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
+    shadowBundle project(path: ':common', configuration: 'transformProductionFabric')
+}
+
+processResources {
+    inputs.property 'version', project.version
+
+    filesMatching('fabric.mod.json') {
+        expand version: project.version
+    }
+}
+
+shadowJar {
+    configurations = [project.configurations.shadowBundle]
+    archiveClassifier = 'dev-shadow'
+}
+
+remapJar {
+    input.set shadowJar.archiveFile
+}

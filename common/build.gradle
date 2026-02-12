@@ -1,0 +1,20 @@
+architectury {
+    common rootProject.enabled_platforms.split(',')
+}
+
+repositories {
+    maven {
+        url = "https://cursemaven.com"
+    }
+}
+dependencies {
+    // We depend on Fabric Loader here to use the Fabric @Environment annotations,
+    // which get remapped to the correct annotations on each platform.
+    // Do NOT use other classes from Fabric Loader.
+    modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
+    modCompileOnly("curse.maven:farmers-delight-refabricated-993166:7199554")
+    modCompileOnly("curse.maven:eternal-starlight-1080592:7545991")
+    // compile against the JEI API but do not include it at runtime
+    modCompileOnly("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
+
+}

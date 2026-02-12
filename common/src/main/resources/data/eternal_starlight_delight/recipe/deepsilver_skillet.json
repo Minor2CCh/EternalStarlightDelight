@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:ingots/deepsilver"
+    },
+    "/": {
+      "item": "eternal_starlight:cinder_brick"
+    }
+  },
+  "pattern": [
+    " ##",
+    " ##",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:deepsilver_skillet"
+  }
+}

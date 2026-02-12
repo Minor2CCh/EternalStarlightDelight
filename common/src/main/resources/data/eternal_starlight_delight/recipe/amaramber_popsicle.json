@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "-": {
+      "tag": "c:rods/wooden"
+    },
+    "i": {
+      "item": "eternal_starlight:frozen_tube"
+    },
+    "m": {
+      "tag": "c:raw_materials/amaramber"
+    },
+    "n": {
+      "item": "eternal_starlight:torreya_vines"
+    }
+  },
+  "pattern": [
+    " mm",
+    "inm",
+    "-i "
+  ],
+  "result": {
+    "count": 4,
+    "id": "eternal_starlight_delight:amaramber_popsicle"
+  }
+}

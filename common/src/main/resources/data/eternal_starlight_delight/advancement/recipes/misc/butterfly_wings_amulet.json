@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ether_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#eternal_starlight_delight:usable_for_ether"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eternal_starlight_delight:butterfly_wings_amulet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ether_bucket"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eternal_starlight_delight:butterfly_wings_amulet"
+    ]
+  }
+}

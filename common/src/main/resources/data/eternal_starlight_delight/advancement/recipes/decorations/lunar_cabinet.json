@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lunar_trapdoor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eternal_starlight:lunar_trapdoor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eternal_starlight_delight:lunar_cabinet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lunar_trapdoor"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eternal_starlight_delight:lunar_cabinet"
+    ]
+  }
+}

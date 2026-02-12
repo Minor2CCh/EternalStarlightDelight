@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:bowl"
+  },
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "c:foods/raw_aurora_deer_steak"
+    },
+    {
+      "tag": "c:foods/pasta"
+    },
+    {
+      "tag": "eternal_starlight_delight:starlight_raw_fishes"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:aurora_deer_dice_steak_pasta"
+  }
+}
