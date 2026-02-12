@@ -17,8 +17,9 @@ This is a mod that adds foods fitting the atmosphere of Farmer's Delight and the
 Bouldershroom will form a colony if Rich Soil is present at its base.
 ### 7 Cabinets<br>
 ### 3? Crates<br>
-・Frozen Tube Bale<br>
-・tarlight Stove<br>
+### Frozen Tube Bale<br>
+### 3 Cooking Tools
+・Starlight Stove<br>
 ・Starlight Cooking Pot<br>
 ・Deepsilver Skillet<br>
 The Starlight Stove, Starlight Cooking Pot, and Deepsilver Skillet double the cooking speed when preparing ingredients for Eternal Starlight and Eternal Starlight's Delight.<br>
