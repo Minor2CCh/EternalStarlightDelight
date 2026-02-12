@@ -12,6 +12,7 @@ description = '''
 A unofficial mod that adds collaborative elements between Farmer's Delight and Eternal Starlight.
 '''
 logoFile = "icon.png"
+displayURL = "https://github.com/Minor2CCh/EternalStarlightDelight"
 
 [[dependencies.eternal_starlight_delight]]
 modId = "neoforge"

@@ -8,7 +8,9 @@
     "Minor2CCh"
   ],
   "contact": {
-    "homepage": ""
+    "homepage": "https://modrinth.com/project/eternal-starlight-delight",
+    "issues": "https://github.com/Minor2CCh/EternalStarlightDelight/issues",
+    "sources": "https://github.com/Minor2CCh/EternalStarlightDelight"
   },
   "license": "MIT",
   "icon": "icon.png",
