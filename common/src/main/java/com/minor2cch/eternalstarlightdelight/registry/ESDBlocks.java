@@ -29,6 +29,8 @@ public final class ESDBlocks {
             () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final Supplier<Block> BLOSSOM_OF_STARS_CRATE = registerBlock("blossom_of_stars_crate",
             () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final Supplier<Block> SILVER_PUNGENCY_FRUIT_CRATE = registerBlock("silver_pungency_fruit_crate",
+            () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final Supplier<Block> BOULDERSHROOM_COLONY = registerBlock("bouldershroom_colony",
             () -> new BouldershroomColonyBlock(ESItems.BOULDERSHROOM.asHolder(), Block.Properties.ofFullCopy(ESBlocks.BOULDERSHROOM.get())));
     public static final Supplier<Block> GLOWING_MUSHROOM_COLONY = registerBlock("glowing_mushroom_colony",
