@@ -9,7 +9,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -34,9 +33,9 @@ public class DeepSilverCookingPotBlock extends CookingPotBlock {
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity) {
 
         if (level.isClientSide) {
-            return BaseEntityBlock.createTickerHelper(blockEntity, ESDBlockEntityTypes.getDeepSilverCookingPot(), DeepSilverCookingPotInterface::animationTick);
+            return createTickerHelper(blockEntity, ESDBlockEntityTypes.getDeepSilverCookingPot(), DeepSilverCookingPotInterface::animationTick);
         }
-        return BaseEntityBlock.createTickerHelper(blockEntity, ESDBlockEntityTypes.getDeepSilverCookingPot(), DeepSilverCookingPotInterface::cookingTick);
+        return createTickerHelper(blockEntity, ESDBlockEntityTypes.getDeepSilverCookingPot(), DeepSilverCookingPotInterface::cookingTick);
     }
     @Override
     public void setPlacedBy(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull BlockState blockState, @org.jetbrains.annotations.Nullable LivingEntity livingEntity, @NotNull ItemStack itemStack) {

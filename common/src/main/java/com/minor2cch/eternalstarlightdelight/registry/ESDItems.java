@@ -44,6 +44,8 @@ public final class ESDItems {
             () -> new BlockItem(ESDBlocks.PUNGENCY_FRUIT_CRATE.get(), basicItem()));
     public static final Supplier<Item> BLOSSOM_OF_STARS_CRATE = registerItem("blossom_of_stars_crate",
             () -> new BlockItem(ESDBlocks.BLOSSOM_OF_STARS_CRATE.get(), basicItem().rarity(Rarity.RARE)));
+    public static final Supplier<Item> SILVER_PUNGENCY_FRUIT_CRATE = registerItem("silver_pungency_fruit_crate",
+            () -> new BlockItem(ESDBlocks.SILVER_PUNGENCY_FRUIT_CRATE.get(), basicItem().rarity(Rarity.RARE)));
     public static final Supplier<Item> BOULDERSHROOM_COLONY = registerItem("bouldershroom_colony",
             () -> new MushroomColonyItem(ESDBlocks.BOULDERSHROOM_COLONY.get(), basicItem()));
     public static final Supplier<Item> GLOWING_MUSHROOM_COLONY = registerItem("glowing_mushroom_colony",

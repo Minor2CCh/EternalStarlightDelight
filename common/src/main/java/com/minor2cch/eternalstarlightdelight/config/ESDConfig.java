@@ -3,6 +3,7 @@ package com.minor2cch.eternalstarlightdelight.config;
 public class ESDConfig {
     public ESDConfig() {
         this.overrideList = new OverrideList();
+        this.boomerangUsableKnife = true;
     }
     public static class OverrideList {
         private Boolean ESDSoupStackOverride;

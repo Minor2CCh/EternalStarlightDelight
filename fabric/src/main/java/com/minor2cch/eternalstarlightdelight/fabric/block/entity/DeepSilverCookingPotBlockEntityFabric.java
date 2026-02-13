@@ -27,4 +27,8 @@ public class DeepSilverCookingPotBlockEntityFabric extends CookingPotBlockEntity
     public void cookingTick(Level level, BlockPos pos, BlockState state) {
         CookingPotBlockEntity.cookingTick(level, pos, state, this);
     }
+    @Override
+    public Level getLevel(){
+        return super.getLevel();
+    }
 }
