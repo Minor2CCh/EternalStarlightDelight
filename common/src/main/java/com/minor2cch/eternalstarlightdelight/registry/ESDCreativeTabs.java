@@ -38,6 +38,7 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.LUNAR_BERRY_CRATE.get());
                 output.accept(ESDItems.ABYSSAL_FRUIT_CRATE.get());
                 output.accept(ESDItems.PUNGENCY_FRUIT_CRATE.get());
+                output.accept(ESDItems.SILVER_PUNGENCY_FRUIT_CRATE.get());
                 output.accept(ESDItems.BOULDERSHROOM_COLONY.get());
                 output.accept(ESDItems.GLOWING_MUSHROOM_COLONY.get());
                 output.accept(ESDItems.MARIMOLD_COLONY.get());
