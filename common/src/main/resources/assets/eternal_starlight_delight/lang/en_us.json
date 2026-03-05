@@ -10,6 +10,7 @@
   "item.eternal_starlight_delight.starfire_knife": "Starfire Knife",
   "item.eternal_starlight_delight.flowglaze_knife": "Flowglaze Knife",
   "item.eternal_starlight_delight.knife_of_hunger": "Knife Of Hunger",
+  "item.eternal_starlight_delight.pungency_fruit_knife": "Pungency Fruit Knife",
   "block.eternal_starlight_delight.deepsilver_skillet": "Deepsilver Skillet",
   "block.eternal_starlight_delight.deepsilver_skillet.desc": "Items such as Eternal Starlight and Eternal Starlight's Delight double cooking speed.",
   "block.eternal_starlight_delight.deepsilver_cooking_pot": "Deepsilver Cooking Pot",
@@ -64,6 +65,7 @@
   "item.eternal_starlight_delight.starmina_noodle_soup": "Starmina Noodle Soup",
   "item.eternal_starlight_delight.aurora_deer_jerky": "Aurora Deer Jerky",
   "item.eternal_starlight_delight.aurora_deer_steak_special_lunch": "Aurora Deer Steak Special Lunch",
+  "item.eternal_starlight_delight.thermal_springblade_strap": "Thermal Springblade Strap",
   "effect.eternal_starlight_delight.ether_infested": "Ether Infested",
   "effect.eternal_starlight_delight.ether_infested.description": "Defense provided by armor is temporarily negated.",
   "effect.eternal_starlight_delight.meteor_omen": "Meteor Omen",
@@ -102,5 +104,8 @@
   "tag.item.c.foods.raw_luminaris": "Raw Luminaris",
   "tag.item.c.foods.raw_luminofish": "Raw Luminofish",
   "tag.item.c.foods.raw_ratlin_meat": "Raw Ratlin Meat",
-  "tag.item.c.foods.raw_shadow_snail_meat": "Raw Shadow Snail Meat"
+  "tag.item.c.foods.raw_shadow_snail_meat": "Raw Shadow Snail Meat",
+  "tooltip.eternal_starlight_delight.accessory_combination_target.knife": "Knives",
+  "tooltip.eternal_starlight_delight.thermal_springblade_strap.auto_smelt": "Automatically smelts when blocks are broken",
+  "tooltip.eternal_starlight_delight.thermal_springblade_strap.cut_smelt": "Automatically refines when cut on a cutting board"
 }

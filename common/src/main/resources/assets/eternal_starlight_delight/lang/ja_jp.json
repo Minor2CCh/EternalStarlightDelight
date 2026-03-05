@@ -10,6 +10,7 @@
   "item.eternal_starlight_delight.starfire_knife": "星火のナイフ",
   "item.eternal_starlight_delight.flowglaze_knife": "流璃のナイフ",
   "item.eternal_starlight_delight.knife_of_hunger": "飢餓の包丁",
+  "item.eternal_starlight_delight.pungency_fruit_knife": "パンジェンシーフルーツのナイフ",
   "block.eternal_starlight_delight.deepsilver_skillet": "深銀のフライパン",
   "block.eternal_starlight_delight.deepsilver_skillet.desc": "Eternal StarlightおよびEternal Starlight's Delightのアイテムは料理速度が2倍になる。",
   "block.eternal_starlight_delight.deepsilver_cooking_pot": "深銀鍋",
@@ -64,6 +65,7 @@
   "item.eternal_starlight_delight.starmina_noodle_soup": "スターミナラーメン",
   "item.eternal_starlight_delight.aurora_deer_jerky": "オーロラジカジャーキー",
   "item.eternal_starlight_delight.aurora_deer_steak_special_lunch": "オーロラ鹿肉のスペシャルランチ",
+  "item.eternal_starlight_delight.thermal_springblade_strap": "熱泉刃のストラップ",
   "effect.eternal_starlight_delight.ether_infested": "エーテル汚染",
   "effect.eternal_starlight_delight.ether_infested.description": "防具による防御力が一時的に無効になる。",
   "effect.eternal_starlight_delight.meteor_omen": "隕石の予感",
@@ -102,5 +104,8 @@
   "tag.item.c.foods.raw_luminaris": "生のルミナリス",
   "tag.item.c.foods.raw_luminofish": "生のルミノフィッシュ",
   "tag.item.c.foods.raw_ratlin_meat": "生のラットリン肉",
-  "tag.item.c.foods.raw_shadow_snail_meat": "生のカゲツムリ肉"
+  "tag.item.c.foods.raw_shadow_snail_meat": "生のカゲツムリ肉",
+  "tooltip.eternal_starlight_delight.accessory_combination_target.knife": "ナイフ",
+  "tooltip.eternal_starlight_delight.thermal_springblade_strap.auto_smelt": "ブロックを破壊した時に自動で精錬をする",
+  "tooltip.eternal_starlight_delight.thermal_springblade_strap.cut_smelt": "まな板で切った時に自動で精錬をする"
 }

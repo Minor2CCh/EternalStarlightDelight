@@ -1,6 +1,7 @@
 package com.minor2cch.eternalstarlightdelight.fabric.event;
 
 import cn.leolezury.eternalstarlight.common.EternalStarlight;
+import com.minor2cch.eternalstarlightdelight.registry.ESDItems;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.loot.v3.LootTableSource;
 import net.minecraft.advancements.critereon.EntityEquipmentPredicate;
@@ -24,6 +25,7 @@ public class LootModifyEvent {
     private static final ResourceKey<LootTable> ENTITIES_RATLIN = esKey("entities/ratlin");
     private static final ResourceKey<LootTable> ENTITIES_YETI = esKey("entities/yeti");
     private static final ResourceKey<LootTable> ENTITIES_ZOMBIFIED_RATLIN = esKey("entities/zombified_ratlin");
+    private static final ResourceKey<LootTable> BOSSES_STARLIGHT_GOLEM = esKey("bosses/starlight_golem");
     @SuppressWarnings("all")
     private static ResourceKey<LootTable> key(String name, String path) {
         return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(name, path));
@@ -47,6 +49,11 @@ public class LootModifyEvent {
                     .when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.ATTACKER, EntityPredicate.Builder.entity().equipment(
                             EntityEquipmentPredicate.Builder.equipment().mainhand(ItemPredicate.Builder.item().of(ModTags.KNIVES))
                     )))));
+        }
+        if (key == BOSSES_STARLIGHT_GOLEM) {
+            tableBuilder.withPool(LootPool.lootPool().add(LootItem.lootTableItem(ESDItems.THERMAL_SPRINGBLADE_STRAP.get())
+
+                    ));
         }
 
     }

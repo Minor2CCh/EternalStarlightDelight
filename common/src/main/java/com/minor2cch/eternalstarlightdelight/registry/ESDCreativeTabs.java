@@ -26,6 +26,7 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.STARFIRE_KNIFE.get());
                 output.accept(ESDItems.FLOWGLAZE_KNIFE.get());
                 output.accept(ESDItems.KNIFE_OF_HUNGER.get());
+                output.accept(ESDItems.PUNGENCY_FRUIT_KNIFE.get());
                 output.accept(ESDItems.DEEPSILVER_SKILLET.get());
                 output.accept(ESDItems.DEEPSILVER_COOKING_POT.get());
                 output.accept(ESDItems.LUNAR_CABINET.get());
@@ -75,6 +76,7 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.STARMINA_NOODLE_SOUP.get());
                 output.accept(ESDItems.AURORA_DEER_JERKY.get());
                 output.accept(ESDItems.AURORA_DEER_STEAK_SPECIAL_LUNCH.get());
+                output.accept(ESDItems.THERMAL_SPRINGBLADE_STRAP.get());
             }
 
     );
