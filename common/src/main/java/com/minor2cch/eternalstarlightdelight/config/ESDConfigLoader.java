@@ -25,20 +25,24 @@ public final class ESDConfigLoader {
                 modConfig = GSON.fromJson(reader, ESDConfig.class);
             } catch (Exception e) {
                 System.err.println("Failed to load config: " + e.getMessage());
-                modConfig = new ESDConfig();
+                modConfig = ESDConfig.defaultESDConfig();
+                save();
             }
 
             try{
-                modConfig.fillDefaults();
+                if(modConfig.fillDefaults()){
+                    save();
+                }
             } catch (Exception e) {
                 System.err.println("Failed to load config: " + e.getMessage());
-                modConfig = new ESDConfig();
+                modConfig = ESDConfig.defaultESDConfig();
+                save();
             }
 
         } else {
-            modConfig = new ESDConfig();
+            modConfig = ESDConfig.defaultESDConfig();
+            save();
         }
-        save();
 
     }
     public static void save() {
