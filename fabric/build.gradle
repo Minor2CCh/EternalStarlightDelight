@@ -37,9 +37,25 @@ repositories {
     maven { // for Porting Lib: Fabric ASM
         url = "https://jitpack.io/"
     }
-    maven { url = "https://mvn.devos.one/snapshots/" } // Porting Lib Betas
-    maven { url = "https://mvn.devos.one/releases/" } // Porting Lib
-    //maven { url = "https://repo.greenhouse.house/snapshots/" } // Porting Lib Hotfixes
+    maven {
+        name = "REI"
+        url = "https://maven.shedaniel.me/"
+        content {
+            includeGroup "me.shedaniel"
+            includeGroup "me.shedaniel.cloth"
+            includeGroup "dev.architectury"
+        }
+    }
+    maven {
+        name = "Greenhouse Maven"
+        url = 'https://maven.greenhouse.lgbt/releases/'
+    }
+    maven {
+        url = "https://jitpack.io/" // Fabric ASM
+        content {
+            excludeGroup "io.github.fabricators_of_create"
+        }
+    }
 
 }
 dependencies {
@@ -47,8 +63,10 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version"
     modRuntimeOnly "curse.maven:modmenu-308702:5810603"
-    modImplementation("curse.maven:farmers-delight-refabricated-993166:7199554")//公式のmavenはarchitectury環境では使用できない？
-    modRuntimeOnly("com.github.Chocohead:Fabric-ASM:v2.3")//architectury環境ではFabric-ASMを手動で入れる必要あり
+    //modCompileOnly("curse.maven:farmers-delight-refabricated-993166:7638379")
+    modImplementation("vectorwing:FarmersDelight:${fdrf_version}") {
+        exclude(group: "net.fabricmc")
+    }
     // compile against the JEI API but do not include it at runtime
     modCompileOnly("mezz.jei:jei-${mc_version}-fabric-api:${jei_version}")
     // at runtime, use the full JEI jar for Fabric
@@ -58,6 +76,8 @@ dependencies {
     modRuntimeOnly("curse.maven:food-effect-tooltips-695850:6024177")
     modRuntimeOnly("curse.maven:cloth-config-348521:5729125")
     modRuntimeOnly("curse.maven:appleskin-248787:5864741")
+    modRuntimeOnly("curse.maven:advanced-loot-info-1205426:7600920")
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
     modImplementation("curse.maven:eternal-starlight-1080592:7545991")
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')

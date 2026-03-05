@@ -1,49 +1,75 @@
 package com.minor2cch.eternalstarlightdelight.config;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
+
 public class ESDConfig {
-    public ESDConfig() {
-        this.overrideList = new OverrideList();
-        this.boomerangUsableKnife = true;
+    private OverrideList overrideList;
+    private Boolean boomerangUsableKnife;
+    private ESDConfig() {
+    }
+    public static ESDConfig defaultESDConfig(){
+        ESDConfig config = new ESDConfig();
+        config.overrideList = OverrideList.defaultOverrideList();
+        config.boomerangUsableKnife = true;
+        return config;
     }
     public static class OverrideList {
         private Boolean ESDSoupStackOverride;
         private Boolean ExtraESDSoupEffect;
 
         private OverrideList() {
-            this.ESDSoupStackOverride = true;
-            this.ExtraESDSoupEffect = true;
         }
-        public void nullToDefault(){
+        private boolean nullToDefault(){
+            boolean bl = false;
             if(ESDSoupStackOverride == null){
-                ESDSoupStackOverride = new OverrideList().ESDSoupStackOverride;
+                ESDSoupStackOverride = defaultOverrideList().ESDSoupStackOverride;
+                bl = true;
             }
             if(ExtraESDSoupEffect == null){
-                ExtraESDSoupEffect = new OverrideList().ExtraESDSoupEffect;
+                ExtraESDSoupEffect = defaultOverrideList().ExtraESDSoupEffect;
+                bl = true;
             }
+            return bl;
+        }
+        private static OverrideList defaultOverrideList(){
+            OverrideList list = new OverrideList();
+            list.ESDSoupStackOverride = true;
+            list.ExtraESDSoupEffect = true;
+            return list;
         }
         public boolean getESDSoupStackOverride(){
-            return this.ESDSoupStackOverride;
+            return getOrDefault(this.ESDSoupStackOverride, defaultOverrideList().ESDSoupStackOverride);
         }
         public boolean getExtraESDSoupEffect(){
-            return this.ExtraESDSoupEffect;
+            return getOrDefault(this.ExtraESDSoupEffect, defaultOverrideList().ExtraESDSoupEffect);
         }
     }
-    private OverrideList overrideList;
-    private Boolean boomerangUsableKnife;
-    public void fillDefaults() {
+    public boolean fillDefaults() {
+        boolean bl;
         if(overrideList == null){
-            overrideList = new OverrideList();
+            overrideList = OverrideList.defaultOverrideList();
+            bl = true;
         }else{
-            overrideList.nullToDefault();
+            bl = overrideList.nullToDefault();
+
         }
         if(boomerangUsableKnife == null){
-            boomerangUsableKnife = true;
+            boomerangUsableKnife = defaultESDConfig().boomerangUsableKnife;
+            bl = true;
         }
+        return bl;
     }
     public OverrideList getOverrideList(){
-        return this.overrideList;
+        return getOrDefault(this.overrideList, defaultESDConfig().overrideList);
     }
     public Boolean getBoomerangUsableKnife(){
-        return this.boomerangUsableKnife;
+        return getOrDefault(this.boomerangUsableKnife, defaultESDConfig().boomerangUsableKnife);
+    }
+    @NotNull
+    private static <T> T getOrDefault(@Nullable T value, @NotNull T defaultValue){
+        return Optional.ofNullable(value).orElse(defaultValue);
     }
 }

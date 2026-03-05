@@ -41,8 +41,14 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_tree_bark",
-      "has_straw",
+      "has_tree_bark"
+    ],
+    [
+      "has_the_recipe",
+      "has_straw"
+    ],
+    [
+      "has_the_recipe",
       "has_nightfall_dirt"
     ]
   ],

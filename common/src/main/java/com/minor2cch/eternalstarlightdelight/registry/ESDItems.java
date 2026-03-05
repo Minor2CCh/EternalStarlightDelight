@@ -1,16 +1,26 @@
 package com.minor2cch.eternalstarlightdelight.registry;
 
 import cn.leolezury.eternalstarlight.common.item.combat.ESItemTiers;
+import cn.leolezury.eternalstarlight.common.item.component.Accessory;
+import cn.leolezury.eternalstarlight.common.registry.ESDataComponents;
+import com.minor2cch.eternalstarlightdelight.EternalStarlightDelight;
 import com.minor2cch.eternalstarlightdelight.item.*;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.Rarity;
+import com.minor2cch.eternalstarlightdelight.util.ESDItemTags;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import vectorwing.farmersdelight.common.FoodValues;
 import vectorwing.farmersdelight.common.item.*;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 import static vectorwing.farmersdelight.common.registry.ModItems.*;
@@ -23,10 +33,11 @@ public final class ESDItems {
     public static final Supplier<Item> MALARITE_KNIFE = registerItem("malarite_knife", () -> new KnifeItem(ESItemTiers.MALARITE, ModItems.knifeItem(ESItemTiers.MALARITE)));
     public static final Supplier<Item> AMARAMBER_KNIFE = registerItem("amaramber_knife", () -> new KnifeItem(ESItemTiers.AMARAMBER, ModItems.knifeItem(ESItemTiers.AMARAMBER)));
     public static final Supplier<Item> GLACITE_KNIFE = registerItem("glacite_knife", () -> new KnifeItem(ESItemTiers.GLACITE, ModItems.knifeItem(ESItemTiers.GLACITE)));
-    public static final Supplier<Item> STARLIT_DIAMOND_KNIFE = registerItem("starlit_diamond_knife", () -> new KnifeItem(ESItemTiers.STARLIT_DIAMOND, ModItems.knifeItem(ESItemTiers.STARLIT_DIAMOND)));
+    public static final Supplier<Item> STARLIT_DIAMOND_KNIFE = registerItem("starlit_diamond_knife", () -> new KnifeItem(ESItemTiers.STARLIT_DIAMOND, customKnifeItem(ESItemTiers.STARLIT_DIAMOND, -0.2F)));
     public static final Supplier<Item> STARFIRE_KNIFE = registerItem("starfire_knife", () -> new KnifeItem(ESItemTiers.STARFIRE, ModItems.knifeItem(ESItemTiers.STARFIRE)));
     public static final Supplier<Item> FLOWGLAZE_KNIFE = registerItem("flowglaze_knife", () -> new KnifeItem(ESItemTiers.FLOWGLAZE, ModItems.knifeItem(ESItemTiers.FLOWGLAZE)));
     public static final Supplier<Item> KNIFE_OF_HUNGER = registerItem("knife_of_hunger", () -> new KnifeOfHungerItem(ESItemTiers.TOOTH_OF_HUNGER, ModItems.knifeItem(ESItemTiers.TOOTH_OF_HUNGER).rarity(Rarity.RARE).attributes(KnifeOfHungerItem.DEFAULT_ATTRIBUTE)));
+    public static final Supplier<Item> PUNGENCY_FRUIT_KNIFE = registerItem("pungency_fruit_knife", () -> new KnifeItem(ESItemTiers.PUNGENCY_FRUIT, ModItems.knifeItem(ESItemTiers.PUNGENCY_FRUIT)));
     public static final Supplier<Item> LUNAR_CABINET = registerItem("lunar_cabinet", () -> new FuelBlockItem(ESDBlocks.LUNAR_CABINET.get(), basicItem(), 300));
     public static final Supplier<Item> NORTHLAND_CABINET = registerItem("northland_cabinet", () -> new FuelBlockItem(ESDBlocks.NORTHLAND_CABINET.get(), basicItem(), 300));
     public static final Supplier<Item> BANYIN_CABINET = registerItem("banyin_cabinet", () -> new FuelBlockItem(ESDBlocks.BANYIN_CABINET.get(), basicItem(), 300));
@@ -126,9 +137,30 @@ public final class ESDItems {
             () -> new ConsumableItem(foodItem(ESDFoods.AURORA_DEER_JERKY.get()), true, false));
     public static final Supplier<Item> AURORA_DEER_STEAK_SPECIAL_LUNCH = registerItem("aurora_deer_steak_special_lunch",
             () -> new ConsumableItem(bowlFoodItem(ESDFoods.AURORA_DEER_STEAK_SPECIAL_LUNCH.get()), true, false));
+    public static final Supplier<Item> THERMAL_SPRINGBLADE_STRAP = registerItem("thermal_springblade_strap",
+            () -> new Item(new Item.Properties()
+                    .rarity(Rarity.RARE)
+                    .component(ESDataComponents.ACCESSORY.get(), new Accessory(
+                            ESDItemTags.KNIFE_ACCESSORY_APPLICABLE,
+                            Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".accessory_combination_target.knife").withStyle(ChatFormatting.BLUE),
+                            ItemAttributeModifiers.builder()
+                                    .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(EternalStarlightDelight.of("thermal_springblade_strap_attack_damage"), 0.7, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND)
+                                    .add(Attributes.ATTACK_SPEED, new AttributeModifier(EternalStarlightDelight.of("thermal_springblade_strap_attack_speed_penalty"), -0.5, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND)
+                                    .build(),
+                            List.of(
+                                    Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".thermal_springblade_strap.auto_smelt").withStyle(ChatFormatting.BLUE),
+                                    Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".thermal_springblade_strap.cut_smelt").withStyle(ChatFormatting.BLUE)
+                            ),
+                            Optional.of(Style.EMPTY.withColor(0xD29552)),
+                            Optional.of(EternalStarlightDelight.of("textures/accessory/thermal_springblade_strap_overlay"))
+                    ))
+                    .stacksTo(1)));
     private static <T extends Item> Supplier<T> registerItem(String id, Supplier<T> item){
         return ESDPlatform.INSTANCE.itemRegister(id, item);
     }
     public static void init(){
+    }
+    public static Item.Properties customKnifeItem(Tier tier, float speed) {
+        return new Item.Properties().attributes(KnifeItem.createAttributes(tier, 0.5F, -2.0F + speed));
     }
 }

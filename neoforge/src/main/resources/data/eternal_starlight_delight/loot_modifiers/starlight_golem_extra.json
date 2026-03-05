@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_table",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "eternal_starlight:bosses/starlight_golem"
+    }
+  ],
+  "table": "eternal_starlight_delight:extras/starlight_golem_extra"
+}
