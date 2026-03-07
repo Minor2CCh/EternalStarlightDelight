@@ -1,5 +1,7 @@
 package com.minor2cch.eternalstarlightdelight.neoforge.client;
 
+import cn.leolezury.eternalstarlight.common.EternalStarlight;
+import cn.leolezury.eternalstarlight.common.registry.ESDataComponents;
 import com.minor2cch.eternalstarlightdelight.EternalStarlightDelight;
 import com.minor2cch.eternalstarlightdelight.client.EternalStarlightDelightClient;
 import com.minor2cch.eternalstarlightdelight.registry.ESDBlockEntityTypes;
@@ -26,9 +28,12 @@ public class EternalStarlightDelightNeoForgeClient {
     public static void init(FMLCommonSetupEvent event) {
         EternalStarlightDelightClient.init();
 
-        event.enqueueWork(() -> ItemProperties.register(ESDItems.DEEPSILVER_SKILLET.get(), ResourceLocation.withDefaultNamespace("cooking"),
-                (stack, world, entity, s) -> stack.getOrDefault(ModDataComponents.SKILLET_INGREDIENT, ItemStackWrapper.EMPTY).getStack().isEmpty() ? 0 : 1)
-        );
+        event.enqueueWork(() -> {
+            ItemProperties.register(ESDItems.DEEPSILVER_SKILLET.get(), ResourceLocation.withDefaultNamespace("cooking"),
+                    (stack, world, entity, s) -> stack.getOrDefault(ModDataComponents.SKILLET_INGREDIENT, ItemStackWrapper.EMPTY).getStack().isEmpty() ? 0 : 1);
+
+            ItemProperties.register(ESDItems.KNIFE_OF_HUNGER.get(), EternalStarlight.id("hunger_state"), (stack, level, entity, i) -> Math.min(2f, (stack.getOrDefault(ESDataComponents.HUNGER_LEVEL.get(), 0f) + 1f) * 1.5f) / 2f);
+        });
     }
 
     @SubscribeEvent
