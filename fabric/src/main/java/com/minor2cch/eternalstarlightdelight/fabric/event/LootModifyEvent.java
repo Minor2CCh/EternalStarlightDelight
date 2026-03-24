@@ -17,6 +17,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 public class LootModifyEvent {
@@ -26,6 +27,7 @@ public class LootModifyEvent {
     private static final ResourceKey<LootTable> ENTITIES_YETI = esKey("entities/yeti");
     private static final ResourceKey<LootTable> ENTITIES_ZOMBIFIED_RATLIN = esKey("entities/zombified_ratlin");
     private static final ResourceKey<LootTable> BOSSES_STARLIGHT_GOLEM = esKey("bosses/starlight_golem");
+    private static final ResourceKey<LootTable> BOSSES_GATEKEEPER = esKey("bosses/the_gatekeeper");
     @SuppressWarnings("all")
     private static ResourceKey<LootTable> key(String name, String path) {
         return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(name, path));
@@ -54,6 +56,11 @@ public class LootModifyEvent {
             tableBuilder.withPool(LootPool.lootPool().add(LootItem.lootTableItem(ESDItems.THERMAL_SPRINGBLADE_STRAP.get())
 
                     ));
+        }
+        if (key == BOSSES_GATEKEEPER) {
+            tableBuilder.withPool(LootPool.lootPool().add(LootItem.lootTableItem(ESDItems.GLISTERING_KNIFE.get())
+
+            ).conditionally(LootItemRandomChanceCondition.randomChance(15 / 100.0F).build()));
         }
 
     }
