@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "tag": "eternal_starlight:mana_crystals"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 4,
+        "id": "eternal_starlight:red_starlight_crystal_shard"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "eternal_starlight:hammers"
+  }
+}
