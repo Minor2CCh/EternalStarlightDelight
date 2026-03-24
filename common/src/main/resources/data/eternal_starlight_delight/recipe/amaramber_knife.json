@@ -6,7 +6,7 @@
       "tag": "c:ingots/amaramber"
     },
     "s": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     }
   },
   "pattern": [
