@@ -11,6 +11,8 @@
   "item.eternal_starlight_delight.flowglaze_knife": "流璃のナイフ",
   "item.eternal_starlight_delight.knife_of_hunger": "飢餓の包丁",
   "item.eternal_starlight_delight.pungency_fruit_knife": "パンジェンシーフルーツのナイフ",
+  "item.eternal_starlight_delight.unrealium_knife": "虚素のナイフ",
+  "item.eternal_starlight_delight.glistering_knife": "きらめくナイフ",
   "block.eternal_starlight_delight.deepsilver_skillet": "深銀のフライパン",
   "block.eternal_starlight_delight.deepsilver_skillet.desc": "Eternal StarlightおよびEternal Starlight's Delightのアイテムは料理速度が2倍になる。",
   "block.eternal_starlight_delight.deepsilver_cooking_pot": "深銀鍋",
@@ -81,6 +83,8 @@
   "tag.item.eternal_starlight_delight.usable_crinoa_dough_egg": "クリヌア生地のクラフトに使用する卵",
   "tag.item.eternal_starlight_delight.usable_for_ether": "エーテルとして使用可能な素材",
   "tag.item.eternal_starlight_delight.usable_pungency_fruit": "パンジェンシーフルーツとして使用可能な素材",
+  "tag.item.eternal_starlight_delight.knife_accessory_appilicable": "ナイフのアクセサリを適用することが出来るツール",
+  "tag.item.eternal_starlight_delight.skillet_accessory_appilicable": "フライパンのアクセサリを適用することが出来るツール",
   "tag.block.c.storage_blocks.abyssal_fruit": "アビサルフルーツの保管用ブロック",
   "tag.block.c.storage_blocks.blossom_of_stars": "星の花の保管用ブロック",
   "tag.block.c.storage_blocks.frozen_tube": "フリーズチューブの保管用ブロック",
@@ -107,5 +111,6 @@
   "tag.item.c.foods.raw_shadow_snail_meat": "生のカゲツムリ肉",
   "tooltip.eternal_starlight_delight.accessory_combination_target.knife": "ナイフ",
   "tooltip.eternal_starlight_delight.thermal_springblade_strap.auto_smelt": "ブロックを破壊した時に自動で精錬をする",
-  "tooltip.eternal_starlight_delight.thermal_springblade_strap.cut_smelt": "まな板で切った時に自動で精錬をする"
+  "tooltip.eternal_starlight_delight.thermal_springblade_strap.cut_smelt": "まな板で切った時に自動で精錬をする",
+  "subtitles.eternal_starlight_delight.silent": ""
 }
