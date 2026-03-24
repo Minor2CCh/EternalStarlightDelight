@@ -23,7 +23,8 @@ import vectorwing.farmersdelight.common.tag.ModTags;
 
 public final class EternalStarlightDelight {
     public static final String MOD_ID = "eternal_starlight_delight";
-    public static final Logger LOGGER = LogManager.getLogger("Eternal Starlight's Delight");
+    public static final String MOD_NAME = "Eternal Starlight's Delight";
+    public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
     private EternalStarlightDelight() {}
     public static void init() {
         ESDConfigLoader.load();

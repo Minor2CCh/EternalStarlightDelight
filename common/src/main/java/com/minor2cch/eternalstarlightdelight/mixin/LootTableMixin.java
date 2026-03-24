@@ -3,7 +3,6 @@ package com.minor2cch.eternalstarlightdelight.mixin;
 import com.minor2cch.eternalstarlightdelight.ESDUtils;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;

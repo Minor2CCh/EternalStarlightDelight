@@ -38,7 +38,7 @@ side = "BOTH"
 [[dependencies.eternal_starlight_delight]]
 modId = "eternal_starlight"
 type = "required"
-versionRange = "[0.6.4,)"
+versionRange = "[0.6.5,)"
 ordering = "AFTER"
 side = "BOTH"
 
