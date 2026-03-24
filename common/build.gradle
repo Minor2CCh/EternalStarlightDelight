@@ -26,7 +26,7 @@ dependencies {
     modCompileOnly("vectorwing:FarmersDelight:${fdrf_version}") {
         exclude(group: "net.fabricmc")
     }
-    modCompileOnly("curse.maven:eternal-starlight-1080592:7545991")
+    modCompileOnly("curse.maven:eternal-starlight-1080592:7788349")
     // compile against the JEI API but do not include it at runtime
     modCompileOnly("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
 
