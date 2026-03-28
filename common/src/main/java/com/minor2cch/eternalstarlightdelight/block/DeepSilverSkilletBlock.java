@@ -42,6 +42,7 @@ public class DeepSilverSkilletBlock extends SkilletBlock {
         if(livingEntity instanceof ServerPlayer){
             ESDUtils.completeAdvancement((ServerPlayer)livingEntity, ResourceLocation.fromNamespaceAndPath(FarmersDelight.MODID, "main/place_skillet"));
         }
+        super.setPlacedBy(level, blockPos, blockState, livingEntity, itemStack);
     }
 
 }

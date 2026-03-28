@@ -24,7 +24,7 @@ public final class ESDConfigLoader {
             try (Reader reader = Files.newBufferedReader(CONFIG_PATH)) {
                 modConfig = GSON.fromJson(reader, ESDConfig.class);
             } catch (Exception e) {
-                System.err.println("Failed to load config: " + e.getMessage());
+                inputError(e.getMessage());
                 modConfig = ESDConfig.defaultESDConfig();
                 save();
             }
@@ -34,7 +34,7 @@ public final class ESDConfigLoader {
                     save();
                 }
             } catch (Exception e) {
-                System.err.println("Failed to load config: " + e.getMessage());
+                inputError(e.getMessage());
                 modConfig = ESDConfig.defaultESDConfig();
                 save();
             }
@@ -52,8 +52,11 @@ public final class ESDConfigLoader {
                 GSON.toJson(modConfig, writer);
             }
         } catch (IOException e) {
-            System.err.println("Failed to save config: " + e.getMessage());
+            inputError(e.getMessage());
         }
+    }
+    private static void inputError(String message) {
+        EternalStarlightDelight.LOGGER.error("Failed to load config: {}", message);
     }
     public static ESDConfig getConfig() {
         return modConfig;

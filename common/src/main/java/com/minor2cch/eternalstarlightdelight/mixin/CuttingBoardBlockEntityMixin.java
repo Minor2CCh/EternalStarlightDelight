@@ -11,7 +11,9 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -25,7 +27,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Mixin(CuttingBoardBlockEntity.class)
-public class CuttingBoardBlockEntityMixin {
+public abstract class CuttingBoardBlockEntityMixin {
+    @Shadow
+    protected abstract Optional<RecipeHolder<CuttingBoardRecipe>> getMatchingRecipe(ItemStack toolStack, @Nullable Player player);
     @Inject(at = @At("HEAD"), method = "processStoredItemUsingTool", cancellable = true)
     private void smeltCutting(ItemStack toolStack, Player player, CallbackInfoReturnable<Boolean> cir){
         CuttingBoardBlockEntity be =  (CuttingBoardBlockEntity)(Object)this;
@@ -34,7 +38,7 @@ public class CuttingBoardBlockEntityMixin {
 
         if (be.isItemCarvingBoard()) return;
         if(ESDUtils.canSmeltTool(toolStack)){
-            Optional<RecipeHolder<CuttingBoardRecipe>> matchingRecipe = ((CuttingBoardBlockEntityInvoker)be).invokeMatchingRecipe(toolStack, player);
+            Optional<RecipeHolder<CuttingBoardRecipe>> matchingRecipe = getMatchingRecipe(toolStack, player);
 
             matchingRecipe.ifPresent(recipe -> {
                 List<ItemStack> results = recipe.value().rollResults(level.random, EnchantmentHelper.getItemEnchantmentLevel(be.getLevel().holderLookup(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE), toolStack));

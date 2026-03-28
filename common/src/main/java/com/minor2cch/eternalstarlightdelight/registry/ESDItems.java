@@ -1,5 +1,6 @@
 package com.minor2cch.eternalstarlightdelight.registry;
 
+import cn.leolezury.eternalstarlight.common.EternalStarlight;
 import cn.leolezury.eternalstarlight.common.item.combat.ESItemTiers;
 import cn.leolezury.eternalstarlight.common.item.component.Accessory;
 import cn.leolezury.eternalstarlight.common.registry.ESDataComponents;
@@ -38,6 +39,8 @@ public final class ESDItems {
     public static final Supplier<Item> FLOWGLAZE_KNIFE = registerItem("flowglaze_knife", () -> new KnifeItem(ESItemTiers.FLOWGLAZE, ModItems.knifeItem(ESItemTiers.FLOWGLAZE)));
     public static final Supplier<Item> KNIFE_OF_HUNGER = registerItem("knife_of_hunger", () -> new KnifeOfHungerItem(ESItemTiers.TOOTH_OF_HUNGER, ModItems.knifeItem(ESItemTiers.TOOTH_OF_HUNGER).rarity(Rarity.RARE).attributes(KnifeOfHungerItem.DEFAULT_ATTRIBUTE)));
     public static final Supplier<Item> PUNGENCY_FRUIT_KNIFE = registerItem("pungency_fruit_knife", () -> new KnifeItem(ESItemTiers.PUNGENCY_FRUIT, ModItems.knifeItem(ESItemTiers.PUNGENCY_FRUIT)));
+    public static final Supplier<Item> UNREALIUM_KNIFE = registerItem("unrealium_knife", () -> new KnifeItem(ESItemTiers.UNREALIUM, unrealiumKnifeItem(ESItemTiers.UNREALIUM)));
+    public static final Supplier<Item> GLISTERING_KNIFE = registerItem("glistering_knife", () -> new KnifeItem(ESItemTiers.GLISTERING, ModItems.knifeItem(ESItemTiers.GLISTERING).rarity(Rarity.RARE)));
     public static final Supplier<Item> LUNAR_CABINET = registerItem("lunar_cabinet", () -> new FuelBlockItem(ESDBlocks.LUNAR_CABINET.get(), basicItem(), 300));
     public static final Supplier<Item> NORTHLAND_CABINET = registerItem("northland_cabinet", () -> new FuelBlockItem(ESDBlocks.NORTHLAND_CABINET.get(), basicItem(), 300));
     public static final Supplier<Item> BANYIN_CABINET = registerItem("banyin_cabinet", () -> new FuelBlockItem(ESDBlocks.BANYIN_CABINET.get(), basicItem(), 300));
@@ -162,5 +165,21 @@ public final class ESDItems {
     }
     public static Item.Properties customKnifeItem(Tier tier, float speed) {
         return new Item.Properties().attributes(KnifeItem.createAttributes(tier, 0.5F, -2.0F + speed));
+    }
+    @SuppressWarnings("all")
+    private static Item.Properties unrealiumKnifeItem(Tier tier) {
+        return new Item.Properties().attributes(createUnrealiumAttributes(tier, 0.5F, -2.0F));
+    }
+    @SuppressWarnings("all")
+    private static ItemAttributeModifiers createUnrealiumAttributes(Tier tier, float f, float g) {
+        return ItemAttributeModifiers.builder()
+                .add(
+                        Attributes.ATTACK_DAMAGE,
+                        new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, f + tier.getAttackDamageBonus(), AttributeModifier.Operation.ADD_VALUE),
+                        EquipmentSlotGroup.MAINHAND
+                )
+                .add(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, g, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                .add(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(EternalStarlight.id("weapon.attack_knockback"), -0.05, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND)
+                .build();
     }
 }

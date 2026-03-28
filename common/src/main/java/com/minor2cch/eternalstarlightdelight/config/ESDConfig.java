@@ -8,12 +8,14 @@ import java.util.Optional;
 public class ESDConfig {
     private OverrideList overrideList;
     private Boolean boomerangUsableKnife;
+    private Boolean mendableAmaramberToolsInDispenser;
     private ESDConfig() {
     }
     public static ESDConfig defaultESDConfig(){
         ESDConfig config = new ESDConfig();
         config.overrideList = OverrideList.defaultOverrideList();
         config.boomerangUsableKnife = true;
+        config.mendableAmaramberToolsInDispenser = true;
         return config;
     }
     public static class OverrideList {
@@ -60,6 +62,10 @@ public class ESDConfig {
             boomerangUsableKnife = defaultESDConfig().boomerangUsableKnife;
             bl = true;
         }
+        if(mendableAmaramberToolsInDispenser == null){
+            mendableAmaramberToolsInDispenser = defaultESDConfig().mendableAmaramberToolsInDispenser;
+            bl = true;
+        }
         return bl;
     }
     public OverrideList getOverrideList(){
@@ -67,6 +73,9 @@ public class ESDConfig {
     }
     public Boolean getBoomerangUsableKnife(){
         return getOrDefault(this.boomerangUsableKnife, defaultESDConfig().boomerangUsableKnife);
+    }
+    public Boolean getMendableAmaramberToolsInDispenser(){
+        return getOrDefault(this.mendableAmaramberToolsInDispenser, defaultESDConfig().mendableAmaramberToolsInDispenser);
     }
     @NotNull
     private static <T> T getOrDefault(@Nullable T value, @NotNull T defaultValue){

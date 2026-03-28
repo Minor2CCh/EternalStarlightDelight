@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 1.0,
+  "ingredient": [
+    {
+      "item": "eternal_starlight_delight:filleting_of_stars"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight:aethersent_nugget"
+  }
+}

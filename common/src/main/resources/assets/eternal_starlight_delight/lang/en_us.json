@@ -11,6 +11,8 @@
   "item.eternal_starlight_delight.flowglaze_knife": "Flowglaze Knife",
   "item.eternal_starlight_delight.knife_of_hunger": "Knife Of Hunger",
   "item.eternal_starlight_delight.pungency_fruit_knife": "Pungency Fruit Knife",
+  "item.eternal_starlight_delight.unrealium_knife": "Unrealium Knife",
+  "item.eternal_starlight_delight.glistering_knife": "Glistering Knife",
   "block.eternal_starlight_delight.deepsilver_skillet": "Deepsilver Skillet",
   "block.eternal_starlight_delight.deepsilver_skillet.desc": "Items such as Eternal Starlight and Eternal Starlight's Delight double cooking speed.",
   "block.eternal_starlight_delight.deepsilver_cooking_pot": "Deepsilver Cooking Pot",
@@ -81,6 +83,8 @@
   "tag.item.eternal_starlight_delight.usable_crinoa_dough_egg": "Eggs used in making Crinoa Dough",
   "tag.item.eternal_starlight_delight.usable_for_ether": "Materials usable as ether",
   "tag.item.eternal_starlight_delight.usable_pungency_fruit": "Ingredients suitable for use as Pungency Fruit",
+  "tag.item.eternal_starlight_delight.knife_accessory_applicable": "Tools capable of applying Knife accessories",
+  "tag.item.eternal_starlight_delight.skillet_accessory_applicable": "Tools capable of applying Skillet accessories",
   "tag.block.c.storage_blocks.abyssal_fruit": "Abyssal Fruit Storage Blocks",
   "tag.block.c.storage_blocks.blossom_of_stars": "Blossom Of Stars Storage Blocks",
   "tag.block.c.storage_blocks.frozen_tube": "Frozen Tube Storage Blocks",
@@ -107,5 +111,6 @@
   "tag.item.c.foods.raw_shadow_snail_meat": "Raw Shadow Snail Meat",
   "tooltip.eternal_starlight_delight.accessory_combination_target.knife": "Knives",
   "tooltip.eternal_starlight_delight.thermal_springblade_strap.auto_smelt": "Automatically smelts when blocks are broken",
-  "tooltip.eternal_starlight_delight.thermal_springblade_strap.cut_smelt": "Automatically refines when cut on a cutting board"
+  "tooltip.eternal_starlight_delight.thermal_springblade_strap.cut_smelt": "Automatically refines when cut on a cutting board",
+  "subtitles.eternal_starlight_delight.silent": ""
 }

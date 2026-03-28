@@ -1,7 +1,10 @@
 package com.minor2cch.eternalstarlightdelight.registry;
 
+import cn.leolezury.eternalstarlight.common.registry.ESDataComponents;
 import com.minor2cch.eternalstarlightdelight.EternalStarlightDelight;
+import com.minor2cch.eternalstarlightdelight.item.KnifeOfHungerItem;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -26,7 +29,17 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.STARFIRE_KNIFE.get());
                 output.accept(ESDItems.FLOWGLAZE_KNIFE.get());
                 output.accept(ESDItems.KNIFE_OF_HUNGER.get());
+                ItemStack hungerStack = new ItemStack(ESDItems.KNIFE_OF_HUNGER.get());
+                hungerStack.set(ESDataComponents.HUNGER_LEVEL.get(), -1.0F);
+                hungerStack.set(DataComponents.ATTRIBUTE_MODIFIERS, KnifeOfHungerItem.PENALTY_ATTRIBUTE);
+                output.accept(hungerStack);
+                ItemStack saturatedStack = new ItemStack(ESDItems.KNIFE_OF_HUNGER.get());
+                saturatedStack.set(ESDataComponents.HUNGER_LEVEL.get(), 1.0F);
+                saturatedStack.set(DataComponents.ATTRIBUTE_MODIFIERS, KnifeOfHungerItem.BONUS_ATTRIBUTE);
+                output.accept(saturatedStack);
                 output.accept(ESDItems.PUNGENCY_FRUIT_KNIFE.get());
+                output.accept(ESDItems.UNREALIUM_KNIFE.get());
+                output.accept(ESDItems.GLISTERING_KNIFE.get());
                 output.accept(ESDItems.DEEPSILVER_SKILLET.get());
                 output.accept(ESDItems.DEEPSILVER_COOKING_POT.get());
                 output.accept(ESDItems.LUNAR_CABINET.get());

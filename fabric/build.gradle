@@ -78,7 +78,7 @@ dependencies {
     modRuntimeOnly("curse.maven:appleskin-248787:5864741")
     modRuntimeOnly("curse.maven:advanced-loot-info-1205426:7600920")
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
-    modImplementation("curse.maven:eternal-starlight-1080592:7545991")
+    modImplementation("curse.maven:eternal-starlight-1080592:7788349")
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')
 }

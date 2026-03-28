@@ -40,7 +40,7 @@
     "fabricloader": ">=0.18.0",
     "minecraft": "1.21.1",
     "farmersdelight": "*",
-    "eternal_starlight": ">0.6.3",
+    "eternal_starlight": ">0.6.4",
     "java": ">=21",
     "fabric-api": "*"
   }
