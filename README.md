@@ -1,4 +1,4 @@
-![ESDelight Meals (Alpha.2)](https://cdn.modrinth.com/data/YylITkmH/images/67d9da734bb19a6b4c61eac672b98b59115e1c55.png)
+![ESDelight Meals (Alpha.2)](https://cdn.modrinth.com/data/YylITkmH/images/2ba3d34330e2c08928129e0a2fb6cd6a4eaf2276.png)
 # About
 This is a mod that adds foods fitting the atmosphere of Farmer's Delight and the worldview of Eternal Starlight, along with code and data to ensure compatibility between these two.<br>
 
@@ -24,8 +24,10 @@ Bouldershroom will form a colony if Rich Soil is present at its base.
 ・Deepsilver Skillet<br>
 The Starlight Stove, Starlight Cooking Pot, and Deepsilver Skillet double the cooking speed when preparing ingredients for Eternal Starlight and Eternal Starlight's Delight.<br>
 ## New Other Items<br>
-### Extra 10 knives<br>
+### Extra 13 knives<br>
 ・If the original material has special effects, they will also be applied to the knife.<br>
+### Add 1 knife's Accessory<br>
+・Thermal Springblade Strap<br>
 ## Other Changes<br>
 ### Add a recipe to the cutting board<br>
 ・The recipe for the cutting board was provided by [Farmer's Cutting: Eternal Starlight](https://modrinth.com/datapack/farmers-cutting-eternal-starlight).<br>
