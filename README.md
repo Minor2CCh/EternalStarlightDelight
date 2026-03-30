@@ -2,7 +2,7 @@
 # About
 This is a mod that adds foods fitting the atmosphere of Farmer's Delight and the worldview of Eternal Starlight, along with code and data to ensure compatibility between these two.<br>
 
-## Extra foods (Alpha.2)<br>
+## Extra foods (now 1.0.0)<br>
 ・2 drying foods<br>
 ・12 cut foods<br>
 ・9 light meals<br>
@@ -20,9 +20,9 @@ Bouldershroom will form a colony if Rich Soil is present at its base.
 ### Frozen Tube Bale<br>
 ### 3 Cooking Tools
 ・Starlight Stove<br>
-・Starlight Cooking Pot<br>
+・Deepsilver Cooking Pot<br>
 ・Deepsilver Skillet<br>
-The Starlight Stove, Starlight Cooking Pot, and Deepsilver Skillet double the cooking speed when preparing ingredients for Eternal Starlight and Eternal Starlight's Delight.<br>
+The Starlight Stove, Deepsilver Cooking Pot, and Deepsilver Skillet double the cooking speed when preparing ingredients for Eternal Starlight and Eternal Starlight's Delight.<br>
 ## New Other Items<br>
 ### Extra 13 knives<br>
 ・If the original material has special effects, they will also be applied to the knife.<br>
@@ -37,3 +37,4 @@ The Starlight Stove, Starlight Cooking Pot, and Deepsilver Skillet double the co
 ・Some mobs in Eternal Starlight grant a drop bonus when defeated with a knife.<br>
 ・Can plant Pungency Fruit in Rich Soil Farmland (Fabric)<br>
 ・The effects of some Farmer's Delight seeds will be changed in Seeds Launcher.<br>
+・The stack limit for Eternal Starlight's stew-type items will be 16.
