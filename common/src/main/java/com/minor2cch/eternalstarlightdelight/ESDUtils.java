@@ -5,9 +5,11 @@ import cn.leolezury.eternalstarlight.common.util.ESAccessoryUtil;
 import com.minor2cch.eternalstarlightdelight.registry.ESDItems;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementProgress;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 
@@ -64,5 +66,30 @@ public final class ESDUtils {
         ItemStack copyStack = recipeEntry.value().getResultItem(level.registryAccess()).copy();
         copyStack.setCount(stack.getCount());
         return copyStack;
+    }
+    public static void setMakeFresh(ItemStack stack){
+        FoodProperties properties = stack.getItem().components().get(DataComponents.FOOD);
+        if(properties != null){
+            float saturationModifier = properties.nutrition() <= 0 ? 0 : properties.saturation() / properties.nutrition();
+            int extraNutrition;
+            if(properties.nutrition() < 1){
+                extraNutrition = 0;
+            }else if(properties.nutrition() < 5){
+                extraNutrition = 1;
+            }else if(properties.nutrition() < 11){
+                extraNutrition = 2;
+            }else{
+                extraNutrition = 3;
+            }
+            FoodProperties foodProperties = new FoodProperties(properties.nutrition()+extraNutrition, properties.saturation()+extraNutrition*saturationModifier, properties.canAlwaysEat(), properties.eatSeconds(), properties.usingConvertsTo(), properties.effects());
+            stack.set(DataComponents.FOOD, foodProperties);
+        }
+
+    }
+    public static boolean canMakeFreshTool(ItemStack stack){
+        if(stack == null || stack.isEmpty()){
+            return false;
+        }
+        return ESAccessoryUtil.getAccessories(stack).contains(ESDItems.STARFIRE_FLOWER_STRAP.get());
     }
 }

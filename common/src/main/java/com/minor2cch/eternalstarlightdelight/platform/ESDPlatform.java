@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.apache.commons.lang3.function.TriFunction;
+import vectorwing.farmersdelight.common.item.component.ItemStackWrapper;
 
 import java.nio.file.Path;
 import java.util.*;
@@ -91,4 +92,5 @@ public interface ESDPlatform {
     TagKey<Item> getWaterBucketTag();
     <T extends RecipeSerializer<?>> Supplier<T> recipeSerializerRegister(String id, Supplier<T> recipeSerializer);
     void allowDamageEventRegister(TriFunction<LivingEntity, DamageSource, Float, Boolean> function);
+    ItemStackWrapper getSkilletStackHandler(ItemStack stack);
 }

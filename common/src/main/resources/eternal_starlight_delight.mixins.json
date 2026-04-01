@@ -11,8 +11,8 @@
     "BlockBehaviourMixin",
     "CookingPotMenuMixin",
     "CuttingBoardBlockEntityMixin",
-    "EntityBlockMixin",
     "DualWieldingSwordItemMixin",
+    "EntityBlockMixin",
     "ESItemTiersMixin",
     "LootTableMixin",
     "MarimoldBlockInvoker",
@@ -23,6 +23,7 @@
     "SkilletBlockEntityMixin",
     "SkilletEventsMixin",
     "SkilletItemInvoker",
+    "SkilletItemMixin",
     "StoveBlockEntityMixin",
     "TagLoaderMixin"
   ],

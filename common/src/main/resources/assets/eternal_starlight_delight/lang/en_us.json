@@ -68,6 +68,7 @@
   "item.eternal_starlight_delight.aurora_deer_jerky": "Aurora Deer Jerky",
   "item.eternal_starlight_delight.aurora_deer_steak_special_lunch": "Aurora Deer Steak Special Lunch",
   "item.eternal_starlight_delight.thermal_springblade_strap": "Thermal Springblade Strap",
+  "item.eternal_starlight_delight.starfire_flower_strap": "Starfire Strap Strap",
   "effect.eternal_starlight_delight.ether_infested": "Ether Infested",
   "effect.eternal_starlight_delight.ether_infested.description": "Defense provided by armor is temporarily negated.",
   "effect.eternal_starlight_delight.meteor_omen": "Meteor Omen",
@@ -112,5 +113,8 @@
   "tooltip.eternal_starlight_delight.accessory_combination_target.knife": "Knives",
   "tooltip.eternal_starlight_delight.thermal_springblade_strap.auto_smelt": "Automatically smelts when blocks are broken",
   "tooltip.eternal_starlight_delight.thermal_springblade_strap.cut_smelt": "Automatically refines when cut on a cutting board",
+  "tooltip.eternal_starlight_delight.accessory_combination_target.skillet": "Skillet",
+  "tooltip.eternal_starlight_delight.starfire_flower_strap.cook_fresh": "Adds additional saturation to cooked food.",
+  "tooltip.eternal_starlight_delight.starfire_flower_strap.cook_fresh.desc": "Food items with saturation value are treated as a separate stack from their default counterparts.",
   "subtitles.eternal_starlight_delight.silent": ""
 }

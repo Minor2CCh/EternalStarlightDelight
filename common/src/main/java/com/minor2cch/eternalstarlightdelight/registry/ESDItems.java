@@ -158,6 +158,24 @@ public final class ESDItems {
                             Optional.of(EternalStarlightDelight.of("textures/accessory/thermal_springblade_strap_overlay"))
                     ))
                     .stacksTo(1)));
+    public static final Supplier<Item> STARFIRE_FLOWER_STRAP = registerItem("starfire_flower_strap",
+            () -> new Item(new Item.Properties()
+                    .rarity(Rarity.RARE)
+                    .component(ESDataComponents.ACCESSORY.get(), new Accessory(
+                            ESDItemTags.SKILLET_ACCESSORY_APPLICABLE,
+                            Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".accessory_combination_target.skillet").withStyle(ChatFormatting.BLUE),
+                            ItemAttributeModifiers.builder()
+                                    //.add(Attributes.ATTACK_DAMAGE, new AttributeModifier(EternalStarlightDelight.of("starfire_flower_strap_attack_damage"), 0.7, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND)
+                                    //.add(Attributes.ATTACK_SPEED, new AttributeModifier(EternalStarlightDelight.of("starfire_flower_strap_attack_speed_penalty"), -0.5, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND)
+                                    .build(),
+                            List.of(
+                                    Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".starfire_flower_strap.cook_fresh").withStyle(ChatFormatting.BLUE),
+                                    Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".starfire_flower_strap.cook_fresh.desc").withStyle(ChatFormatting.BLUE)
+                            ),
+                            Optional.of(Style.EMPTY.withColor(0xFF7D3D)),
+                            Optional.of(EternalStarlightDelight.of("textures/accessory/starfire_flower_strap_overlay"))
+                    ))
+                    .stacksTo(1)));
     private static <T extends Item> Supplier<T> registerItem(String id, Supplier<T> item){
         return ESDPlatform.INSTANCE.itemRegister(id, item);
     }
