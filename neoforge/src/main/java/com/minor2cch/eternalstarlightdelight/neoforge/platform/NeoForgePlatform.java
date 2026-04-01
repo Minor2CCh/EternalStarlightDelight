@@ -1,7 +1,7 @@
 package com.minor2cch.eternalstarlightdelight.neoforge.platform;
 
+import com.minor2cch.eternalstarlightdelight.ESDUtils;
 import com.minor2cch.eternalstarlightdelight.EternalStarlightDelight;
-import com.minor2cch.eternalstarlightdelight.item.DeepSilverSkilletItem;
 import com.minor2cch.eternalstarlightdelight.mixin.SkilletItemInvoker;
 import com.minor2cch.eternalstarlightdelight.neoforge.block.entity.DeepSilverCookingPotBlockEntityNeoForge;
 import com.minor2cch.eternalstarlightdelight.neoforge.mixin.CookingPotBlockEntityAccessor;
@@ -178,8 +178,7 @@ public class NeoForgePlatform implements ESDPlatform {
                 ItemStack cookingStackCopy = cookingStack.copy();
                 ItemStack cookingStackUnit = cookingStackCopy.split(1);
                 skilletStack.set(ModDataComponents.SKILLET_INGREDIENT, new ItemStackWrapper(cookingStackUnit));
-                int cookingTime = DeepSilverSkilletItem.getSkilletCookingTime(level, skilletStack, cookingStack, recipe.get().value().getCookingTime());
-                skilletStack.set(ModDataComponents.COOKING_TIME_LENGTH, cookingTime);
+                skilletStack.set(ModDataComponents.COOKING_TIME_LENGTH, recipe.get().value().getCookingTime() / (ESDUtils.isESItem(cookingStack) ? 2 : 1));
                 player.startUsingItem(hand);
                 player.setItemInHand(otherHand, cookingStackCopy);
                 return InteractionResultHolder.consume(skilletStack);
@@ -287,6 +286,12 @@ public class NeoForgePlatform implements ESDPlatform {
     public void allowDamageEventRegister(TriFunction<LivingEntity, DamageSource, Float, Boolean> function) {
         ALLOW_DAMAGE_FUNCTIONS.add(function);
     }
+
+    @Override
+    public ItemStackWrapper getSkilletStackHandler(ItemStack stack) {
+        return stack.getOrDefault(ModDataComponents.SKILLET_INGREDIENT, ItemStackWrapper.EMPTY);
+    }
+
     @SubscribeEvent
     public static void allowDamageEvent(LivingIncomingDamageEvent event){
         for(TriFunction<LivingEntity, DamageSource, Float, Boolean> function : ALLOW_DAMAGE_FUNCTIONS){

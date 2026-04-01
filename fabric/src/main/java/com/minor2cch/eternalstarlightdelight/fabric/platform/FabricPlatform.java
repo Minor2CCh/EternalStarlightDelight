@@ -1,9 +1,9 @@
 package com.minor2cch.eternalstarlightdelight.fabric.platform;
 
+import com.minor2cch.eternalstarlightdelight.ESDUtils;
 import com.minor2cch.eternalstarlightdelight.EternalStarlightDelight;
 import com.minor2cch.eternalstarlightdelight.fabric.block.entity.DeepSilverCookingPotBlockEntityFabric;
 import com.minor2cch.eternalstarlightdelight.fabric.registey.ESDBlockEntityTypesFabric;
-import com.minor2cch.eternalstarlightdelight.item.DeepSilverSkilletItem;
 import com.minor2cch.eternalstarlightdelight.mixin.SkilletItemInvoker;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
 import com.minor2cch.eternalstarlightdelight.registry.ESDBlocks;
@@ -168,8 +168,7 @@ public class FabricPlatform implements ESDPlatform {
                 ItemStack cookingStackCopy = cookingStack.copy();
                 ItemStack cookingStackUnit = cookingStackCopy.split(1);
                 skilletStack.set(ModDataComponents.SKILLET_INGREDIENT.get(), new ItemStackWrapper(cookingStackUnit));
-                int cookingTime = DeepSilverSkilletItem.getSkilletCookingTime(level, skilletStack, cookingStack, recipe.get().value().getCookingTime());
-                skilletStack.set(ModDataComponents.COOKING_TIME_LENGTH.get(), cookingTime);
+                skilletStack.set(ModDataComponents.COOKING_TIME_LENGTH.get(), recipe.get().value().getCookingTime() / (ESDUtils.isESItem(cookingStack) ? 2 : 1));
                 skilletStack.set(ModDataComponents.SKILLET_FLIPPED.get(), false);
                 player.startUsingItem(hand);
                 player.setItemInHand(otherHand, cookingStackCopy);
@@ -235,6 +234,11 @@ public class FabricPlatform implements ESDPlatform {
     @Override
     public void allowDamageEventRegister(TriFunction<LivingEntity, DamageSource, Float, Boolean> function) {
         ServerLivingEntityEvents.ALLOW_DAMAGE.register(function::apply);
+    }
+
+    @Override
+    public ItemStackWrapper getSkilletStackHandler(ItemStack stack) {
+        return stack.getOrDefault(ModDataComponents.SKILLET_INGREDIENT.get(), ItemStackWrapper.EMPTY);
     }
 
 }
