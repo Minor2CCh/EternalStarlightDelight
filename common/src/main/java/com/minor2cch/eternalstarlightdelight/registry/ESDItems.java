@@ -165,8 +165,9 @@ public final class ESDItems {
                             ESDItemTags.SKILLET_ACCESSORY_APPLICABLE,
                             Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".accessory_combination_target.skillet").withStyle(ChatFormatting.BLUE),
                             ItemAttributeModifiers.builder()
-                                    //.add(Attributes.ATTACK_DAMAGE, new AttributeModifier(EternalStarlightDelight.of("starfire_flower_strap_attack_damage"), 0.7, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND)
-                                    //.add(Attributes.ATTACK_SPEED, new AttributeModifier(EternalStarlightDelight.of("starfire_flower_strap_attack_speed_penalty"), -0.5, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND)
+                                    .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(EternalStarlightDelight.of("starfire_flower_strap_entity_interaction_range"), 0.5, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                                    .add(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(EternalStarlightDelight.of("starfire_flower_strap_block_interaction_range"), 0.5, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                                    .add(Attributes.ATTACK_SPEED, new AttributeModifier(EternalStarlightDelight.of("starfire_flower_strap_block_interaction_range"), 0.2, AttributeModifier.Operation.ADD_MULTIPLIED_BASE), EquipmentSlotGroup.MAINHAND)
                                     .build(),
                             List.of(
                                     Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".starfire_flower_strap.cook_fresh").withStyle(ChatFormatting.BLUE),
@@ -176,6 +177,12 @@ public final class ESDItems {
                             Optional.of(EternalStarlightDelight.of("textures/accessory/starfire_flower_strap_overlay"))
                     ))
                     .stacksTo(1)));
+    public static final Supplier<Item> SEEKER_TENTACLE_CUTS = registerItem("seeker_tentacle_cuts",
+            () -> new Item(basicItem().food(ESDFoods.SEEKER_TENTACLE_CUTS.get())));
+    public static final Supplier<Item> COOKED_SEEKER_TENTACLE_CUTS = registerItem("cooked_seeker_tentacle_cuts",
+            () -> new Item(basicItem().food(ESDFoods.COOKED_SEEKER_TENTACLE_CUTS.get())));
+    public static final Supplier<Item> DRIED_SEEKER_TENTACLE_CUTS = registerItem("dried_seeker_tentacle_cuts",
+            () -> new Item(basicItem().food(ESDFoods.DRIED_SEEKER_TENTACLE_CUTS.get())));
     private static <T extends Item> Supplier<T> registerItem(String id, Supplier<T> item){
         return ESDPlatform.INSTANCE.itemRegister(id, item);
     }

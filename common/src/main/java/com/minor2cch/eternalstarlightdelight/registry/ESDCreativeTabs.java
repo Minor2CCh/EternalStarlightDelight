@@ -91,6 +91,9 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.AURORA_DEER_STEAK_SPECIAL_LUNCH.get());
                 output.accept(ESDItems.THERMAL_SPRINGBLADE_STRAP.get());
                 output.accept(ESDItems.STARFIRE_FLOWER_STRAP.get());
+                output.accept(ESDItems.SEEKER_TENTACLE_CUTS.get());
+                output.accept(ESDItems.COOKED_SEEKER_TENTACLE_CUTS.get());
+                output.accept(ESDItems.DRIED_SEEKER_TENTACLE_CUTS.get());
             }
 
     );
