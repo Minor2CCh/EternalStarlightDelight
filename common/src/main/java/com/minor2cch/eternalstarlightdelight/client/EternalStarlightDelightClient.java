@@ -1,5 +1,6 @@
 package com.minor2cch.eternalstarlightdelight.client;
 
+import com.minor2cch.eternalstarlightdelight.ESDUtils;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
 import com.minor2cch.eternalstarlightdelight.registry.ESDItems;
 import net.minecraft.ChatFormatting;
@@ -24,6 +25,9 @@ public final class EternalStarlightDelightClient {
                 lines.add(Component.translatable(stack.getDescriptionId()+".desc"));
             }else if(stack.getItem() == ESDItems.BLOSSOM_OF_STARS_CRATE.get()){
                 lines.add(Component.translatable(stack.getDescriptionId()+".desc").withColor(0x5187c4).withStyle(ChatFormatting.ITALIC));
+            }
+            if(ESDUtils.isFreshFood(stack)){
+                lines.add(Component.translatable("tooltip.eternal_starlight_delight.is_fresh").withColor(0xFF7D3D));
             }
         });
     }

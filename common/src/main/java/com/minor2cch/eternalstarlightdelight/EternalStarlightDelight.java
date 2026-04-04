@@ -35,7 +35,8 @@ public final class EternalStarlightDelight {
         ESDMobEffects.init();
         ESDSoundEvents.init();
         ESDRecipeSerializers.init();
-        ESAllowDamageEvents.init();
+        ESDAllowDamageEvents.init();
+        ESDDataComponents.init();
         ESDPlatform.INSTANCE.delayedInit(ESDCompostablePuts::init);
         ESDPlatform.INSTANCE.delayedInit(EternalStarlightDelight::modifyItemComponent);
         ESDPlatform.INSTANCE.delayedInit(EternalStarlightDelight::registerCoolingItem);

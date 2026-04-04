@@ -1,10 +1,8 @@
 package com.minor2cch.eternalstarlightdelight.fabric.platform;
 
-import com.minor2cch.eternalstarlightdelight.ESDUtils;
 import com.minor2cch.eternalstarlightdelight.EternalStarlightDelight;
 import com.minor2cch.eternalstarlightdelight.fabric.block.entity.DeepSilverCookingPotBlockEntityFabric;
 import com.minor2cch.eternalstarlightdelight.fabric.registey.ESDBlockEntityTypesFabric;
-import com.minor2cch.eternalstarlightdelight.mixin.SkilletItemInvoker;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
 import com.minor2cch.eternalstarlightdelight.registry.ESDBlocks;
 import com.minor2cch.eternalstarlightdelight.registry.ESDCreativeTabs;
@@ -34,8 +32,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.CampfireCookingRecipe;
-import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -45,10 +41,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.apache.commons.lang3.function.TriFunction;
 import vectorwing.farmersdelight.common.Configuration;
-import vectorwing.farmersdelight.common.item.SkilletItem;
 import vectorwing.farmersdelight.common.item.component.ItemStackWrapper;
 import vectorwing.farmersdelight.common.registry.ModDataComponents;
-import vectorwing.farmersdelight.common.utility.TextUtils;
 
 import java.nio.file.Path;
 import java.util.*;
@@ -147,39 +141,6 @@ public class FabricPlatform implements ESDPlatform {
         ComposterBlock.COMPOSTABLES.put(item, value);
     }
 
-    @Override
-    public InteractionResultHolder<ItemStack> deepsilverSkilletUsing(Level level, Player player, InteractionHand hand) {
-        ItemStack skilletStack = player.getItemInHand(hand);
-        if (SkilletItemInvoker.invokePlayerNeatHeatSourceCheck(player, level)) {
-            InteractionHand otherHand = hand == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND;
-            ItemStack cookingStack = player.getItemInHand(otherHand);
-
-            if (!skilletStack.getOrDefault(ModDataComponents.SKILLET_INGREDIENT.get(), ItemStackWrapper.EMPTY).getStack().isEmpty()) {
-                player.startUsingItem(hand);
-                return InteractionResultHolder.pass(skilletStack);
-            }
-
-            Optional<RecipeHolder<CampfireCookingRecipe>> recipe = SkilletItem.getCookingRecipe(cookingStack, level);
-            if (recipe.isPresent()) {
-                if (player.isUnderWater()) {
-                    player.displayClientMessage(TextUtils.getTranslation("item.skillet.underwater"), true);
-                    return InteractionResultHolder.pass(skilletStack);
-                }
-                ItemStack cookingStackCopy = cookingStack.copy();
-                ItemStack cookingStackUnit = cookingStackCopy.split(1);
-                skilletStack.set(ModDataComponents.SKILLET_INGREDIENT.get(), new ItemStackWrapper(cookingStackUnit));
-                skilletStack.set(ModDataComponents.COOKING_TIME_LENGTH.get(), recipe.get().value().getCookingTime() / (ESDUtils.isESItem(cookingStack) ? 2 : 1));
-                skilletStack.set(ModDataComponents.SKILLET_FLIPPED.get(), false);
-                player.startUsingItem(hand);
-                player.setItemInHand(otherHand, cookingStackCopy);
-                return InteractionResultHolder.consume(skilletStack);
-            } else {
-                player.displayClientMessage(TextUtils.getTranslation("item.skillet.how_to_cook"), true);
-            }
-        }
-        return InteractionResultHolder.pass(skilletStack);
-    }
-
     public static void onModifyDefaultComponents(DefaultItemComponentEvents.ModifyContext context){
         if (Configuration.ENABLE_STACKABLE_SOUP_ITEMS.get()) {
             STEW_ITEM_BUILDER_LIST.forEach((entry) -> context.modify(entry.getKey().get(), entry.getValue()));
@@ -239,6 +200,14 @@ public class FabricPlatform implements ESDPlatform {
     @Override
     public ItemStackWrapper getSkilletStackHandler(ItemStack stack) {
         return stack.getOrDefault(ModDataComponents.SKILLET_INGREDIENT.get(), ItemStackWrapper.EMPTY);
+    }
+
+    @Override
+    public <T extends DataComponentType<?>> Supplier<T> dataComponentRegister(String id, Supplier<T> componentType) {
+        T dataInfo = componentType.get();
+        ResourceLocation blockID = EternalStarlightDelight.of(id);
+        Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, blockID, dataInfo);
+        return () -> dataInfo;
     }
 
 }

@@ -2,13 +2,9 @@ package com.minor2cch.eternalstarlightdelight.item;
 
 import cn.leolezury.eternalstarlight.common.item.combat.ESItemTiers;
 import com.minor2cch.eternalstarlightdelight.ESDUtils;
-import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -20,10 +16,6 @@ import vectorwing.farmersdelight.common.item.SkilletItem;
 public class DeepSilverSkilletItem extends SkilletItem {
     public DeepSilverSkilletItem(Block block, Properties properties) {
         super(block, properties.durability(ESItemTiers.DEEPSILVER.getUses()));
-    }
-    @Override
-    public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        return ESDPlatform.INSTANCE.deepsilverSkilletUsing(level, player, hand);
     }
     @Override
     public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {

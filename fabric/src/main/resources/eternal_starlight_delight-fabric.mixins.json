@@ -6,8 +6,9 @@
   "client": [
   ],
   "mixins": [
+    "CookingPotBlockEntityMixinFabric",
     "PungencyFruitVinesBlockMixin",
-    "CookingPotBlockEntityMixinFabric"
+    "SkilletItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

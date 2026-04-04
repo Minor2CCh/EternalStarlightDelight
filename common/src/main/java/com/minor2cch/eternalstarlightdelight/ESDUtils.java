@@ -2,6 +2,7 @@ package com.minor2cch.eternalstarlightdelight;
 
 import cn.leolezury.eternalstarlight.common.EternalStarlight;
 import cn.leolezury.eternalstarlight.common.util.ESAccessoryUtil;
+import com.minor2cch.eternalstarlightdelight.registry.ESDDataComponents;
 import com.minor2cch.eternalstarlightdelight.registry.ESDItems;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementProgress;
@@ -83,6 +84,7 @@ public final class ESDUtils {
             }
             FoodProperties foodProperties = new FoodProperties(properties.nutrition()+extraNutrition, properties.saturation()+extraNutrition*saturationModifier, properties.canAlwaysEat(), properties.eatSeconds(), properties.usingConvertsTo(), properties.effects());
             stack.set(DataComponents.FOOD, foodProperties);
+            stack.set(ESDDataComponents.IS_FRESH.get(), true);
         }
 
     }
@@ -91,5 +93,15 @@ public final class ESDUtils {
             return false;
         }
         return ESAccessoryUtil.getAccessories(stack).contains(ESDItems.STARFIRE_FLOWER_STRAP.get());
+    }
+    public static boolean isFreshFood(ItemStack stack){
+        if(stack == null || stack.isEmpty()){
+            return false;
+        }
+        Boolean bl = stack.get(ESDDataComponents.IS_FRESH.get());
+        if(bl == null){
+            return false;
+        }
+        return bl;
     }
 }

@@ -1,8 +1,6 @@
 package com.minor2cch.eternalstarlightdelight.neoforge.platform;
 
-import com.minor2cch.eternalstarlightdelight.ESDUtils;
 import com.minor2cch.eternalstarlightdelight.EternalStarlightDelight;
-import com.minor2cch.eternalstarlightdelight.mixin.SkilletItemInvoker;
 import com.minor2cch.eternalstarlightdelight.neoforge.block.entity.DeepSilverCookingPotBlockEntityNeoForge;
 import com.minor2cch.eternalstarlightdelight.neoforge.mixin.CookingPotBlockEntityAccessor;
 import com.minor2cch.eternalstarlightdelight.neoforge.registry.ESDBlockEntityTypesNeoForge;
@@ -27,8 +25,6 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.crafting.CampfireCookingRecipe;
-import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -51,10 +47,8 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.apache.commons.lang3.function.TriFunction;
 import vectorwing.farmersdelight.common.Configuration;
-import vectorwing.farmersdelight.common.item.SkilletItem;
 import vectorwing.farmersdelight.common.item.component.ItemStackWrapper;
 import vectorwing.farmersdelight.common.registry.ModDataComponents;
-import vectorwing.farmersdelight.common.utility.TextUtils;
 
 import java.nio.file.Path;
 import java.util.*;
@@ -73,6 +67,7 @@ public class NeoForgePlatform implements ESDPlatform {
     private static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, EternalStarlightDelight.MOD_ID);
     private static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, EternalStarlightDelight.MOD_ID);
     private static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(Registries.SOUND_EVENT, EternalStarlightDelight.MOD_ID);
+    private static final DeferredRegister.DataComponents DATA_COMPONENTS = DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, EternalStarlightDelight.MOD_ID);
     private static final List<Map.Entry<Supplier<Item>, Consumer<DataComponentPatch.Builder>>> ITEM_BUILDER_LIST = new ArrayList<>();
     private static final List<Map.Entry<Supplier<Item>, Consumer<DataComponentPatch.Builder>>> STEW_ITEM_BUILDER_LIST = new ArrayList<>();
     private static final List<Map.Entry<Supplier<Item>, Consumer<DataComponentPatch.Builder>>> ITEM_REMOVE_BUILDER_LIST = new ArrayList<>();
@@ -157,37 +152,6 @@ public class NeoForgePlatform implements ESDPlatform {
         COMPOST_TRUE_MAP.put(item, value);
     }
 
-    @Override
-    public InteractionResultHolder<ItemStack> deepsilverSkilletUsing(Level level, Player player, InteractionHand hand) {
-        ItemStack skilletStack = player.getItemInHand(hand);
-        if (SkilletItemInvoker.invokePlayerNeatHeatSourceCheck(player, level)) {
-            InteractionHand otherHand = hand == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND;
-            ItemStack cookingStack = player.getItemInHand(otherHand);
-
-            if (!skilletStack.getOrDefault(ModDataComponents.SKILLET_INGREDIENT, ItemStackWrapper.EMPTY).getStack().isEmpty()) {
-                player.startUsingItem(hand);
-                return InteractionResultHolder.pass(skilletStack);
-            }
-
-            Optional<RecipeHolder<CampfireCookingRecipe>> recipe = SkilletItem.getCookingRecipe(cookingStack, level);
-            if (recipe.isPresent()) {
-                if (player.isUnderWater()) {
-                    player.displayClientMessage(TextUtils.getTranslation("item.skillet.underwater"), true);
-                    return InteractionResultHolder.pass(skilletStack);
-                }
-                ItemStack cookingStackCopy = cookingStack.copy();
-                ItemStack cookingStackUnit = cookingStackCopy.split(1);
-                skilletStack.set(ModDataComponents.SKILLET_INGREDIENT, new ItemStackWrapper(cookingStackUnit));
-                skilletStack.set(ModDataComponents.COOKING_TIME_LENGTH, recipe.get().value().getCookingTime() / (ESDUtils.isESItem(cookingStack) ? 2 : 1));
-                player.startUsingItem(hand);
-                player.setItemInHand(otherHand, cookingStackCopy);
-                return InteractionResultHolder.consume(skilletStack);
-            } else {
-                player.displayClientMessage(TextUtils.getTranslation("item.skillet.how_to_cook"), true);
-            }
-        }
-        return InteractionResultHolder.pass(skilletStack);
-    }
 
     public static void registryInit(IEventBus modEventBus){
         BLOCKS.register(modEventBus);
@@ -197,6 +161,7 @@ public class NeoForgePlatform implements ESDPlatform {
         MOB_EFFECTS.register(modEventBus);
         SOUND_EVENTS.register(modEventBus);
         RECIPE_SERIALIZERS.register(modEventBus);
+        DATA_COMPONENTS.register(modEventBus);
     }
     @SubscribeEvent
     public static void onModifyDefaultComponents(ModifyDefaultComponentsEvent event) {
@@ -290,6 +255,11 @@ public class NeoForgePlatform implements ESDPlatform {
     @Override
     public ItemStackWrapper getSkilletStackHandler(ItemStack stack) {
         return stack.getOrDefault(ModDataComponents.SKILLET_INGREDIENT, ItemStackWrapper.EMPTY);
+    }
+
+    @Override
+    public <T extends DataComponentType<?>> Supplier<T> dataComponentRegister(String id, Supplier<T> componentType) {
+        return DATA_COMPONENTS.register(id, componentType);
     }
 
     @SubscribeEvent

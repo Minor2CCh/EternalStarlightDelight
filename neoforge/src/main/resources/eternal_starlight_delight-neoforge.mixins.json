@@ -8,7 +8,8 @@
   "mixins": [
     "CompostBlockMixin",
     "CookingPotBlockEntityAccessor",
-    "CookingPotBlockEntityMixinNeoForge"
+    "CookingPotBlockEntityMixinNeoForge",
+    "SkilletItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

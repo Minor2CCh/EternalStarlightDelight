@@ -82,7 +82,6 @@ public interface ESDPlatform {
     }
     void useItemCallBack(TriFunction<Player, Level, InteractionHand, InteractionResultHolder<ItemStack>> function);
     void compostItemRegister(Item item, float value);
-    InteractionResultHolder<ItemStack> deepsilverSkilletUsing(Level level, Player player, InteractionHand hand);
     void delayedInit(Runnable runnable);
     BiFunction<BlockPos, BlockState, ? extends BlockEntity> instanceDeepSilverCookingPotBlockEntity();
     Supplier<BlockEntityType<? extends BlockEntity>> registerDeepSilverCookingPot(String id);
@@ -93,4 +92,5 @@ public interface ESDPlatform {
     <T extends RecipeSerializer<?>> Supplier<T> recipeSerializerRegister(String id, Supplier<T> recipeSerializer);
     void allowDamageEventRegister(TriFunction<LivingEntity, DamageSource, Float, Boolean> function);
     ItemStackWrapper getSkilletStackHandler(ItemStack stack);
+    <T extends DataComponentType<?>> Supplier<T> dataComponentRegister(String id, Supplier<T> componentType);
 }
