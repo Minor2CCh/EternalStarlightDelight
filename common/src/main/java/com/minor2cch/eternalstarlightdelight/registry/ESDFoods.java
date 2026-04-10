@@ -37,4 +37,8 @@ public final class ESDFoods {
     public static final Supplier<FoodProperties> SEEKER_TENTACLE_CUTS = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(1).saturationModifier(0.1F).fast().build());
     public static final Supplier<FoodProperties> COOKED_SEEKER_TENTACLE_CUTS = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(4).saturationModifier(0.6F).fast().build());
     public static final Supplier<FoodProperties> DRIED_SEEKER_TENTACLE_CUTS = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(2).saturationModifier(1.75F).fast().effect(new MobEffectInstance(ESDMobEffects.STARLIGHT_BLESSING, 300, 1), 1.0f).alwaysEdible().build());
+    public static final Supplier<FoodProperties> LUNAR_BERRY_PIE_SLICE = Suppliers.memoize(() -> (new FoodProperties.Builder())
+            .nutrition(3).saturationModifier(0.3f).fast()
+            .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 0, false, false), 1.0F)
+            .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 400, 0, false, false), 1.0F).build());
 }

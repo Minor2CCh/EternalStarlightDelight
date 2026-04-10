@@ -19,6 +19,7 @@ public final class ESDCreativeTabs {
             "tab",
             () -> new ItemStack(ESDItems.FILLETING_OF_STARS.get()),
             (parameters, output) ->{
+                // tools
                 output.accept(ESDItems.FILLETING_OF_STARS.get());
                 output.accept(ESDItems.THERMAL_SPRINGSTONE_KNIFE.get());
                 output.accept(ESDItems.DEEPSILVER_KNIFE.get());
@@ -40,8 +41,11 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.PUNGENCY_FRUIT_KNIFE.get());
                 output.accept(ESDItems.UNREALIUM_KNIFE.get());
                 output.accept(ESDItems.GLISTERING_KNIFE.get());
+                // cooking blocks
                 output.accept(ESDItems.DEEPSILVER_SKILLET.get());
                 output.accept(ESDItems.DEEPSILVER_COOKING_POT.get());
+                output.accept(ESDItems.STARLIGHT_STOVE.get());
+                // cabinets
                 output.accept(ESDItems.LUNAR_CABINET.get());
                 output.accept(ESDItems.NORTHLAND_CABINET.get());
                 output.accept(ESDItems.BANYIN_CABINET.get());
@@ -49,14 +53,18 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.TORREYA_CABINET.get());
                 output.accept(ESDItems.JINGLESTEM_CABINET.get());
                 output.accept(ESDItems.CRADLEWOOD_CABINET.get());
+                // crates
                 output.accept(ESDItems.LUNAR_BERRY_CRATE.get());
                 output.accept(ESDItems.ABYSSAL_FRUIT_CRATE.get());
                 output.accept(ESDItems.PUNGENCY_FRUIT_CRATE.get());
                 output.accept(ESDItems.SILVER_PUNGENCY_FRUIT_CRATE.get());
+                // colonies
                 output.accept(ESDItems.BOULDERSHROOM_COLONY.get());
                 output.accept(ESDItems.GLOWING_MUSHROOM_COLONY.get());
                 output.accept(ESDItems.MARIMOLD_COLONY.get());
-                output.accept(ESDItems.STARLIGHT_STOVE.get());
+                // other building blocks
+                output.accept(ESDItems.FROZEN_TUBE_BALE.get());
+                // foods
                 output.accept(ESDItems.DRIED_ROOKFISH.get());
                 output.accept(ESDItems.PUNGENCY_FRUIT_SLICE.get());
                 output.accept(ESDItems.STARLIGHT_SOUP.get());
@@ -84,16 +92,18 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.STARLIGHT_HAMBURGER.get());
                 output.accept(ESDItems.AURORA_DEER_DICE_STEAK_PASTA.get());
                 output.accept(ESDItems.LUNARIS_SHERBET.get());
-                output.accept(ESDItems.FROZEN_TUBE_BALE.get());
                 output.accept(ESDItems.AMARAMBER_POPSICLE.get());
                 output.accept(ESDItems.STARMINA_NOODLE_SOUP.get());
                 output.accept(ESDItems.AURORA_DEER_JERKY.get());
                 output.accept(ESDItems.AURORA_DEER_STEAK_SPECIAL_LUNCH.get());
-                output.accept(ESDItems.THERMAL_SPRINGBLADE_STRAP.get());
-                output.accept(ESDItems.STARFIRE_FLOWER_STRAP.get());
                 output.accept(ESDItems.SEEKER_TENTACLE_CUTS.get());
                 output.accept(ESDItems.COOKED_SEEKER_TENTACLE_CUTS.get());
                 output.accept(ESDItems.DRIED_SEEKER_TENTACLE_CUTS.get());
+                output.accept(ESDItems.LUNAR_BERRY_PIE.get());
+                output.accept(ESDItems.LUNAR_BERRY_PIE_SLICE.get());
+                // accessories
+                output.accept(ESDItems.THERMAL_SPRINGBLADE_STRAP.get());
+                output.accept(ESDItems.STARFIRE_FLOWER_STRAP.get());
             }
 
     );

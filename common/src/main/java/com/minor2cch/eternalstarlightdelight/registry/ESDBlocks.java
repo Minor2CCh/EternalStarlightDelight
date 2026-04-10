@@ -8,12 +8,16 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
+import vectorwing.farmersdelight.common.block.PieBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import java.util.function.Supplier;
 
 public final class ESDBlocks {
     private ESDBlocks() {}
+
+
+    // cabinets
     public static final Supplier<Block> LUNAR_CABINET = registerBlock("lunar_cabinet", () -> new ESDCabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL)));
     public static final Supplier<Block> NORTHLAND_CABINET = registerBlock("northland_cabinet", () -> new ESDCabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL)));
     public static final Supplier<Block> BANYIN_CABINET = registerBlock("banyin_cabinet", () -> new ESDCabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL)));
@@ -21,6 +25,9 @@ public final class ESDBlocks {
     public static final Supplier<Block> TORREYA_CABINET = registerBlock("torreya_cabinet", () -> new ESDCabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL)));
     public static final Supplier<Block> JINGLESTEM_CABINET = registerBlock("jinglestem_cabinet", () -> new ESDCabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL)));
     public static final Supplier<Block> CRADLEWOOD_CABINET = registerBlock("cradlewood_cabinet", () -> new ESDCabinetBlock(Block.Properties.ofFullCopy(Blocks.BARREL)));
+
+
+    // crates
     public static final Supplier<Block> LUNAR_BERRY_CRATE = registerBlock("lunar_berry_crate",
             () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 15)));
     public static final Supplier<Block> ABYSSAL_FRUIT_CRATE = registerBlock("abyssal_fruit_crate",
@@ -31,6 +38,9 @@ public final class ESDBlocks {
             () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final Supplier<Block> SILVER_PUNGENCY_FRUIT_CRATE = registerBlock("silver_pungency_fruit_crate",
             () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+
+
+    // colonies
     public static final Supplier<Block> BOULDERSHROOM_COLONY = registerBlock("bouldershroom_colony",
             () -> new BouldershroomColonyBlock(ESItems.BOULDERSHROOM.asHolder(), Block.Properties.ofFullCopy(ESBlocks.BOULDERSHROOM.get())));
     public static final Supplier<Block> GLOWING_MUSHROOM_COLONY = registerBlock("glowing_mushroom_colony",
@@ -44,14 +54,22 @@ public final class ESDBlocks {
                     .mapColor(MapColor.COLOR_YELLOW)
                     .randomTicks()
                     .lightLevel(state -> 12)));
+
+    // cooking block
     public static final Supplier<Block> DEEPSILVER_SKILLET = registerBlock("deepsilver_skillet",
             () -> new DeepSilverSkilletBlock(Block.Properties.ofFullCopy(ModBlocks.SKILLET.get())));
     public static final Supplier<Block> STARLIGHT_STOVE = registerBlock("starlight_stove",
             () -> new StarlightStoveBlock(Block.Properties.ofFullCopy(ModBlocks.STOVE.get())));
     public static final Supplier<Block> DEEPSILVER_COOKING_POT = registerBlock("deepsilver_cooking_pot",
             () -> new DeepSilverCookingPotBlock(Block.Properties.ofFullCopy(ModBlocks.COOKING_POT.get())));
+
+    // other building blocks
     public static final Supplier<Block> FROZEN_TUBE_BALE = registerBlock("frozen_tube_bale",
             () -> new RotatedPillarBlock(Block.Properties.of().sound(SoundType.GLASS).mapColor(MapColor.ICE).strength(1.5F, 2.0F)));
+
+    // food blocks
+    public static final Supplier<Block> LUNAR_BERRY_PIE = registerBlock("lunar_berry_pie",
+            () -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE), ESDItems.LUNAR_BERRY_PIE_SLICE));
     private static <T extends Block> Supplier<T> registerBlock(String id, Supplier<T> block){
         return ESDPlatform.INSTANCE.blockRegister(id, block);
     }
