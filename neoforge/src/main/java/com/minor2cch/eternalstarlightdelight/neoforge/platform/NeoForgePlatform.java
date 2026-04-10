@@ -22,8 +22,10 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
@@ -191,9 +193,7 @@ public class NeoForgePlatform implements ESDPlatform {
 
     }
     public static void init(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            DELAY_RUNNABLE_LIST.forEach(Runnable::run);
-        });
+        event.enqueueWork(() -> DELAY_RUNNABLE_LIST.forEach(Runnable::run));
     }
     @Override
     public void delayedInit(Runnable runnable){
@@ -272,5 +272,9 @@ public class NeoForgePlatform implements ESDPlatform {
                 break;
             }
         }
+    }
+    @Override
+    public FoodProperties.PossibleEffect createPossibleEffect(MobEffectInstance effect, float probability) {
+        return new FoodProperties.PossibleEffect(() -> effect, probability);
     }
 }

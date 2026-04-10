@@ -11,8 +11,10 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -93,4 +95,5 @@ public interface ESDPlatform {
     void allowDamageEventRegister(TriFunction<LivingEntity, DamageSource, Float, Boolean> function);
     ItemStackWrapper getSkilletStackHandler(ItemStack stack);
     <T extends DataComponentType<?>> Supplier<T> dataComponentRegister(String id, Supplier<T> componentType);
+    FoodProperties.PossibleEffect createPossibleEffect(MobEffectInstance effect, float probability);
 }

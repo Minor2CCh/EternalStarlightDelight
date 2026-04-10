@@ -12,13 +12,13 @@ import com.minor2cch.eternalstarlightdelight.registry.*;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.Items;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 import vectorwing.farmersdelight.common.tag.CommonTags;
 import vectorwing.farmersdelight.common.tag.ModTags;
+
+import java.util.List;
 
 
 public final class EternalStarlightDelight {
@@ -54,8 +54,10 @@ public final class EternalStarlightDelight {
             ESDPlatform.INSTANCE.modifyStewItemComponentEntry(ESItems.CRINOA_PORRIDGE, DataComponents.MAX_STACK_SIZE, 16);
         }
         if(ESDConfigLoader.getConfig().getOverrideList().getExtraESDSoupEffect()){
-            ESDPlatform.INSTANCE.modifyItemComponentEntry(ESItems.CRINOA_PORRIDGE, DataComponents.FOOD, new FoodProperties.Builder().nutrition(ESFoods.CRINOA_PORRIDGE.get().nutrition()).saturationModifier(ESFoods.CRINOA_PORRIDGE.get().saturation() / Math.max(ESFoods.CRINOA_PORRIDGE.get().nutrition(), 1) / 2).effect(new MobEffectInstance(ModEffects.COMFORT, 3600, 0, false, false, false), 1.0F).usingConvertsTo(Items.BOWL).build());
+            ESDPlatform.INSTANCE.modifyItemComponentEntry(ESItems.CRINOA_PORRIDGE, DataComponents.FOOD, ESDUtils.extraFoodEffects(ESFoods.CRINOA_PORRIDGE.get(), List.of(ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(ModEffects.COMFORT, 3600, 0, false, false, false), 1.0F))));
+            ESDPlatform.INSTANCE.modifyItemComponentEntry(ESItems.BOULDERSHROOM_STEW, DataComponents.FOOD, ESDUtils.extraFoodEffects(ESFoods.BOULDERSHROOM_STEW.get(), List.of(ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(ModEffects.COMFORT, 2400, 0, false, false, false), 1.0F))));
         }
+        // new FoodProperties.Builder().nutrition(ESFoods.CRINOA_PORRIDGE.get().nutrition()).saturationModifier(ESFoods.CRINOA_PORRIDGE.get().saturation() / Math.max(ESFoods.CRINOA_PORRIDGE.get().nutrition(), 1) / 2).effect(new MobEffectInstance(ModEffects.COMFORT, 3600, 0, false, false, false), 1.0F).usingConvertsTo(Items.BOWL).build()
         ESDPlatform.INSTANCE.modifyItemComponentEntry(ESDItems.DEEPSILVER_SKILLET, DataComponents.MAX_DAMAGE, ESItemTiers.DEEPSILVER.getUses());//SkilletItemを継承する場合、後付で変える必要がある
         ESDPlatform.INSTANCE.removeItemComponentEntry(ESDItems.KNIFE_OF_HUNGER, DataComponents.MAX_DAMAGE);//耐久値はない扱い
         //ESDPlatform.INSTANCE.modifyItemComponentEntry(() -> Items.GLISTERING_MELON_SLICE, DataComponents.FOOD, new FoodProperties.Builder().nutrition(6).saturationModifier(1.2F).build());
