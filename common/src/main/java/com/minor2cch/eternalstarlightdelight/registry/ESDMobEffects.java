@@ -17,8 +17,8 @@ import java.util.function.Supplier;
 public final class ESDMobEffects {
     private ESDMobEffects() {}
     public static final Holder<MobEffect> ETHER_INFESTED = registerMobEffect("ether_infested", () -> new EmptyMobEffect(MobEffectCategory.HARMFUL, 0xD1FFE1)
-            .addAttributeModifier(Attributes.ARMOR, EternalStarlightDelight.of("ether_infested_armor"), -1.0, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-            .addAttributeModifier(Attributes.ARMOR_TOUGHNESS, EternalStarlightDelight.of("ether_infested_armor_toughness"), -1.0, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+            .addAttributeModifier(Attributes.ARMOR, EternalStarlightDelight.of("ether_infested_armor"), -0.25, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+            .addAttributeModifier(Attributes.ARMOR_TOUGHNESS, EternalStarlightDelight.of("ether_infested_armor_toughness"), -0.25, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     public static final Holder<MobEffect> METEOR_OMEN = registerMobEffect("meteor_omen", () -> new EmptyMobEffect(MobEffectCategory.BENEFICIAL, 0xE9ADED)
             .addAttributeModifier(ESAttributes.METEOR_COUNTERATTACK_CHANCE.asHolder(), EternalStarlightDelight.of("meteor_extra_chance"), 0.25, AttributeModifier.Operation.ADD_VALUE));
     public static final Holder<MobEffect> STARLIGHT_BLESSING = registerMobEffect("starlight_blessing", () -> new StarlightBlessingMobEffect(MobEffectCategory.BENEFICIAL, 0x7597EB)

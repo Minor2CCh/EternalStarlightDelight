@@ -75,7 +75,7 @@
   "item.eternal_starlight_delight.dried_seeker_tentacle_cuts": "Dried Seeker Tentacle Cuts",
   "item.eternal_starlight_delight.lunar_berry_pie_slice": "Lunar Berry Pie Slice",
   "effect.eternal_starlight_delight.ether_infested": "Ether Infested",
-  "effect.eternal_starlight_delight.ether_infested.description": "Defense provided by armor is temporarily negated.",
+  "effect.eternal_starlight_delight.ether_infested.description": "Defense is temporarily reduced.",
   "effect.eternal_starlight_delight.meteor_omen": "Meteor Omen",
   "effect.eternal_starlight_delight.meteor_omen.description": "When attacked, it will drop a meteorite with a certain probability.",
   "effect.eternal_starlight_delight.starlight_blessing": "Starlight Blessing",
