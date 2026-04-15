@@ -53,7 +53,7 @@ dependencies {
     runtimeOnly("curse.maven:just-enough-effect-descriptions-jeed-532286:7346553")
     runtimeOnly("curse.maven:food-effect-tooltips-forge-776426:5730649")
     runtimeOnly("curse.maven:cloth-config-348521:5729127")
-    runtimeOnly("curse.maven:advanced-loot-info-1205426:7600918")
+    runtimeOnly("curse.maven:advanced-loot-info-1205426:7938903")
     runtimeOnly("lol.bai:badpackets:neo-${badpackets_version}")
     runtimeOnly("curse.maven:wthit-forge-455982:7546161")
 
