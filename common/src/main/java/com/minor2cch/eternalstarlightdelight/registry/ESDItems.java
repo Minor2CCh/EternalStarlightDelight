@@ -161,6 +161,8 @@ public final class ESDItems {
             () -> new Item(basicItem().food(ESDFoods.DRIED_SEEKER_TENTACLE_CUTS.get())));
     public static final Supplier<Item> LUNAR_BERRY_PIE_SLICE = registerItem("lunar_berry_pie_slice",
             () -> new Item(foodItem(ESDFoods.LUNAR_BERRY_PIE_SLICE.get())));
+    public static final Supplier<Item> STARLIT_SALAD = registerItem("starlit_salad",
+            () -> new ConsumableItem(bowlFoodItem(ESDFoods.STARLIT_SALAD.get())));
 
 
     // food blocks

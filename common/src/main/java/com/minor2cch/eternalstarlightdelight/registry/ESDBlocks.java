@@ -68,8 +68,9 @@ public final class ESDBlocks {
             () -> new RotatedPillarBlock(Block.Properties.of().sound(SoundType.GLASS).mapColor(MapColor.ICE).strength(1.5F, 2.0F)));
 
     // food blocks
+    @SuppressWarnings("all")
     public static final Supplier<Block> LUNAR_BERRY_PIE = registerBlock("lunar_berry_pie",
-            () -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE), ESDItems.LUNAR_BERRY_PIE_SLICE));
+            () -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE), () -> ESDItems.LUNAR_BERRY_PIE_SLICE.get()));  // Fabricだと初期化順の仕様上() -> get()式にしないと失敗する
     private static <T extends Block> Supplier<T> registerBlock(String id, Supplier<T> block){
         return ESDPlatform.INSTANCE.blockRegister(id, block);
     }

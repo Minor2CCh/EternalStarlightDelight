@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "c:crops/cabbage"
+    },
+    {
+      "item": "eternal_starlight:orbflora"
+    },
+    {
+      "item": "eternal_starlight:orbflora_light"
+    },
+    {
+      "item": "eternal_starlight:lumenstem"
+    },
+    {
+      "item": "eternal_starlight:jingling_pickle"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:starlit_salad"
+  }
+}
