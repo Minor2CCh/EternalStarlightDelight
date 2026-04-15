@@ -104,9 +104,10 @@ public final class ESDUtils {
                 default -> null;
             };
             if(properties.nutrition() > 5 && saturationModifier >= 1.0F && nourishmentEffect != null && !hasSameFoodEffect(foodProperties, ModEffects.NOURISHMENT)){
-                foodProperties = extraFoodEffects(foodProperties, List.of(nourishmentEffect));
+                stack.set(DataComponents.FOOD, extraFoodEffects(foodProperties, List.of(nourishmentEffect)));
+            }else{
+                stack.set(DataComponents.FOOD, foodProperties);
             }
-            stack.set(DataComponents.FOOD, foodProperties);
             stack.set(ESDDataComponents.IS_FRESH.get(), true);
         }
 
