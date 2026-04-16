@@ -28,6 +28,9 @@ import static vectorwing.farmersdelight.common.registry.ModItems.*;
 
 public final class ESDItems {
     private ESDItems() {}
+
+
+    // tools
     public static final Supplier<Item> FILLETING_OF_STARS = registerItem("filleting_of_stars", () -> new AethersentKnifeItem(ESItemTiers.AETHERSENT, ModItems.knifeItem(ESItemTiers.AETHERSENT)));
     public static final Supplier<Item> THERMAL_SPRINGSTONE_KNIFE = registerItem("thermal_springstone_knife", () -> new KnifeItem(ESItemTiers.THERMAL_SPRINGSTONE, ModItems.knifeItem(ESItemTiers.THERMAL_SPRINGSTONE)));
     public static final Supplier<Item> DEEPSILVER_KNIFE = registerItem("deepsilver_knife", () -> new KnifeItem(ESItemTiers.DEEPSILVER, ModItems.knifeItem(ESItemTiers.DEEPSILVER)));
@@ -41,6 +44,8 @@ public final class ESDItems {
     public static final Supplier<Item> PUNGENCY_FRUIT_KNIFE = registerItem("pungency_fruit_knife", () -> new KnifeItem(ESItemTiers.PUNGENCY_FRUIT, ModItems.knifeItem(ESItemTiers.PUNGENCY_FRUIT)));
     public static final Supplier<Item> UNREALIUM_KNIFE = registerItem("unrealium_knife", () -> new KnifeItem(ESItemTiers.UNREALIUM, unrealiumKnifeItem(ESItemTiers.UNREALIUM)));
     public static final Supplier<Item> GLISTERING_KNIFE = registerItem("glistering_knife", () -> new KnifeItem(ESItemTiers.GLISTERING, ModItems.knifeItem(ESItemTiers.GLISTERING).rarity(Rarity.RARE)));
+
+    // cabinets
     public static final Supplier<Item> LUNAR_CABINET = registerItem("lunar_cabinet", () -> new FuelBlockItem(ESDBlocks.LUNAR_CABINET.get(), basicItem(), 300));
     public static final Supplier<Item> NORTHLAND_CABINET = registerItem("northland_cabinet", () -> new FuelBlockItem(ESDBlocks.NORTHLAND_CABINET.get(), basicItem(), 300));
     public static final Supplier<Item> BANYIN_CABINET = registerItem("banyin_cabinet", () -> new FuelBlockItem(ESDBlocks.BANYIN_CABINET.get(), basicItem(), 300));
@@ -48,8 +53,9 @@ public final class ESDItems {
     public static final Supplier<Item> TORREYA_CABINET = registerItem("torreya_cabinet", () -> new FuelBlockItem(ESDBlocks.TORREYA_CABINET.get(), basicItem(), 300));
     public static final Supplier<Item> JINGLESTEM_CABINET = registerItem("jinglestem_cabinet", () -> new FuelBlockItem(ESDBlocks.JINGLESTEM_CABINET.get(), basicItem(), 300));
     public static final Supplier<Item> CRADLEWOOD_CABINET = registerItem("cradlewood_cabinet", () -> new FuelBlockItem(ESDBlocks.CRADLEWOOD_CABINET.get(), basicItem(), 300));
-    public static final Supplier<Item> DEEPSILVER_SKILLET = registerItem("deepsilver_skillet",
-            () -> new DeepSilverSkilletItem(ESDBlocks.DEEPSILVER_SKILLET.get(), basicItem().stacksTo(1).attributes(SkilletItem.createAttributes(ESItemTiers.DEEPSILVER, 5.0F, -3.1F))));
+
+
+    // crates
     public static final Supplier<Item> LUNAR_BERRY_CRATE = registerItem("lunar_berry_crate",
             () -> new BlockItem(ESDBlocks.LUNAR_BERRY_CRATE.get(), basicItem()));
     public static final Supplier<Item> ABYSSAL_FRUIT_CRATE = registerItem("abyssal_fruit_crate",
@@ -60,18 +66,27 @@ public final class ESDItems {
             () -> new BlockItem(ESDBlocks.BLOSSOM_OF_STARS_CRATE.get(), basicItem().rarity(Rarity.RARE)));
     public static final Supplier<Item> SILVER_PUNGENCY_FRUIT_CRATE = registerItem("silver_pungency_fruit_crate",
             () -> new BlockItem(ESDBlocks.SILVER_PUNGENCY_FRUIT_CRATE.get(), basicItem().rarity(Rarity.RARE)));
+
+
+    // colonies
     public static final Supplier<Item> BOULDERSHROOM_COLONY = registerItem("bouldershroom_colony",
             () -> new MushroomColonyItem(ESDBlocks.BOULDERSHROOM_COLONY.get(), basicItem()));
     public static final Supplier<Item> GLOWING_MUSHROOM_COLONY = registerItem("glowing_mushroom_colony",
             () -> new MushroomColonyItem(ESDBlocks.GLOWING_MUSHROOM_COLONY.get(), basicItem()));
     public static final Supplier<Item> MARIMOLD_COLONY = registerItem("marimold_colony",
             () -> new MushroomColonyItem(ESDBlocks.MARIMOLD_COLONY.get(), basicItem()));
+
+    // cooking block
+    public static final Supplier<Item> DEEPSILVER_SKILLET = registerItem("deepsilver_skillet",
+            () -> new DeepSilverSkilletItem(ESDBlocks.DEEPSILVER_SKILLET.get(), basicItem().stacksTo(1).attributes(SkilletItem.createAttributes(ESItemTiers.DEEPSILVER, 5.0F, -3.1F))));
     public static final Supplier<Item> STARLIGHT_STOVE = registerItem("starlight_stove",
             () -> new BlockItem(ESDBlocks.STARLIGHT_STOVE.get(), basicItem()));
     public static final Supplier<Item> DEEPSILVER_COOKING_POT = registerItem("deepsilver_cooking_pot",
             () -> new DeepSilverCookingPotItem(ESDBlocks.DEEPSILVER_COOKING_POT.get(), basicItem().stacksTo(1)));
 
-
+    // other building blocks
+    public static final Supplier<Item> FROZEN_TUBE_BALE = registerItem("frozen_tube_bale",
+            () -> new BlockItem(ESDBlocks.FROZEN_TUBE_BALE.get(), basicItem()));
 
     //foods
     public static final Supplier<Item> DRIED_ROOKFISH = registerItem("dried_rookfish",
@@ -130,8 +145,6 @@ public final class ESDItems {
             () -> new ConsumableItem(bowlFoodItem(ESDFoods.AURORA_DEER_DICE_STEAK_PASTA.get()), true, false));
     public static final Supplier<Item> LUNARIS_SHERBET = registerItem("lunaris_sherbet",
             () -> new ConsumableItem(foodItem(ESDFoods.LUNARIS_SHERBET.get()).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), true, false));
-    public static final Supplier<Item> FROZEN_TUBE_BALE = registerItem("frozen_tube_bale",
-            () -> new BlockItem(ESDBlocks.FROZEN_TUBE_BALE.get(), basicItem()));
     public static final Supplier<Item> AMARAMBER_POPSICLE = registerItem("amaramber_popsicle",
             () -> new ConsumableItem(basicItem().food(ESDFoods.AMARAMBER_POPSICLE.get()), true, false));
     public static final Supplier<Item> STARMINA_NOODLE_SOUP = registerItem("starmina_noodle_soup",
@@ -140,6 +153,23 @@ public final class ESDItems {
             () -> new ConsumableItem(foodItem(ESDFoods.AURORA_DEER_JERKY.get()), true, false));
     public static final Supplier<Item> AURORA_DEER_STEAK_SPECIAL_LUNCH = registerItem("aurora_deer_steak_special_lunch",
             () -> new ConsumableItem(bowlFoodItem(ESDFoods.AURORA_DEER_STEAK_SPECIAL_LUNCH.get()), true, false));
+    public static final Supplier<Item> SEEKER_TENTACLE_CUTS = registerItem("seeker_tentacle_cuts",
+            () -> new Item(basicItem().food(ESDFoods.SEEKER_TENTACLE_CUTS.get())));
+    public static final Supplier<Item> COOKED_SEEKER_TENTACLE_CUTS = registerItem("cooked_seeker_tentacle_cuts",
+            () -> new Item(basicItem().food(ESDFoods.COOKED_SEEKER_TENTACLE_CUTS.get())));
+    public static final Supplier<Item> DRIED_SEEKER_TENTACLE_CUTS = registerItem("dried_seeker_tentacle_cuts",
+            () -> new Item(basicItem().food(ESDFoods.DRIED_SEEKER_TENTACLE_CUTS.get())));
+    public static final Supplier<Item> LUNAR_BERRY_PIE_SLICE = registerItem("lunar_berry_pie_slice",
+            () -> new Item(foodItem(ESDFoods.LUNAR_BERRY_PIE_SLICE.get())));
+    public static final Supplier<Item> STARLIT_SALAD = registerItem("starlit_salad",
+            () -> new ConsumableItem(bowlFoodItem(ESDFoods.STARLIT_SALAD.get())));
+
+
+    // food blocks
+    public static final Supplier<Item> LUNAR_BERRY_PIE = registerItem("lunar_berry_pie",
+            () -> new BlockItem(ESDBlocks.LUNAR_BERRY_PIE.get(), basicItem()));
+
+    // accessories
     public static final Supplier<Item> THERMAL_SPRINGBLADE_STRAP = registerItem("thermal_springblade_strap",
             () -> new Item(new Item.Properties()
                     .rarity(Rarity.RARE)
@@ -156,6 +186,25 @@ public final class ESDItems {
                             ),
                             Optional.of(Style.EMPTY.withColor(0xD29552)),
                             Optional.of(EternalStarlightDelight.of("textures/accessory/thermal_springblade_strap_overlay"))
+                    ))
+                    .stacksTo(1)));
+    public static final Supplier<Item> STARFIRE_FLOWER_STRAP = registerItem("starfire_flower_strap",
+            () -> new Item(new Item.Properties()
+                    .rarity(Rarity.RARE)
+                    .component(ESDataComponents.ACCESSORY.get(), new Accessory(
+                            ESDItemTags.SKILLET_ACCESSORY_APPLICABLE,
+                            Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".accessory_combination_target.skillet").withStyle(ChatFormatting.BLUE),
+                            ItemAttributeModifiers.builder()
+                                    .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(EternalStarlightDelight.of("starfire_flower_strap_entity_interaction_range"), 0.5, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                                    .add(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(EternalStarlightDelight.of("starfire_flower_strap_block_interaction_range"), 0.5, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                                    .add(Attributes.ATTACK_SPEED, new AttributeModifier(EternalStarlightDelight.of("starfire_flower_strap_block_interaction_range"), 0.2, AttributeModifier.Operation.ADD_MULTIPLIED_BASE), EquipmentSlotGroup.MAINHAND)
+                                    .build(),
+                            List.of(
+                                    Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".starfire_flower_strap.cook_fresh").withStyle(ChatFormatting.BLUE),
+                                    Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".starfire_flower_strap.cook_fresh.desc").withStyle(ChatFormatting.BLUE)
+                            ),
+                            Optional.of(Style.EMPTY.withColor(0xFF7D3D)),
+                            Optional.of(EternalStarlightDelight.of("textures/accessory/starfire_flower_strap_overlay"))
                     ))
                     .stacksTo(1)));
     private static <T extends Item> Supplier<T> registerItem(String id, Supplier<T> item){

@@ -17,7 +17,7 @@ public final class ESDFoods {
     public static final Supplier<FoodProperties> STARLIGHT_SOUP = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(7).saturationModifier(0.6F).effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600, 0), 1.0F).build());
     public static final Supplier<FoodProperties> SHADOW_SNAIL_PIE_SLICE = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(2).saturationModifier(0.6F).fast().build());
     public static final Supplier<FoodProperties> ABYSSAL_JUICE = Suppliers.memoize(() -> new FoodProperties.Builder().alwaysEdible().effect(new MobEffectInstance(MobEffects.WATER_BREATHING, 1200, 0), 1.0F).build());
-    public static final Supplier<FoodProperties> ETHER_BOTTLE = Suppliers.memoize(() -> new FoodProperties.Builder().alwaysEdible().effect(new MobEffectInstance(ESDMobEffects.ETHER_INFESTED, 1200, 0), 1.0F).build());
+    public static final Supplier<FoodProperties> ETHER_BOTTLE = Suppliers.memoize(() -> new FoodProperties.Builder().alwaysEdible().effect(new MobEffectInstance(ESDMobEffects.ETHER_INFESTED, 1200, 3), 1.0F).build());
     public static final Supplier<FoodProperties> AETHERSENT_FLAVOR_CANDY = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F).fast().alwaysEdible().effect(new MobEffectInstance(ESDMobEffects.METEOR_OMEN, 1200, 1), 1.0F).build());
     public static final Supplier<FoodProperties> STARCORE_FLAVOR_CANDY = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F).fast().alwaysEdible().effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1200, 0), 1.0F).build());
     public static final Supplier<FoodProperties> STARFIRE_FRIED_EGG = Suppliers.memoize(() -> new FoodProperties.Builder()
@@ -34,4 +34,13 @@ public final class ESDFoods {
     public static final Supplier<FoodProperties> STARMINA_NOODLE_SOUP = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(14).saturationModifier(0.75F).effect(new MobEffectInstance(ModEffects.NOURISHMENT, 3600, 0), 1.0f).effect(new MobEffectInstance(ESDMobEffects.STARLIGHT_BLESSING, 3600, 0), 1.0f).build());
     public static final Supplier<FoodProperties> AURORA_DEER_JERKY = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(3).saturationModifier(1.0F).effect(new MobEffectInstance(ModEffects.COMFORT, 600, 0, false, false, false), 1.0F).effect(new MobEffectInstance(ESDMobEffects.STARLIGHT_BLESSING, 300, 0), 1.0f).fast().build());
     public static final Supplier<FoodProperties> AURORA_DEER_STEAK_SPECIAL_LUNCH = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(16).saturationModifier(0.75F).effect(new MobEffectInstance(ModEffects.NOURISHMENT, 3600, 0, false, false, false), 1.0f).effect(new MobEffectInstance(ModEffects.COMFORT, 3600, 0, false, false, false), 1.0f).effect(new MobEffectInstance(ESDMobEffects.STARFIRE_WARMTH, 3600, 0), 1.0f).build());
+    public static final Supplier<FoodProperties> SEEKER_TENTACLE_CUTS = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(1).saturationModifier(0.1F).fast().build());
+    public static final Supplier<FoodProperties> COOKED_SEEKER_TENTACLE_CUTS = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(4).saturationModifier(0.6F).fast().build());
+    public static final Supplier<FoodProperties> DRIED_SEEKER_TENTACLE_CUTS = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(2).saturationModifier(1.75F).fast().effect(new MobEffectInstance(ESDMobEffects.STARLIGHT_BLESSING, 300, 1), 1.0f).alwaysEdible().build());
+    public static final Supplier<FoodProperties> LUNAR_BERRY_PIE_SLICE = Suppliers.memoize(() -> new FoodProperties.Builder()
+            .nutrition(3).saturationModifier(0.3f).fast()
+            .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 0, false, false), 1.0F)
+            .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 400, 0, false, false), 1.0F).build());
+    public static final Supplier<FoodProperties> STARLIT_SALAD = Suppliers.memoize(() -> new FoodProperties.Builder()
+            .nutrition(8).saturationModifier(0.6f).effect(new MobEffectInstance(ESDMobEffects.STARLIGHT_BLESSING, 1200, 0), 1.0f).effect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 1200, 0), 1.0f).build());
 }

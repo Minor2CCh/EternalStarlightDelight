@@ -6,8 +6,11 @@
     "eternal_starlight_delight:starcore_flavor_candy",
     "#c:foods/crinoa_dough",
     "#c:foods/crinoa_bread",
+    "#c:foods/seeker_tentacle",
     "eternal_starlight_delight:starlight_hamburger",
     "eternal_starlight_delight:dried_rookfish",
-    "eternal_starlight_delight:aurora_deer_jerky"
+    "eternal_starlight_delight:aurora_deer_jerky",
+    "eternal_starlight_delight:cooked_seeker_tentacle_cuts",
+    "eternal_starlight_delight:dried_seeker_tentacle_cuts"
   ]
 }

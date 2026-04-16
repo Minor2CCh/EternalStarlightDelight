@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "eternal_starlight:shadow_snail_shell"
+  },
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "eternal_starlight:velvetumoss_ball"
+    },
+    {
+      "tag": "c:foods/cooked_shadow_snail_meat"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight:shadow_escargot"
+  }
+}

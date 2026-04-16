@@ -11,8 +11,10 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -23,6 +25,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.apache.commons.lang3.function.TriFunction;
+import vectorwing.farmersdelight.common.item.component.ItemStackWrapper;
 
 import java.nio.file.Path;
 import java.util.*;
@@ -81,7 +84,6 @@ public interface ESDPlatform {
     }
     void useItemCallBack(TriFunction<Player, Level, InteractionHand, InteractionResultHolder<ItemStack>> function);
     void compostItemRegister(Item item, float value);
-    InteractionResultHolder<ItemStack> deepsilverSkilletUsing(Level level, Player player, InteractionHand hand);
     void delayedInit(Runnable runnable);
     BiFunction<BlockPos, BlockState, ? extends BlockEntity> instanceDeepSilverCookingPotBlockEntity();
     Supplier<BlockEntityType<? extends BlockEntity>> registerDeepSilverCookingPot(String id);
@@ -91,4 +93,7 @@ public interface ESDPlatform {
     TagKey<Item> getWaterBucketTag();
     <T extends RecipeSerializer<?>> Supplier<T> recipeSerializerRegister(String id, Supplier<T> recipeSerializer);
     void allowDamageEventRegister(TriFunction<LivingEntity, DamageSource, Float, Boolean> function);
+    ItemStackWrapper getSkilletStackHandler(ItemStack stack);
+    <T extends DataComponentType<?>> Supplier<T> dataComponentRegister(String id, Supplier<T> componentType);
+    FoodProperties.PossibleEffect createPossibleEffect(MobEffectInstance effect, float probability);
 }

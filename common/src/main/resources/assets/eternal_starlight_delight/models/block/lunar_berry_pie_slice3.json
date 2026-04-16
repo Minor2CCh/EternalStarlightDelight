@@ -1,0 +1,10 @@
+{
+  "parent": "farmersdelight:block/pie_slice3",
+  "textures": {
+    "particle": "eternal_starlight_delight:block/lunar_berry_pie_top",
+    "bottom": "farmersdelight:block/pie_bottom",
+    "inner": "eternal_starlight_delight:block/lunar_berry_pie_inner",
+    "side": "farmersdelight:block/pie_side",
+    "top": "eternal_starlight_delight:block/lunar_berry_pie_top"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "esd_lunar_berry_pie",
+  "key": {
+    "#": {
+      "item": "eternal_starlight_delight:lunar_berry_pie_slice"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:lunar_berry_pie"
+  }
+}

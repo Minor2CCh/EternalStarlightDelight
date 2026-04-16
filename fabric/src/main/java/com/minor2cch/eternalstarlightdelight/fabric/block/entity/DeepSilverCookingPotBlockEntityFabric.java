@@ -21,9 +21,11 @@ public class DeepSilverCookingPotBlockEntityFabric extends CookingPotBlockEntity
     public boolean isValidBlockState(@NotNull BlockState blockState) {
         return this.getType().isValid(blockState);
     }
+    @Override
     public void animationTick(Level level, BlockPos pos, BlockState state) {
         CookingPotBlockEntity.animationTick(level, pos, state, this);
     }
+    @Override
     public void cookingTick(Level level, BlockPos pos, BlockState state) {
         CookingPotBlockEntity.cookingTick(level, pos, state, this);
     }

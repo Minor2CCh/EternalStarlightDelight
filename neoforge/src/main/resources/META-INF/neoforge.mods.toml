@@ -8,6 +8,7 @@ modId = "eternal_starlight_delight"
 version = "${version}"
 displayName = "Eternal Starlight's Delight"
 authors = "Minor2CCh"
+credits = "TohokuAlpha"
 description = '''
 A unofficial mod that adds collaborative elements between Farmer's Delight and Eternal Starlight.
 '''

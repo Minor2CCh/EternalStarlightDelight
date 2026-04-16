@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_thermal_springblade_strap": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eternal_starlight_delight:thermal_springblade_strap"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eternal_starlight_delight:starfire_flower_strap_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_thermal_springblade_strap"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eternal_starlight_delight:starfire_flower_strap_smithing"
+    ]
+  }
+}
