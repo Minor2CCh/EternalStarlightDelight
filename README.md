@@ -37,6 +37,6 @@ The Starlight Stove, Deepsilver Cooking Pot, and Deepsilver Skillet double the c
 ・Wild crops from Farmers' Delight now appear in the Eternal Starlight biome.<br>
 ・Throwing the Energy Boomerang onto a cutting board causes it to behave as if sliced by a knife.<br>
 ・Some mobs in Eternal Starlight grant a drop bonus when defeated with a knife.<br>
-・Can plant Pungency Fruit in Rich Soil Farmland (Fabric)<br>
+・Can plant Pungency Fruit in Rich Soil Farmland (Only Fabric).<br>
 ・The effects of some Farmer's Delight seeds will be changed in Seeds Launcher.<br>
 ・The stack limit for Eternal Starlight's stew-type items will be 16.
