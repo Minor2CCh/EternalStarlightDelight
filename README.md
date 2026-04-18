@@ -3,11 +3,11 @@
 This is a mod that adds foods fitting the atmosphere of Farmer's Delight and the worldview of Eternal Starlight, along with code and data to ensure compatibility between these two.<br>
 
 ## Extra foods (now 1.0.0)<br>
-・2 drying foods<br>
-・12 cut foods<br>
-・9 light meals<br>
+・3 drying foods<br>
+・14 cut foods<br>
+・10 light meals<br>
 ・2 ingredients<br>
-・6 meals<br>
+・7 meals<br>
 
 ## New Blocks<br>
 ### 3 mushrooms Colony<br>
@@ -28,6 +28,8 @@ The Starlight Stove, Deepsilver Cooking Pot, and Deepsilver Skillet double the c
 ・If the original material has special effects, they will also be applied to the knife.<br>
 ### Add 1 knife's Accessory<br>
 ・Thermal Springblade Strap<br>
+### Add 1 Skillet's Accessory<br>
+・Starfire Flower Strap<br>
 ## Other Changes<br>
 ### Add a recipe to the cutting board<br>
 ・The recipe for the cutting board was provided by [Farmer's Cutting: Eternal Starlight](https://modrinth.com/datapack/farmers-cutting-eternal-starlight).<br>
