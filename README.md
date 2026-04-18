@@ -2,7 +2,7 @@
 # About
 This is a mod that adds foods fitting the atmosphere of Farmer's Delight and the worldview of Eternal Starlight, along with code and data to ensure compatibility between these two.<br>
 
-## Extra foods (now 1.0.0)<br>
+## Extra foods (now 1.1.0)<br>
 ・3 drying foods<br>
 ・14 cut foods<br>
 ・10 light meals<br>
