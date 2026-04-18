@@ -1,4 +1,4 @@
-![ESDelight Meals (Alpha.2)](https://cdn.modrinth.com/data/YylITkmH/images/2ba3d34330e2c08928129e0a2fb6cd6a4eaf2276.png)
+![ESDelight Meals (1.1.0)](https://cdn.modrinth.com/data/YylITkmH/images/8115a72cf9cecef49bbc75907c7ff4aa27fd77fe.png)
 # About
 This is a mod that adds foods fitting the atmosphere of Farmer's Delight and the worldview of Eternal Starlight, along with code and data to ensure compatibility between these two.<br>
 
