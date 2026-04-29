@@ -12,6 +12,7 @@
     "CookingPotMenuMixin",
     "CuttingBoardBlockEntityMixin",
     "DualWieldingSwordItemMixin",
+    "EnchantmentMixin",
     "EntityBlockMixin",
     "ESItemTiersMixin",
     "LootTableMixin",
