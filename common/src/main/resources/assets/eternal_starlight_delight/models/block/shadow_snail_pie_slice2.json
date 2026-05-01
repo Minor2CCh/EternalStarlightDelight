@@ -1,0 +1,9 @@
+{
+  "parent": "farmersdelight:block/template_pie_slice2",
+  "textures": {
+    "bottom": "eternal_starlight_delight:block/shadow_snail_pie_bottom",
+    "inner": "eternal_starlight_delight:block/shadow_snail_pie_inner",
+    "side": "eternal_starlight_delight:block/shadow_snail_pie_side",
+    "top": "eternal_starlight_delight:block/shadow_snail_pie_top"
+  }
+}

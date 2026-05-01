@@ -15,7 +15,8 @@ public final class ESDFoods {
     public static final Supplier<FoodProperties> DRIED_ROOKFISH = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(4).saturationModifier(0.8F).effect(new MobEffectInstance(ModEffects.COMFORT, 600, 0, false, false, false), 1.0F).build());
     public static final Supplier<FoodProperties> PUNGENCY_FRUIT_SLICE = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(2).saturationModifier(0.6F).effect(new MobEffectInstance(MobEffects.CONFUSION, 120, 0), 0.8F).build());
     public static final Supplier<FoodProperties> STARLIGHT_SOUP = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(7).saturationModifier(0.6F).effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600, 0), 1.0F).build());
-    public static final Supplier<FoodProperties> SHADOW_SNAIL_PIE_SLICE = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(2).saturationModifier(0.6F).fast().build());
+    public static final Supplier<FoodProperties> SHADOW_SNAIL_PIE_SLICE = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(2).saturationModifier(0.6F).fast()
+            .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 0, false, false), 1.0F).build());
     public static final Supplier<FoodProperties> ABYSSAL_JUICE = Suppliers.memoize(() -> new FoodProperties.Builder().alwaysEdible().effect(new MobEffectInstance(MobEffects.WATER_BREATHING, 1200, 0), 1.0F).build());
     public static final Supplier<FoodProperties> ETHER_BOTTLE = Suppliers.memoize(() -> new FoodProperties.Builder().alwaysEdible().effect(new MobEffectInstance(ESDMobEffects.ETHER_INFESTED, 1200, 3), 1.0F).build());
     public static final Supplier<FoodProperties> AETHERSENT_FLAVOR_CANDY = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F).fast().alwaysEdible().effect(new MobEffectInstance(ESDMobEffects.METEOR_OMEN, 1200, 1), 1.0F).build());

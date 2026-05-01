@@ -1,8 +1,7 @@
-package com.minor2cch.eternalstarlightdelight.mixin;
+package com.minor2cch.eternalstarlightdelight.neoforge.mixin;
 
 import com.minor2cch.eternalstarlightdelight.ESDUtils;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -11,7 +10,10 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,7 +29,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Mixin(CuttingBoardBlockEntity.class)
-public abstract class CuttingBoardBlockEntityMixin {
+public abstract class CuttingBoardBlockEntityMixinNeoForge {
+    @Final
+    @Shadow
+    private ItemStackHandler inventory;
     @Shadow
     protected abstract Optional<RecipeHolder<CuttingBoardRecipe>> getMatchingRecipe(ItemStack toolStack, @Nullable Player player);
     @Inject(at = @At("HEAD"), method = "processStoredItemUsingTool", cancellable = true)
@@ -41,7 +46,7 @@ public abstract class CuttingBoardBlockEntityMixin {
             Optional<RecipeHolder<CuttingBoardRecipe>> matchingRecipe = getMatchingRecipe(toolStack, player);
 
             matchingRecipe.ifPresent(recipe -> {
-                List<ItemStack> results = recipe.value().rollResults(level.random, EnchantmentHelper.getItemEnchantmentLevel(be.getLevel().holderLookup(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE), toolStack));
+                List<ItemStack> results = recipe.value().rollResults(level.random, EnchantmentHelper.getTagEnchantmentLevel(level.holder(Enchantments.FORTUNE).get(), toolStack), new RecipeWrapper(inventory));
                 for (ItemStack resultStack : results) {
                     Direction direction = be.getBlockState().getValue(CuttingBoardBlock.FACING).getCounterClockWise();
                     ItemStack copyStack = resultStack.copy();

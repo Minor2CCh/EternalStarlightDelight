@@ -51,7 +51,7 @@ public class EternalStarlightDelightNeoForgeClient {
     @SubscribeEvent
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ESDBlockEntityTypes.DEEPSILVER_SKILLET.get(), SkilletRenderer::new);
-        event.registerBlockEntityRenderer(ESDBlockEntityTypes.STARLIGHT_STOVE.get(), StoveRenderer::new);
+        event.registerBlockEntityRenderer(ESDBlockEntityTypes.STARLIGHT_STOVE.get(), DefaultStoveRenderer::new);
     }
 
     @SubscribeEvent

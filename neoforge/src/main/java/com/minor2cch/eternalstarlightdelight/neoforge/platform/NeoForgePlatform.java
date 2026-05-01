@@ -1,6 +1,7 @@
 package com.minor2cch.eternalstarlightdelight.neoforge.platform;
 
 import com.minor2cch.eternalstarlightdelight.EternalStarlightDelight;
+import com.minor2cch.eternalstarlightdelight.block.entity.StarlightStoveBlockEntity;
 import com.minor2cch.eternalstarlightdelight.neoforge.block.entity.DeepSilverCookingPotBlockEntityNeoForge;
 import com.minor2cch.eternalstarlightdelight.neoforge.mixin.CookingPotBlockEntityAccessor;
 import com.minor2cch.eternalstarlightdelight.neoforge.registry.ESDBlockEntityTypesNeoForge;
@@ -13,6 +14,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -20,6 +22,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -33,6 +36,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
@@ -46,9 +51,11 @@ import net.neoforged.neoforge.data.loading.DatagenModLoader;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.entity.player.UseItemOnBlockEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.apache.commons.lang3.function.TriFunction;
 import vectorwing.farmersdelight.common.Configuration;
+import vectorwing.farmersdelight.common.block.AbstractStoveBlock;
 import vectorwing.farmersdelight.common.item.component.ItemStackWrapper;
 import vectorwing.farmersdelight.common.registry.ModDataComponents;
 
@@ -74,6 +81,7 @@ public class NeoForgePlatform implements ESDPlatform {
     private static final List<Map.Entry<Supplier<Item>, Consumer<DataComponentPatch.Builder>>> STEW_ITEM_BUILDER_LIST = new ArrayList<>();
     private static final List<Map.Entry<Supplier<Item>, Consumer<DataComponentPatch.Builder>>> ITEM_REMOVE_BUILDER_LIST = new ArrayList<>();
     private static final List<TriFunction<Player, Level, InteractionHand, InteractionResultHolder<ItemStack>>> ITEM_USE_FUNCTIONS = new ArrayList<>();
+    private static final List<SepFunction<Player, Level, InteractionHand, Direction, BlockPos, Vec3, Boolean, InteractionResult>> ITEM_USE_ON_BLOCK_FUNCTIONS = new ArrayList<>();
     private static final List<TriFunction<LivingEntity, DamageSource, Float, Boolean>> ALLOW_DAMAGE_FUNCTIONS = new ArrayList<>();
     public static final HashMap<Item, Float> COMPOST_TRUE_MAP = new HashMap<>();
     private static final List<Runnable> DELAY_RUNNABLE_LIST = new ArrayList<>();
@@ -190,7 +198,6 @@ public class NeoForgePlatform implements ESDPlatform {
                 break;
             }
         }
-
     }
     public static void init(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> DELAY_RUNNABLE_LIST.forEach(Runnable::run));
@@ -276,5 +283,45 @@ public class NeoForgePlatform implements ESDPlatform {
     @Override
     public FoodProperties.PossibleEffect createPossibleEffect(MobEffectInstance effect, float probability) {
         return new FoodProperties.PossibleEffect(() -> effect, probability);
+    }
+
+    @Override
+    public void smokeParticles(StarlightStoveBlockEntity blockEntity) {
+        assert blockEntity.getLevel() != null;
+
+        var items = blockEntity.getItems();
+        for (int i = 0; i < items.getSlots(); ++i) {
+            if (items.getStackInSlot(i).isEmpty()) continue;
+            if (blockEntity.getLevel().random.nextFloat() >= 0.2F) continue;
+            Vec2 itemOffset = blockEntity.getStoveItemOffset(i);
+            Direction direction = blockEntity.getBlockState().getValue(AbstractStoveBlock.FACING);
+            if (direction.get2DDataValue() % 2 != 0)
+                itemOffset = new Vec2(itemOffset.y, itemOffset.x);
+            double x = (blockEntity.getBlockPos().getX() + 0.5D) - (direction.getStepX() * itemOffset.x) + (direction.getClockWise().getStepX() * itemOffset.x);
+            double y = blockEntity.getBlockPos().getY() + 1.0D;
+            double z = (blockEntity.getBlockPos().getZ() + 0.5D) - (direction.getStepZ() * itemOffset.y) + (direction.getClockWise().getStepZ() * itemOffset.y);
+
+            for (int k = 0; k < 3; ++k) {
+                blockEntity.getLevel().addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 5.0E-4D, 0.0D);
+            }
+        }
+    }
+    @Override
+    public void useBlockCallBack(SepFunction<Player, Level, InteractionHand, Direction, BlockPos, Vec3, Boolean, InteractionResult> function) {
+        ITEM_USE_ON_BLOCK_FUNCTIONS.add(function);
+    }
+    @SubscribeEvent
+    public static void useOnBlockEvent(UseItemOnBlockEvent event){
+        if(event.getUsePhase() == UseItemOnBlockEvent.UsePhase.BLOCK){
+            for(SepFunction<Player, Level, InteractionHand, Direction, BlockPos, Vec3, Boolean, InteractionResult> function : ITEM_USE_ON_BLOCK_FUNCTIONS){
+                InteractionResult result = function.accept(event.getPlayer(), event.getLevel(),event.getHand(), event.getFace(), event.getPos(), event.getUseOnContext().getClickLocation(), event.getUseOnContext().isInside());
+                if(result == InteractionResult.SUCCESS || result == InteractionResult.CONSUME){
+                    event.setCanceled(true);
+                    event.cancelWithResult(result == InteractionResult.SUCCESS ? ItemInteractionResult.SUCCESS : ItemInteractionResult.CONSUME);
+                    break;
+                }
+            }
+
+        }
     }
 }

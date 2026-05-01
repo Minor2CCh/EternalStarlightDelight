@@ -63,7 +63,7 @@ public final class EternalStarlightDelight {
         //ESDPlatform.INSTANCE.modifyItemComponentEntry(() -> Items.GLISTERING_MELON_SLICE, DataComponents.FOOD, new FoodProperties.Builder().nutrition(6).saturationModifier(1.2F).build());
 
         if(ESDConfigLoader.getConfig().getBoomerangUsableKnife()){
-            ESDPlatform.INSTANCE.modifyItemComponentEntry(ESItems.ENERGY_BOOMERANG, DataComponents.TOOL, ((EnergyBoomerangItem)(ESItems.ENERGY_BOOMERANG.get())).getTier().createToolProperties(ModTags.MINEABLE_WITH_KNIFE));
+            ESDPlatform.INSTANCE.modifyItemComponentEntry(ESItems.ENERGY_BOOMERANG, DataComponents.TOOL, ((EnergyBoomerangItem)(ESItems.ENERGY_BOOMERANG.get())).getTier().createToolProperties(ModTags.Blocks.MINEABLE_WITH_KNIFE));
         }
     }
     private static void registerCoolingItem(){
@@ -72,8 +72,8 @@ public final class EternalStarlightDelight {
     }
     private static void extraTag(){
         if(ESDConfigLoader.getConfig().getBoomerangUsableKnife()){
-            ESDPlatform.INSTANCE.injectTag(CommonTags.TOOLS_KNIFE, ESItems.ENERGY_BOOMERANG.get());
-            ESDPlatform.INSTANCE.injectTag(ModTags.KNIVES, ESItems.ENERGY_BOOMERANG.get());
+            ESDPlatform.INSTANCE.injectTag(CommonTags.Items.TOOLS_KNIFE, ESItems.ENERGY_BOOMERANG.get());
+            ESDPlatform.INSTANCE.injectTag(ModTags.Items.KNIVES, ESItems.ENERGY_BOOMERANG.get());
         }
     }
 }

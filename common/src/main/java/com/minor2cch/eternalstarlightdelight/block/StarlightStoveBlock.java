@@ -3,6 +3,7 @@ package com.minor2cch.eternalstarlightdelight.block;
 import cn.leolezury.eternalstarlight.common.registry.ESItems;
 import com.minor2cch.eternalstarlightdelight.block.entity.StarlightStoveBlockEntity;
 import com.minor2cch.eternalstarlightdelight.registry.ESDBlockEntityTypes;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -17,13 +18,18 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jetbrains.annotations.NotNull;
-import vectorwing.farmersdelight.common.block.StoveBlock;
+import vectorwing.farmersdelight.common.block.AbstractStoveBlock;
 
 import javax.annotation.Nullable;
 
-public class StarlightStoveBlock extends StoveBlock {
+public class StarlightStoveBlock extends AbstractStoveBlock {
     public static final BooleanProperty STARFIRE = BooleanProperty.create("starfire");
+    public static final MapCodec<StarlightStoveBlock> CODEC = simpleCodec(StarlightStoveBlock::new);
+
+    @Override
+    public MapCodec<StarlightStoveBlock> codec() {
+        return CODEC;
+    }
     public StarlightStoveBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(defaultBlockState().setValue(STARFIRE, false));
@@ -34,7 +40,7 @@ public class StarlightStoveBlock extends StoveBlock {
         return ESDBlockEntityTypes.STARLIGHT_STOVE.get().create(pos, state);
     }
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+    public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (stack.is(ESItems.STARFIRE.get()) && !state.getValue(STARFIRE) && state.getValue(LIT)) {
             level.setBlockAndUpdate(pos, state.setValue(STARFIRE, true));
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
@@ -45,9 +51,9 @@ public class StarlightStoveBlock extends StoveBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
         if (level.isClientSide) {
-            return blockState.getValue(LIT) ? createTickerHelper(blockEntityType, ESDBlockEntityTypes.STARLIGHT_STOVE.get(), StarlightStoveBlockEntity::animationTick) : null;
+            return blockState.getValue(LIT) ? createTickerHelper(blockEntityType, ESDBlockEntityTypes.STARLIGHT_STOVE.get(), StarlightStoveBlockEntity::particleTick) : null;
         } else {
-            return createTickerHelper(blockEntityType, ESDBlockEntityTypes.STARLIGHT_STOVE.get(), StarlightStoveBlockEntity::cookingTick);
+            return createTickerHelper(blockEntityType, ESDBlockEntityTypes.STARLIGHT_STOVE.get(), StarlightStoveBlockEntity::serverTick);
         }
     }
     @Override

@@ -1,13 +1,16 @@
 package com.minor2cch.eternalstarlightdelight.platform;
 
+import com.minor2cch.eternalstarlightdelight.block.entity.StarlightStoveBlockEntity;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
@@ -24,6 +27,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.function.TriFunction;
 import vectorwing.farmersdelight.common.item.component.ItemStackWrapper;
 
@@ -57,6 +61,9 @@ public interface ESDPlatform {
     }
     interface QuintConsumer<A, B, C, D, E> {
         void accept(A a, B b, C c, D d, E e);
+    }
+    interface SepFunction<A, B, C, D, E, F, G, H> {
+        H accept(A a, B b, C c, D d, E e, F f, G g);
     }
     List<ResourceLocation> REMOVE_RECIPE_LIST = new ArrayList<>();
     List<Map.Entry<TagKey<Item>, Item>> TAG_INJECT_ITEM_LIST = new ArrayList<>();
@@ -96,4 +103,6 @@ public interface ESDPlatform {
     ItemStackWrapper getSkilletStackHandler(ItemStack stack);
     <T extends DataComponentType<?>> Supplier<T> dataComponentRegister(String id, Supplier<T> componentType);
     FoodProperties.PossibleEffect createPossibleEffect(MobEffectInstance effect, float probability);
+    void smokeParticles(StarlightStoveBlockEntity blockEntity);
+    void useBlockCallBack(SepFunction<Player, Level, InteractionHand, Direction, BlockPos, Vec3, Boolean, InteractionResult> function);
 }

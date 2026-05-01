@@ -4,9 +4,14 @@ import cn.leolezury.eternalstarlight.common.registry.ESBlocks;
 import cn.leolezury.eternalstarlight.common.registry.ESItems;
 import com.minor2cch.eternalstarlightdelight.block.*;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
 import vectorwing.farmersdelight.common.block.PieBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
@@ -71,6 +76,15 @@ public final class ESDBlocks {
     @SuppressWarnings("all")
     public static final Supplier<Block> LUNAR_BERRY_PIE = registerBlock("lunar_berry_pie",
             () -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE), () -> ESDItems.LUNAR_BERRY_PIE_SLICE.get()));  // Fabricだと初期化順の仕様上() -> get()式にしないと失敗する
+
+    public static final Supplier<Block> SHADOW_SNAIL_PIE = registerBlock("shadow_snail_pie",
+            () -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE), ESDItems.SHADOW_SNAIL_PIE_SLICE)
+            {
+                @Override
+                public @NotNull ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+                    return new ItemStack(ESItems.SHADOW_SNAIL_PIE.get());
+                }
+            });
     private static <T extends Block> Supplier<T> registerBlock(String id, Supplier<T> block){
         return ESDPlatform.INSTANCE.blockRegister(id, block);
     }

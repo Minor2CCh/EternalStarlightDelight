@@ -54,7 +54,7 @@ public class BouldershroomColonyBlock extends MushroomColonyBlock implements Sim
         int age = state.getValue(COLONY_AGE);
         BlockPos groundPos = pos.relative(state.getValue(FACING).getOpposite());
         BlockState groundState = level.getBlockState(groundPos);
-        if (age < getMaxAge() && groundState.is(ModTags.MUSHROOM_COLONY_GROWABLE_ON) && random.nextInt(4) == 0) {
+        if (age < getMaxAge() && groundState.is(ModTags.Blocks.MUSHROOM_COLONY_GROWABLE_ON) && random.nextInt(4) == 0) {
             level.setBlock(pos, state.setValue(COLONY_AGE, age + 1), 2);
             //CommonHooks.fireCropGrowPost(level, pos, state);
         }

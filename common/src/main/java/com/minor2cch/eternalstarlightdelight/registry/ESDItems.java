@@ -19,6 +19,7 @@ import net.minecraft.world.item.component.ItemAttributeModifiers;
 import vectorwing.farmersdelight.common.FoodValues;
 import vectorwing.farmersdelight.common.item.*;
 import vectorwing.farmersdelight.common.registry.ModItems;
+import vectorwing.farmersdelight.common.utility.TextUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -162,12 +163,12 @@ public final class ESDItems {
     public static final Supplier<Item> LUNAR_BERRY_PIE_SLICE = registerItem("lunar_berry_pie_slice",
             () -> new Item(foodItem(ESDFoods.LUNAR_BERRY_PIE_SLICE.get())));
     public static final Supplier<Item> STARLIT_SALAD = registerItem("starlit_salad",
-            () -> new ConsumableItem(bowlFoodItem(ESDFoods.STARLIT_SALAD.get())));
+            () -> new ConsumableItem(bowlFoodItem(ESDFoods.STARLIT_SALAD.get()), true, false));
 
 
     // food blocks
     public static final Supplier<Item> LUNAR_BERRY_PIE = registerItem("lunar_berry_pie",
-            () -> new BlockItem(ESDBlocks.LUNAR_BERRY_PIE.get(), basicItem()));
+            () -> new PlaceableItem(ESDBlocks.LUNAR_BERRY_PIE.get(), basicItem()));
 
     // accessories
     public static final Supplier<Item> THERMAL_SPRINGBLADE_STRAP = registerItem("thermal_springblade_strap",
@@ -207,6 +208,14 @@ public final class ESDItems {
                             Optional.of(EternalStarlightDelight.of("textures/accessory/starfire_flower_strap_overlay"))
                     ))
                     .stacksTo(1)));
+    public static final Supplier<Item> DEBUG_SHADOW_SNAIL_PIE = registerItem("debug_shadow_snail_pie",
+            () -> new BlockItem(ESDBlocks.SHADOW_SNAIL_PIE.get(), basicItem())
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag isAdvanced) {
+                    tooltip.add(TextUtils.DEBUG_ITEM);
+                }
+            });
     private static <T extends Item> Supplier<T> registerItem(String id, Supplier<T> item){
         return ESDPlatform.INSTANCE.itemRegister(id, item);
     }

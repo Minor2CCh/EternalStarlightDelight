@@ -1,6 +1,7 @@
 package com.minor2cch.eternalstarlightdelight.fabric.platform;
 
 import com.minor2cch.eternalstarlightdelight.EternalStarlightDelight;
+import com.minor2cch.eternalstarlightdelight.block.entity.StarlightStoveBlockEntity;
 import com.minor2cch.eternalstarlightdelight.fabric.block.entity.DeepSilverCookingPotBlockEntityFabric;
 import com.minor2cch.eternalstarlightdelight.fabric.registey.ESDBlockEntityTypesFabric;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
@@ -8,22 +9,26 @@ import com.minor2cch.eternalstarlightdelight.registry.ESDBlocks;
 import com.minor2cch.eternalstarlightdelight.registry.ESDCreativeTabs;
 import com.google.auto.service.AutoService;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
+import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
@@ -41,6 +46,8 @@ import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.function.TriFunction;
 import vectorwing.farmersdelight.common.Configuration;
 import vectorwing.farmersdelight.common.item.component.ItemStackWrapper;
@@ -216,5 +223,15 @@ public class FabricPlatform implements ESDPlatform {
     public FoodProperties.PossibleEffect createPossibleEffect(MobEffectInstance effect, float probability) {
         return new FoodProperties.PossibleEffect(effect, probability);
     }
+
+    @Override
+    public void smokeParticles(StarlightStoveBlockEntity blockEntity) {
+    }
+
+    @Override
+    public void useBlockCallBack(SepFunction<Player, Level, InteractionHand, Direction, BlockPos, Vec3, Boolean, InteractionResult> function) {
+        UseBlockCallback.EVENT.register((player, level, hand, hitResult) -> function.accept(player, level, hand, hitResult.getDirection(), hitResult.getBlockPos(), hitResult.getLocation(), hitResult.isInside()));
+    }
+
 
 }

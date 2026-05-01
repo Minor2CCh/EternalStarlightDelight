@@ -1,20 +1,29 @@
 package com.minor2cch.eternalstarlightdelight.registry;
 
+import cn.leolezury.eternalstarlight.common.block.CarvedLunarisCactusFruitBlock;
+import cn.leolezury.eternalstarlight.common.block.LunarisCactusBlock;
+import cn.leolezury.eternalstarlight.common.registry.ESBlocks;
 import cn.leolezury.eternalstarlight.common.registry.ESFluids;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import vectorwing.farmersdelight.common.tag.ModTags;
 
 public final class ESDItemUseEvents {
     private ESDItemUseEvents() {}
@@ -48,6 +57,23 @@ public final class ESDItemUseEvents {
             }
 
             return InteractionResultHolder.pass(stack);
+        });
+        ESDPlatform.INSTANCE.useBlockCallBack((player, level, hand, direction, blockPos, clickPos, isInside) -> {
+            BlockState state = level.getBlockState(blockPos);
+            ItemStack handStack = player.getItemInHand(hand);
+            Block block = level.getBlockState(blockPos).getBlock();
+            Direction direction2 = direction.getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : direction;
+            if(handStack.is(ModTags.Items.KNIVES)){
+                if(block instanceof LunarisCactusBlock && state.getValue(LunarisCactusBlock.FRUIT)){
+                    level.setBlockAndUpdate(blockPos, ESBlocks.CARVED_LUNARIS_CACTUS_FRUIT.get().defaultBlockState().setValue(CarvedLunarisCactusFruitBlock.FACING, direction2));
+                    handStack.hurtAndBreak(1, player, player.getEquipmentSlotForItem(handStack));
+                    level.playSound(null, blockPos, SoundEvents.PUMPKIN_CARVE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    level.gameEvent(player, GameEvent.SHEAR, blockPos);
+                    player.awardStat(Stats.ITEM_USED.get(handStack.getItem()));
+                    return ItemInteractionResult.sidedSuccess(level.isClientSide).result();
+                }
+            }
+            return InteractionResult.PASS;
         });
     }
 }
