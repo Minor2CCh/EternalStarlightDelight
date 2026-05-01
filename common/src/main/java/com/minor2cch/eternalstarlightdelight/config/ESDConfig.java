@@ -9,6 +9,7 @@ public class ESDConfig {
     private OverrideList overrideList;
     private Boolean boomerangUsableKnife;
     private Boolean mendableAmaramberToolsInDispenser;
+    private Boolean placeableShadowSnailPie;
     private ESDConfig() {
     }
     public static ESDConfig defaultESDConfig(){
@@ -16,6 +17,7 @@ public class ESDConfig {
         config.overrideList = OverrideList.defaultOverrideList();
         config.boomerangUsableKnife = true;
         config.mendableAmaramberToolsInDispenser = true;
+        config.placeableShadowSnailPie = true;
         return config;
     }
     public static class OverrideList {
@@ -66,6 +68,10 @@ public class ESDConfig {
             mendableAmaramberToolsInDispenser = defaultESDConfig().mendableAmaramberToolsInDispenser;
             bl = true;
         }
+        if(placeableShadowSnailPie == null){
+            placeableShadowSnailPie = defaultESDConfig().placeableShadowSnailPie;
+            bl = true;
+        }
         return bl;
     }
     public OverrideList getOverrideList(){
@@ -76,6 +82,9 @@ public class ESDConfig {
     }
     public Boolean getMendableAmaramberToolsInDispenser(){
         return getOrDefault(this.mendableAmaramberToolsInDispenser, defaultESDConfig().mendableAmaramberToolsInDispenser);
+    }
+    public Boolean getPlaceableShadowSnailPie(){
+        return getOrDefault(this.placeableShadowSnailPie, defaultESDConfig().placeableShadowSnailPie);
     }
     @NotNull
     private static <T> T getOrDefault(@Nullable T value, @NotNull T defaultValue){
