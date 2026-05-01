@@ -1,6 +1,8 @@
 package com.minor2cch.eternalstarlightdelight.client;
 
+import cn.leolezury.eternalstarlight.common.registry.ESItems;
 import com.minor2cch.eternalstarlightdelight.ESDUtils;
+import com.minor2cch.eternalstarlightdelight.config.ESDConfigLoader;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
 import com.minor2cch.eternalstarlightdelight.registry.ESDItems;
 import net.minecraft.ChatFormatting;
@@ -8,6 +10,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import vectorwing.farmersdelight.common.Configuration;
+import vectorwing.farmersdelight.common.utility.TextUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +22,11 @@ public final class EternalStarlightDelightClient {
 
     public static void init() {
         TOOLTIP_FUNCTIONS.add((stack, tooltipContext, tooltipFlag, lines) -> {
+            if (stack.getItem() == ESItems.SHADOW_SNAIL_PIE.get()) {
+                if(ESDConfigLoader.getConfig().getPlaceableShadowSnailPie()){
+                    lines.add(Configuration.ENABLE_PUMPKIN_PIE_SNEAK_TO_PLACE.get() ? TextUtils.PLACEABLE_SNEAKING : TextUtils.PLACEABLE);
+                }
+            }
             if(stack.getItem() == ESDItems.DEEPSILVER_SKILLET.get()
                     || stack.getItem() == ESDItems.DEEPSILVER_COOKING_POT.get()
                     || stack.getItem() == ESDItems.STARLIGHT_STOVE.get()){

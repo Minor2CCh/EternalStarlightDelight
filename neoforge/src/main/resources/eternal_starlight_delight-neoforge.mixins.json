@@ -9,6 +9,8 @@
     "CompostBlockMixin",
     "CookingPotBlockEntityAccessor",
     "CookingPotBlockEntityMixinNeoForge",
+    "CuttingBoardBlockEntityMixinNeoForge",
+    "IItemExtensionMixin",
     "SkilletItemMixin"
   ],
   "injectors": {
