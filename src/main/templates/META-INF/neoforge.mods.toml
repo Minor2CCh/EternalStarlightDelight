@@ -1,45 +1,45 @@
 modLoader = "javafml"
-loaderVersion = "[2,)"
+loaderVersion = "${loader_version_range}"
 #issueTrackerURL = ""
-license = "MIT"
+license = "${mod_license}"
 
 [[mods]]
-modId = "eternal_starlight_delight"
+modId = "${mod_id}"
 version = "${version}"
 displayName = "Eternal Starlight's Delight"
-authors = "Minor2CCh"
+authors = "${mod_authors}"
 credits = "TohokuAlpha"
 description = '''
-A unofficial mod that adds collaborative elements between Farmer's Delight and Eternal Starlight.
+${mod_description}
 '''
 logoFile = "icon.png"
 displayURL = "https://github.com/Minor2CCh/EternalStarlightDelight"
 
-[[dependencies.eternal_starlight_delight]]
+[[dependencies."${mod_id}"]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21,)"
+versionRange = "${neo_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.eternal_starlight_delight]]
+[[dependencies."${mod_id}"]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.1,1.21.2)"
+versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.eternal_starlight_delight]]
+[[dependencies."${mod_id}"]]
 modId = "farmersdelight"
 type = "required"
 versionRange = "[1.3.0, )"
 ordering = "AFTER"
 side = "BOTH"
 
-[[dependencies.eternal_starlight_delight]]
+[[dependencies."${mod_id}"]]
 modId = "eternal_starlight"
 type = "required"
-versionRange = "[0.6.5,)"
+versionRange = "[0.7.0,)"
 ordering = "AFTER"
 side = "BOTH"
 
