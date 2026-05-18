@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_authors}"
+  ],
+  "contributors": [
+    "TohokuAlpha"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/project/eternal-starlight-delight",
+    "issues": "https://github.com/Minor2CCh/EternalStarlightDelight/issues",
+    "sources": "https://github.com/Minor2CCh/EternalStarlightDelight"
+  },
+  "license": "${mod_license}",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.minor2cch.eternalstarlightdelight.fabric.EternalStarlightDelightFabric"
+    ],
+    "client": [
+      "com.minor2cch.eternalstarlightdelight.fabric.client.EternalStarlightDelightFabricClient"
+    ],
+    "jei_mod_plugin": [
+      "com.minor2cch.eternalstarlightdelight.compat.JEIPlugin"
+    ],
+    "rei_client": [
+      "com.minor2cch.eternalstarlightdelight.fabric.compat.ClientREIPlugin"
+    ]
+  },
+  "mixins": [
+    "eternal_starlight_delight.mixins.json",
+    "eternal_starlight_delight-fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.0",
+    "minecraft": "1.21.1",
+    "farmersdelight": "*",
+    "eternal_starlight": ">0.7.0",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

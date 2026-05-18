@@ -1,7 +1,7 @@
-package com.minor2cch.eternalstarlightdelight.neoforge.block.entity;
+package com.minor2cch.eternalstarlightdelight.fabric.block.entity;
 
 import com.minor2cch.eternalstarlightdelight.block.entity.DeepSilverCookingPotInterface;
-import com.minor2cch.eternalstarlightdelight.neoforge.registry.ESDBlockEntityTypesNeoForge;
+import com.minor2cch.eternalstarlightdelight.fabric.registey.ESDBlockEntityTypesFabric;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -9,13 +9,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.block.entity.CookingPotBlockEntity;
 
-public class DeepSilverCookingPotBlockEntityNeoForge extends CookingPotBlockEntity implements DeepSilverCookingPotInterface {
-    public DeepSilverCookingPotBlockEntityNeoForge(BlockPos pos, BlockState state) {
+public class DeepSilverCookingPotBlockEntityFabric extends CookingPotBlockEntity implements DeepSilverCookingPotInterface{
+    public DeepSilverCookingPotBlockEntityFabric(BlockPos pos, BlockState state) {
         super(pos, state);
     }
     @Override
     public @NotNull BlockEntityType<?> getType() {
-        return ESDBlockEntityTypesNeoForge.DEEPSILVER_COOKING_POT.get();
+        return ESDBlockEntityTypesFabric.DEEPSILVER_COOKING_POT.get();
     }
     @Override
     public boolean isValidBlockState(@NotNull BlockState blockState) {

@@ -1,4 +1,4 @@
-package com.minor2cch.eternalstarlightdelight.neoforge.mixin;
+package com.minor2cch.eternalstarlightdelight.fabric.mixin;
 
 import com.minor2cch.eternalstarlightdelight.ESDUtils;
 import com.minor2cch.eternalstarlightdelight.item.DeepSilverSkilletItem;
@@ -13,7 +13,6 @@ import vectorwing.farmersdelight.common.item.component.ItemStackWrapper;
 import vectorwing.farmersdelight.common.registry.ModDataComponents;
 
 import java.util.Objects;
-import java.util.function.Supplier;
 
 @Mixin(SkilletItem.class)
 public class SkilletItemMixin {
@@ -21,19 +20,19 @@ public class SkilletItemMixin {
             method = "use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/item/ItemStack;set(Ljava/util/function/Supplier;Ljava/lang/Object;)Ljava/lang/Object;"
+                    target = "Lnet/minecraft/world/item/ItemStack;set(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Ljava/lang/Object;"
             )
     )
     @SuppressWarnings("unchecked")
     private <T> @Nullable T esItemFastCooking(
-            ItemStack instance, Supplier<? extends DataComponentType<? super T>> dataComponentType, @Nullable T object
+            ItemStack instance, DataComponentType<? super T> dataComponentType, @Nullable T object
     ) {
         if(((Object)this) instanceof DeepSilverSkilletItem){
-            if(Objects.equals(dataComponentType, ModDataComponents.COOKING_TIME_LENGTH)){
+            if(Objects.equals(dataComponentType, ModDataComponents.COOKING_TIME_LENGTH.get())){
                 if(object instanceof Integer cookingTime){
-                    ItemStack cookingStack = instance.getOrDefault(ModDataComponents.SKILLET_INGREDIENT, new ItemStackWrapper(ItemStack.EMPTY)).getStack();
+                    ItemStack cookingStack = instance.getOrDefault(ModDataComponents.SKILLET_INGREDIENT.get(), ItemStackWrapper.EMPTY).getStack();
                     if(ESDUtils.isESItem(cookingStack)){
-                        return (T) instance.set(ModDataComponents.COOKING_TIME_LENGTH, cookingTime / 2);
+                        return (T) instance.set(ModDataComponents.COOKING_TIME_LENGTH.get(), cookingTime / 2);
                     }
                 }
             }
