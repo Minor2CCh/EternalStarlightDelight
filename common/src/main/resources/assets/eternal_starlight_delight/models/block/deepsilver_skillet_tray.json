@@ -6,8 +6,8 @@
     "side": "eternal_starlight_delight:block/deepsilver_skillet_side",
     "top": "eternal_starlight_delight:block/deepsilver_skillet_top",
     "bottom": "eternal_starlight_delight:block/deepsilver_skillet_bottom",
-    "tray_top": "eternal_starlight_delight:block/deepsilver_cooking_pot_tray_top",
-    "tray_side": "eternal_starlight_delight:block/deepsilver_cooking_pot_tray_side"
+    "tray_top": "eternal_starlight_delight:block/deepsilver_heating_tray_top",
+    "tray_side": "eternal_starlight_delight:block/deepsilver_heating_tray_side"
   },
   "elements": [
     {
@@ -82,67 +82,47 @@
     },
     {
       "name": "grate",
-      "from": [0, -1, 0],
+      "from": [0, -0.001, 0],
+      "to": [16, -0.001, 16],
+      "faces": {
+        "up": {"uv": [0, 0, 16, 16], "texture": "#tray_top"},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#tray_top", "cullface": "down"}
+      }
+    },
+    {
+      "name": "north_legs",
+      "from": [0, -16, 0],
+      "to": [16, 0, 0],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#tray_side"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#tray_side"}
+      }
+    },
+    {
+      "name": "south_legs",
+      "from": [0, -16, 16],
       "to": [16, 0, 16],
       "faces": {
-        "north": {"uv": [0, 0, 16, 1], "texture": "#tray_top"},
-        "east": {"uv": [0, 0, 16, 1], "texture": "#tray_top"},
-        "south": {"uv": [0, 0, 16, 1], "texture": "#tray_top"},
-        "west": {"uv": [0, 0, 16, 1], "texture": "#tray_top"},
-        "up": {"uv": [0, 0, 16, 16], "texture": "#tray_top"},
-        "down": {"uv": [0, 0, 16, 16], "texture": "#tray_top"}
+        "north": {"uv": [0, 0, 16, 16], "texture": "#tray_side"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#tray_side"}
       }
     },
     {
-      "name": "leg SE",
-      "from": [15, -16, 15],
-      "to": [16, -1, 16],
+      "name": "east_legs",
+      "from": [16, -16, 0],
+      "to": [16, 0, 16],
       "faces": {
-        "north": {"uv": [0, 1, 1, 16], "texture": "#tray_side"},
-        "east": {"uv": [0, 1, 1, 16], "texture": "#tray_side"},
-        "south": {"uv": [15, 1, 16, 16], "texture": "#tray_side"},
-        "west": {"uv": [15, 1, 16, 16], "texture": "#tray_side"},
-        "up": {"uv": [0, 0, 0.5, 0.5], "texture": "#tray_side"},
-        "down": {"uv": [0, 0, 0.5, 0.5], "texture": "#tray_side"}
+        "east": {"uv": [0, 0, 16, 16], "texture": "#tray_side"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#tray_side"}
       }
     },
     {
-      "name": "leg SW",
-      "from": [0, -16, 15],
-      "to": [1, -1, 16],
-      "faces": {
-        "north": {"uv": [15, 1, 16, 16], "texture": "#tray_side"},
-        "east": {"uv": [0, 1, 1, 16], "texture": "#tray_side"},
-        "south": {"uv": [0, 1, 1, 16], "texture": "#tray_side"},
-        "west": {"uv": [15, 1, 16, 16], "texture": "#tray_side"},
-        "up": {"uv": [0, 0, 0.5, 0.5], "texture": "#tray_side"},
-        "down": {"uv": [0, 0, 0.5, 0.5], "texture": "#tray_side"}
-      }
-    },
-    {
-      "name": "leg NE",
-      "from": [15, -16, 0],
-      "to": [16, -1, 1],
-      "faces": {
-        "north": {"uv": [0, 1, 1, 16], "texture": "#tray_side"},
-        "east": {"uv": [15, 1, 16, 16], "texture": "#tray_side"},
-        "south": {"uv": [15, 1, 16, 16], "texture": "#tray_side"},
-        "west": {"uv": [0, 1, 1, 16], "texture": "#tray_side"},
-        "up": {"uv": [0, 0, 0.5, 0.5], "texture": "#tray_side"},
-        "down": {"uv": [0, 0, 0.5, 0.5], "texture": "#tray_side"}
-      }
-    },
-    {
-      "name": "leg NW",
+      "name": "west_legs",
       "from": [0, -16, 0],
-      "to": [1, -1, 1],
+      "to": [0, 0, 16],
       "faces": {
-        "north": {"uv": [15, 1, 16, 16], "texture": "#tray_side"},
-        "east": {"uv": [15, 1, 16, 16], "texture": "#tray_side"},
-        "south": {"uv": [0, 1, 1, 16], "texture": "#tray_side"},
-        "west": {"uv": [0, 1, 1, 16], "texture": "#tray_side"},
-        "up": {"uv": [0, 0, 0.5, 0.5], "texture": "#tray_side"},
-        "down": {"uv": [0, 0, 0.5, 0.5], "texture": "#tray_side"}
+        "east": {"uv": [0, 0, 16, 16], "texture": "#tray_side"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#tray_side"}
       }
     }
   ],

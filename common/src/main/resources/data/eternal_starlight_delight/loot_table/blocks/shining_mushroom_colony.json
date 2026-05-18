@@ -1,4 +1,9 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:false"
+    }
+  ],
   "type": "minecraft:block",
   "pools": [
     {
@@ -13,7 +18,7 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "eternal_starlight_delight:marimold_colony",
+                  "block": "eternal_starlight_delight:shining_mushroom_colony",
                   "properties": {
                     "age": "0"
                   }
@@ -25,14 +30,14 @@
                   "count": 2
                 }
               ],
-              "name": "eternal_starlight:marimold"
+              "name": "eternal_starlight:shining_mushroom"
             },
             {
               "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "eternal_starlight_delight:marimold_colony",
+                  "block": "eternal_starlight_delight:shining_mushroom_colony",
                   "properties": {
                     "age": "1"
                   }
@@ -44,14 +49,14 @@
                   "count": 3
                 }
               ],
-              "name": "eternal_starlight:marimold"
+              "name": "eternal_starlightshining_mushroom"
             },
             {
               "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "eternal_starlight_delight:marimold_colony",
+                  "block": "eternal_starlight_delight:shining_mushroom_colony",
                   "properties": {
                     "age": "2"
                   }
@@ -63,14 +68,14 @@
                   "count": 4
                 }
               ],
-              "name": "eternal_starlight:marimold"
+              "name": "eternal_starlight:shining_mushroom"
             },
             {
               "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "eternal_starlight_delight:marimold_colony",
+                  "block": "eternal_starlight_delight:shining_mushroom_colony",
                   "properties": {
                     "age": "3"
                   }
@@ -111,14 +116,14 @@
                   "count": 5
                 }
               ],
-              "name": "eternal_starlight:marimold"
+              "name": "eternal_starlight:shining_mushroom"
             },
             {
               "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "eternal_starlight_delight:marimold_colony",
+                  "block": "eternal_starlight_delight:shining_mushroom_colony",
                   "properties": {
                     "age": "3"
                   }
@@ -150,7 +155,7 @@
                   ]
                 }
               ],
-              "name": "eternal_starlight_delight:marimold_colony"
+              "name": "eternal_starlight_delight:shining_mushroom_colony"
             }
           ]
         }
@@ -162,5 +167,5 @@
       "function": "minecraft:explosion_decay"
     }
   ],
-  "random_sequence": "eternal_starlight_delight:marimold_colony"
+  "random_sequence": "eternal_starlight_delight:shining_mushroom_colony"
 }

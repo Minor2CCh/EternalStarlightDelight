@@ -62,6 +62,7 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.BOULDERSHROOM_COLONY.get());
                 output.accept(ESDItems.GLOWING_MUSHROOM_COLONY.get());
                 output.accept(ESDItems.MARIMOLD_COLONY.get());
+                // output.accept(ESDItems.SHINING_MUSHROOM_COLONY.get());
                 // other building blocks
                 output.accept(ESDItems.FROZEN_TUBE_BALE.get());
                 // foods
