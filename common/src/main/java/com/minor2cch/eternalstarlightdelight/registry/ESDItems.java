@@ -47,13 +47,13 @@ public final class ESDItems {
     public static final Supplier<Item> GLISTERING_KNIFE = registerItem("glistering_knife", () -> new KnifeItem(ESItemTiers.GLISTERING, ModItems.knifeItem(ESItemTiers.GLISTERING).rarity(Rarity.RARE)));
 
     // cabinets
-    public static final Supplier<Item> LUNAR_CABINET = registerItem("lunar_cabinet", () -> new FuelBlockItem(ESDBlocks.LUNAR_CABINET.get(), basicItem(), 300));
-    public static final Supplier<Item> NORTHLAND_CABINET = registerItem("northland_cabinet", () -> new FuelBlockItem(ESDBlocks.NORTHLAND_CABINET.get(), basicItem(), 300));
-    public static final Supplier<Item> BANYIN_CABINET = registerItem("banyin_cabinet", () -> new FuelBlockItem(ESDBlocks.BANYIN_CABINET.get(), basicItem(), 300));
-    public static final Supplier<Item> SCARLET_CABINET = registerItem("scarlet_cabinet", () -> new FuelBlockItem(ESDBlocks.SCARLET_CABINET.get(), basicItem(), 300));
-    public static final Supplier<Item> TORREYA_CABINET = registerItem("torreya_cabinet", () -> new FuelBlockItem(ESDBlocks.TORREYA_CABINET.get(), basicItem(), 300));
-    public static final Supplier<Item> JINGLESTEM_CABINET = registerItem("jinglestem_cabinet", () -> new FuelBlockItem(ESDBlocks.JINGLESTEM_CABINET.get(), basicItem(), 300));
-    public static final Supplier<Item> CRADLEWOOD_CABINET = registerItem("cradlewood_cabinet", () -> new FuelBlockItem(ESDBlocks.CRADLEWOOD_CABINET.get(), basicItem(), 300));
+    public static final Supplier<Item> LUNAR_CABINET = registerItem("lunar_cabinet", () -> new BlockItem(ESDBlocks.LUNAR_CABINET.get(), basicItem()));
+    public static final Supplier<Item> NORTHLAND_CABINET = registerItem("northland_cabinet", () -> new BlockItem(ESDBlocks.NORTHLAND_CABINET.get(), basicItem()));
+    public static final Supplier<Item> BANYIN_CABINET = registerItem("banyin_cabinet", () -> new BlockItem(ESDBlocks.BANYIN_CABINET.get(), basicItem()));
+    public static final Supplier<Item> SCARLET_CABINET = registerItem("scarlet_cabinet", () -> new BlockItem(ESDBlocks.SCARLET_CABINET.get(), basicItem()));
+    public static final Supplier<Item> TORREYA_CABINET = registerItem("torreya_cabinet", () -> new BlockItem(ESDBlocks.TORREYA_CABINET.get(), basicItem()));
+    public static final Supplier<Item> JINGLESTEM_CABINET = registerItem("jinglestem_cabinet", () -> new BlockItem(ESDBlocks.JINGLESTEM_CABINET.get(), basicItem()));
+    public static final Supplier<Item> CRADLEWOOD_CABINET = registerItem("cradlewood_cabinet", () -> new BlockItem(ESDBlocks.CRADLEWOOD_CABINET.get(), basicItem()));
 
 
     // crates
@@ -76,7 +76,10 @@ public final class ESDItems {
             () -> new MushroomColonyItem(ESDBlocks.GLOWING_MUSHROOM_COLONY.get(), basicItem()));
     public static final Supplier<Item> MARIMOLD_COLONY = registerItem("marimold_colony",
             () -> new MushroomColonyItem(ESDBlocks.MARIMOLD_COLONY.get(), basicItem()));
-
+    /*
+    public static final Supplier<Item> SHINING_MUSHROOM_COLONY = registerItem("shining_mushroom_colony",
+            () -> new MushroomColonyItem(ESDBlocks.SHINING_MUSHROOM_COLONY.get(), basicItem()));
+    */
     // cooking block
     public static final Supplier<Item> DEEPSILVER_SKILLET = registerItem("deepsilver_skillet",
             () -> new DeepSilverSkilletItem(ESDBlocks.DEEPSILVER_SKILLET.get(), basicItem().stacksTo(1).attributes(SkilletItem.createAttributes(ESItemTiers.DEEPSILVER, 5.0F, -3.1F))));

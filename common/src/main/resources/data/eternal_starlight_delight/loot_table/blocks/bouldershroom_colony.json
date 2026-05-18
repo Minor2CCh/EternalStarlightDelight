@@ -161,5 +161,6 @@
     {
       "function": "minecraft:explosion_decay"
     }
-  ]
+  ],
+  "random_sequence": "eternal_starlight_delight:bouldershroom_colony"
 }

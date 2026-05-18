@@ -59,7 +59,10 @@ public final class ESDBlocks {
                     .mapColor(MapColor.COLOR_YELLOW)
                     .randomTicks()
                     .lightLevel(state -> 12)));
-
+    /*
+    public static final Supplier<Block> SHINING_MUSHROOM_COLONY = registerBlock("shining_mushroom_colony",
+            () -> new MushroomColonyBlock(ESItems.SHINING_MUSHROOM.asHolder(), Block.Properties.ofFullCopy(ESBlocks.SHINING_MUSHROOM.get())));
+    */
     // cooking block
     public static final Supplier<Block> DEEPSILVER_SKILLET = registerBlock("deepsilver_skillet",
             () -> new DeepSilverSkilletBlock(Block.Properties.ofFullCopy(ModBlocks.SKILLET.get())));
