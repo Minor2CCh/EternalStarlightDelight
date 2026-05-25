@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "eternal_starlight_delight:nocturnal_millet_bale"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "eternal_starlight:nocturnal_millet"
+  }
+}

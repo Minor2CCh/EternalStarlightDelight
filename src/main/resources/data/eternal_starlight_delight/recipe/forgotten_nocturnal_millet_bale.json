@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "eternal_starlight:forgotten_nocturnal_millet"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "eternal_starlight_delight:forgotten_nocturnal_millet_bale"
+  }
+}
