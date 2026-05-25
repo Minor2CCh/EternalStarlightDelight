@@ -131,7 +131,7 @@ dependencies {
     compileOnly "com.google.auto.service:auto-service:1.1.0"
     annotationProcessor "com.google.auto.service:auto-service:1.1.0"
     implementation("curse.maven:farmers-delight-398521:8083481")
-    implementation("curse.maven:eternal-starlight-1080592:8102433")
+    implementation("curse.maven:eternal-starlight-1080592:8109479")
     // compile against the JEI API but do not include it at runtime
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     // at runtime, use the full JEI jar for NeoForge
