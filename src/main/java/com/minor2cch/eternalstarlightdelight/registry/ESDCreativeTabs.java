@@ -62,9 +62,11 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.BOULDERSHROOM_COLONY.get());
                 output.accept(ESDItems.GLOWING_MUSHROOM_COLONY.get());
                 output.accept(ESDItems.MARIMOLD_COLONY.get());
-                // output.accept(ESDItems.SHINING_MUSHROOM_COLONY.get());
+                output.accept(ESDItems.SHINING_MUSHROOM_COLONY.get());
                 // other building blocks
                 output.accept(ESDItems.FROZEN_TUBE_BALE.get());
+                output.accept(ESDItems.NOCTURNAL_MILLET_BALE.get());
+                output.accept(ESDItems.FORGOTTEN_NOCTURNAL_MILLET_BALE.get());
                 // foods
                 output.accept(ESDItems.DRIED_ROOKFISH.get());
                 output.accept(ESDItems.PUNGENCY_FRUIT_SLICE.get());
@@ -103,6 +105,7 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.LUNAR_BERRY_PIE.get());
                 output.accept(ESDItems.LUNAR_BERRY_PIE_SLICE.get());
                 output.accept(ESDItems.STARLIT_SALAD.get());
+                output.accept(ESDItems.NOCTURNAL_MILLET_RICE.get());
                 // accessories
                 output.accept(ESDItems.THERMAL_SPRINGBLADE_STRAP.get());
                 output.accept(ESDItems.STARFIRE_FLOWER_STRAP.get());

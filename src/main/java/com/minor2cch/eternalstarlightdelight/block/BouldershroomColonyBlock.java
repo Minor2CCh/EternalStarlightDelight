@@ -12,6 +12,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.HugeMushroomBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -39,14 +40,14 @@ public class BouldershroomColonyBlock extends MushroomColonyBlock implements Sim
     public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         Direction direction = state.getValue(FACING);
         double border = 16 - (12 + state.getValue(getAgeProperty()));
-        double height = 12 + state.getValue(getAgeProperty());
+        double length = 12 + state.getValue(getAgeProperty());
         return switch (direction) {
-            case NORTH -> Block.box(border, border, (16 - height), (16 - border), (16 - border), 16.0D);
-            case SOUTH -> Block.box(border, border, 0.0D, (16 - border), (16 - border), height);
-            case EAST -> Block.box(0.0D, border, border, height, (16 - border), (16 - border));
-            case WEST -> Block.box((16 - height), border, border, 16.0D, (16 - border), (16 - border));
-            case DOWN -> Block.box(border, (16 - height), border, (16 - border), 16.0D, (16 - border));
-            default -> Block.box(border, 0.0D, border, (16 - border), height, (16 - border));
+            case NORTH -> Block.box(border, border, (16 - length), (16 - border), (16 - border), 16.0D);
+            case SOUTH -> Block.box(border, border, 0.0D, (16 - border), (16 - border), length);
+            case EAST -> Block.box(0.0D, border, border, length, (16 - border), (16 - border));
+            case WEST -> Block.box((16 - length), border, border, 16.0D, (16 - border), (16 - border));
+            case DOWN -> Block.box(border, (16 - length), border, (16 - border), 16.0D, (16 - border));
+            default -> Block.box(border, 0.0D, border, (16 - border), length, (16 - border));
         };
     }
     @Override
@@ -56,7 +57,6 @@ public class BouldershroomColonyBlock extends MushroomColonyBlock implements Sim
         BlockState groundState = level.getBlockState(groundPos);
         if (age < getMaxAge() && groundState.is(ModTags.Blocks.MUSHROOM_COLONY_GROWABLE_ON) && random.nextInt(4) == 0) {
             level.setBlock(pos, state.setValue(COLONY_AGE, age + 1), 2);
-            //CommonHooks.fireCropGrowPost(level, pos, state);
         }
     }
 
@@ -65,7 +65,7 @@ public class BouldershroomColonyBlock extends MushroomColonyBlock implements Sim
         Direction direction = state.getValue(FACING);
         BlockPos attachPos = pos.relative(direction.getOpposite());
         BlockState attachState = level.getBlockState(attachPos);
-        return attachState.isFaceSturdy(level, attachPos, direction);
+        return attachState.isFaceSturdy(level, attachPos, direction) && !(attachState.getBlock() instanceof HugeMushroomBlock);
     }
     @Override
     public @NotNull FluidState getFluidState(BlockState state) {

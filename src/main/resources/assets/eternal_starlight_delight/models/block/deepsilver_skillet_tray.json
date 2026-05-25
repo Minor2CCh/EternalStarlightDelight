@@ -1,5 +1,6 @@
 {
   "credit": "Made with Blockbench",
+  "render_type": "minecraft:cutout",
   "ambientocclusion": false,
   "textures": {
     "particle": "eternal_starlight_delight:block/deepsilver_skillet_side",

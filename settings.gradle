@@ -8,7 +8,3 @@ pluginManagement {
 }
 
 rootProject.name = 'eternal_starlight_delight'
-
-include 'common'
-include 'fabric'
-include 'neoforge'
