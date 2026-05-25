@@ -1,7 +1,14 @@
 package com.minor2cch.eternalstarlightdelight.mixin;
 
+import cn.leolezury.eternalstarlight.common.registry.ESFoods;
+import cn.leolezury.eternalstarlight.common.registry.ESItems;
+import cn.leolezury.eternalstarlight.common.util.ESAccessoryUtil;
+import cn.leolezury.eternalstarlight.common.util.ESTags;
+import com.minor2cch.eternalstarlightdelight.ESDUtils;
+import com.minor2cch.eternalstarlightdelight.config.ESDConfigLoader;
 import com.minor2cch.eternalstarlightdelight.item.ESDDrinkableItem;
 import com.minor2cch.eternalstarlightdelight.item.KnifeOfHungerItem;
+import com.minor2cch.eternalstarlightdelight.registry.ESDFoods;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -15,6 +22,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Objects;
 
 @Mixin(Player.class)
 public class PlayerMixin {
@@ -26,6 +36,16 @@ public class PlayerMixin {
         if (ItemStack.isSameItem(mainHand, offhand) && mainHand.getItem() instanceof KnifeOfHungerItem) {
             entity.invulnerableTime = 0;
         }
+    }
+    @Inject(method = "eat", at = @At("HEAD"), cancellable = true)
+    private void extraEatFungus(Level level, ItemStack food, FoodProperties foodProperties, CallbackInfoReturnable<ItemStack> cir) {
+        Player player = (Player) (Object) this;
+        if(ESDConfigLoader.getConfig().getEatableMushroomColonies() && ESAccessoryUtil.getActiveAccessoriesOnArmors(player).contains(ESItems.FUNGUS_AMULET.get()) && food.is(ESTags.Items.CONSUMABLE_WHEN_WEARING_FUNGUS_AMULET) && Objects.equals(foodProperties, ESFoods.FUNGUS.get())){
+            ESDUtils.getExtraColonyEffect(food).ifPresent((effect) -> player.addEffect(effect.effect()));
+            cir.setReturnValue(player.eat(level, food, ESDFoods.FUNGUS_COLONY.get()));
+            cir.cancel();
+        }
+
     }
     @Redirect(
             method = "eat(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/food/FoodProperties;)Lnet/minecraft/world/item/ItemStack;",
