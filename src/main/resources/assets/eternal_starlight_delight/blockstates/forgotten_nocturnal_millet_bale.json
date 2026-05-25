@@ -1,0 +1,32 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "eternal_starlight_delight:block/forgotten_nocturnal_millet_bale",
+      "x": 180,
+      "y": 90
+    },
+    "facing=east": {
+      "model": "eternal_starlight_delight:block/forgotten_nocturnal_millet_bale",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "eternal_starlight_delight:block/forgotten_nocturnal_millet_bale",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "eternal_starlight_delight:block/forgotten_nocturnal_millet_bale",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "eternal_starlight_delight:block/forgotten_nocturnal_millet_bale",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "eternal_starlight_delight:block/forgotten_nocturnal_millet_bale",
+      "x": 90,
+      "y": 270
+    }
+  }
+}
