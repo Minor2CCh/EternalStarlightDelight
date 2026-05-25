@@ -7,7 +7,7 @@ import cn.leolezury.eternalstarlight.common.registry.ESDataComponents;
 import com.minor2cch.eternalstarlightdelight.EternalStarlightDelight;
 import com.minor2cch.eternalstarlightdelight.item.*;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
-import com.minor2cch.eternalstarlightdelight.util.ESDItemTags;
+import com.minor2cch.eternalstarlightdelight.util.ESDTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -76,10 +76,10 @@ public final class ESDItems {
             () -> new MushroomColonyItem(ESDBlocks.GLOWING_MUSHROOM_COLONY.get(), basicItem()));
     public static final Supplier<Item> MARIMOLD_COLONY = registerItem("marimold_colony",
             () -> new MushroomColonyItem(ESDBlocks.MARIMOLD_COLONY.get(), basicItem()));
-    /*
+
     public static final Supplier<Item> SHINING_MUSHROOM_COLONY = registerItem("shining_mushroom_colony",
             () -> new MushroomColonyItem(ESDBlocks.SHINING_MUSHROOM_COLONY.get(), basicItem()));
-    */
+
     // cooking block
     public static final Supplier<Item> DEEPSILVER_SKILLET = registerItem("deepsilver_skillet",
             () -> new DeepSilverSkilletItem(ESDBlocks.DEEPSILVER_SKILLET.get(), basicItem().stacksTo(1).attributes(SkilletItem.createAttributes(ESItemTiers.DEEPSILVER, 5.0F, -3.1F))));
@@ -91,6 +91,10 @@ public final class ESDItems {
     // other building blocks
     public static final Supplier<Item> FROZEN_TUBE_BALE = registerItem("frozen_tube_bale",
             () -> new BlockItem(ESDBlocks.FROZEN_TUBE_BALE.get(), basicItem()));
+    public static final Supplier<Item> NOCTURNAL_MILLET_BALE = registerItem("nocturnal_millet_bale",
+            () -> new BlockItem(ESDBlocks.NOCTURNAL_MILLET_BALE.get(), basicItem()));
+    public static final Supplier<Item> FORGOTTEN_NOCTURNAL_MILLET_BALE = registerItem("forgotten_nocturnal_millet_bale",
+            () -> new BlockItem(ESDBlocks.FORGOTTEN_NOCTURNAL_MILLET_BALE.get(), basicItem()));
 
     //foods
     public static final Supplier<Item> DRIED_ROOKFISH = registerItem("dried_rookfish",
@@ -167,6 +171,8 @@ public final class ESDItems {
             () -> new Item(foodItem(ESDFoods.LUNAR_BERRY_PIE_SLICE.get())));
     public static final Supplier<Item> STARLIT_SALAD = registerItem("starlit_salad",
             () -> new ConsumableItem(bowlFoodItem(ESDFoods.STARLIT_SALAD.get()), true, false));
+    public static final Supplier<Item> NOCTURNAL_MILLET_RICE = registerItem("nocturnal_millet_rice",
+            () -> new ConsumableItem(bowlFoodItem(ESDFoods.NOCTURNAL_MILLET_RICE.get()), true, false));
 
 
     // food blocks
@@ -178,7 +184,7 @@ public final class ESDItems {
             () -> new Item(new Item.Properties()
                     .rarity(Rarity.RARE)
                     .component(ESDataComponents.ACCESSORY.get(), new Accessory(
-                            ESDItemTags.KNIFE_ACCESSORY_APPLICABLE,
+                            ESDTags.Items.KNIFE_ACCESSORY_APPLICABLE,
                             Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".accessory_combination_target.knife").withStyle(ChatFormatting.BLUE),
                             ItemAttributeModifiers.builder()
                                     .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(EternalStarlightDelight.of("thermal_springblade_strap_attack_damage"), 0.7, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND)
@@ -196,7 +202,7 @@ public final class ESDItems {
             () -> new Item(new Item.Properties()
                     .rarity(Rarity.RARE)
                     .component(ESDataComponents.ACCESSORY.get(), new Accessory(
-                            ESDItemTags.SKILLET_ACCESSORY_APPLICABLE,
+                            ESDTags.Items.SKILLET_ACCESSORY_APPLICABLE,
                             Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".accessory_combination_target.skillet").withStyle(ChatFormatting.BLUE),
                             ItemAttributeModifiers.builder()
                                     .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(EternalStarlightDelight.of("starfire_flower_strap_entity_interaction_range"), 0.5, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)

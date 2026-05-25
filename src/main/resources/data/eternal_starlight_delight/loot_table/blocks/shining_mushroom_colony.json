@@ -1,9 +1,4 @@
 {
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:false"
-    }
-  ],
   "type": "minecraft:block",
   "pools": [
     {
@@ -49,7 +44,7 @@
                   "count": 3
                 }
               ],
-              "name": "eternal_starlightshining_mushroom"
+              "name": "eternal_starlight:shining_mushroom"
             },
             {
               "type": "minecraft:item",
