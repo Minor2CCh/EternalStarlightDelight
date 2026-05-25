@@ -1,6 +1,7 @@
 package com.minor2cch.eternalstarlightdelight;
 
 import cn.leolezury.eternalstarlight.common.EternalStarlight;
+import cn.leolezury.eternalstarlight.common.registry.ESMobEffects;
 import cn.leolezury.eternalstarlight.common.util.ESAccessoryUtil;
 import com.google.common.base.Suppliers;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
@@ -10,11 +11,13 @@ import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
@@ -23,6 +26,7 @@ import vectorwing.farmersdelight.common.registry.ModEffects;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public final class ESDUtils {
@@ -30,6 +34,10 @@ public final class ESDUtils {
     private static final Supplier<FoodProperties.PossibleEffect> NOURISHMENT_FRESH_LOW = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(ModEffects.NOURISHMENT, 600, 0, false, false, false), 1.0F));
     private static final Supplier<FoodProperties.PossibleEffect> NOURISHMENT_FRESH_MIDDLE = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(ModEffects.NOURISHMENT, 1200, 0, false, false, false), 1.0F));
     private static final Supplier<FoodProperties.PossibleEffect> NOURISHMENT_FRESH_HIGH = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(ModEffects.NOURISHMENT, 3600, 0, false, false, false), 1.0F));
+    private static final Supplier<FoodProperties.PossibleEffect> BOULDERSHROOM_COLONY_EFFECT = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(ESMobEffects.STICKY.asHolder(), 3600, 0, false, true, true), 1.0F));
+    private static final Supplier<FoodProperties.PossibleEffect> MARIMOLD_COLONY_EFFECT = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 3600, 0, false, true, true), 1.0F));
+    private static final Supplier<FoodProperties.PossibleEffect> GLOWING_MUSHROOM_EFFECT = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(MobEffects.GLOWING, 3600, 0, false, true, true), 1.0F));
+    private static final Supplier<FoodProperties.PossibleEffect> SHINING_MUSHROOM_EFFECT = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 3600, 0, false, true, true), 1.0F));
     public static boolean isESItem(ItemStack stack){
         ResourceLocation rl = ResourceLocation.tryParse(stack.getItemHolder().getRegisteredName());
         if(rl == null){
@@ -144,5 +152,19 @@ public final class ESDUtils {
             }
         }
         return false;
+    }
+    public static Optional<FoodProperties.PossibleEffect> getExtraColonyEffect(ItemStack stack){
+        if(stack.is(ESDItems.BOULDERSHROOM_COLONY.get())){
+            return Optional.of(BOULDERSHROOM_COLONY_EFFECT.get());
+        } else if(stack.is(ESDItems.GLOWING_MUSHROOM_COLONY.get())){
+            return Optional.of(GLOWING_MUSHROOM_EFFECT.get());
+        } else if(stack.is(ESDItems.SHINING_MUSHROOM_COLONY.get())){
+            return Optional.of(SHINING_MUSHROOM_EFFECT.get());
+        } else if(stack.is(ESDItems.MARIMOLD_COLONY.get())){
+            return Optional.of(MARIMOLD_COLONY_EFFECT.get());
+        } else if(BuiltInRegistries.ITEM.getKey(stack.getItem()).equals(ResourceLocation.fromNamespaceAndPath("twilightdelight","mushgloom_colony"))){
+            return Optional.of(SHINING_MUSHROOM_EFFECT.get());
+        }
+        return Optional.empty();
     }
 }

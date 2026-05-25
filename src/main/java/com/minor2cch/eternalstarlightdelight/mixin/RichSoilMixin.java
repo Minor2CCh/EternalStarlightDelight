@@ -1,42 +1,41 @@
 package com.minor2cch.eternalstarlightdelight.mixin;
 
 import cn.leolezury.eternalstarlight.common.registry.ESBlocks;
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.minor2cch.eternalstarlightdelight.block.BouldershroomColonyBlock;
 import com.minor2cch.eternalstarlightdelight.registry.ESDBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import vectorwing.farmersdelight.common.block.RichSoilBlock;
 
 
 @Mixin(RichSoilBlock.class)
 public class RichSoilMixin {
-    @Inject(at = @At("HEAD"), method = "randomTick", cancellable = true)
-    public void ESShroomColonized(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand, CallbackInfo ci){
-        if (!level.isClientSide) {
-            BlockPos abovePos = pos.above();
-            BlockState aboveState = level.getBlockState(abovePos);
-            Block aboveBlock = aboveState.getBlock();
-            if (aboveBlock == ESBlocks.BOULDERSHROOM.get()) {
-                ci.cancel();
+    @ModifyReturnValue(at = @At("RETURN"), method = "convertMushroomToColony")
+    private boolean ESShroomColonized(boolean original, BlockState targetState, BlockPos targetPos, ServerLevel level){
+        if (!original) {
+            if (targetState.is(ESBlocks.BOULDERSHROOM.get())) {
+                return true;
             }
-            if (aboveBlock == ESBlocks.GLOWING_MUSHROOM.get()) {
-                level.setBlockAndUpdate(pos.above(), ESDBlocks.GLOWING_MUSHROOM_COLONY.get().defaultBlockState());
-                ci.cancel();
+            if (targetState.is(ESBlocks.GLOWING_MUSHROOM.get())) {
+                level.setBlockAndUpdate(targetPos, ESDBlocks.GLOWING_MUSHROOM_COLONY.get().defaultBlockState());
+                return true;
             }
-            if (aboveBlock == ESBlocks.MARIMOLD.get()) {
-                boolean waterlogged = aboveState.getValue(BlockStateProperties.WATERLOGGED);
-                level.setBlockAndUpdate(pos.above(), ESDBlocks.MARIMOLD_COLONY.get().defaultBlockState().setValue(BouldershroomColonyBlock.WATERLOGGED, waterlogged));
-                ci.cancel();
+            if (targetState.is(ESBlocks.SHINING_MUSHROOM.get())) {
+                level.setBlockAndUpdate(targetPos, ESDBlocks.SHINING_MUSHROOM_COLONY.get().defaultBlockState());
+                return true;
+            }
+            if (targetState.is(ESBlocks.MARIMOLD.get())) {
+                boolean waterlogged = targetState.getValue(BlockStateProperties.WATERLOGGED);
+                level.setBlockAndUpdate(targetPos, ESDBlocks.MARIMOLD_COLONY.get().defaultBlockState().setValue(BouldershroomColonyBlock.WATERLOGGED, waterlogged));
+                return true;
             }
         }
+        return original;
 
     }
 

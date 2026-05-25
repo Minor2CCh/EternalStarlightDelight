@@ -8,7 +8,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import org.jetbrains.annotations.NotNull;
@@ -59,10 +61,10 @@ public final class ESDBlocks {
                     .mapColor(MapColor.COLOR_YELLOW)
                     .randomTicks()
                     .lightLevel(state -> 12)));
-    /*
+
     public static final Supplier<Block> SHINING_MUSHROOM_COLONY = registerBlock("shining_mushroom_colony",
             () -> new MushroomColonyBlock(ESItems.SHINING_MUSHROOM.asHolder(), Block.Properties.ofFullCopy(ESBlocks.SHINING_MUSHROOM.get())));
-    */
+
     // cooking block
     public static final Supplier<Block> DEEPSILVER_SKILLET = registerBlock("deepsilver_skillet",
             () -> new DeepSilverSkilletBlock(Block.Properties.ofFullCopy(ModBlocks.SKILLET.get())));
@@ -74,14 +76,20 @@ public final class ESDBlocks {
     // other building blocks
     public static final Supplier<Block> FROZEN_TUBE_BALE = registerBlock("frozen_tube_bale",
             () -> new RotatedPillarBlock(Block.Properties.of().sound(SoundType.GLASS).mapColor(MapColor.ICE).strength(1.5F, 2.0F)));
+    public static final Supplier<Block> NOCTURNAL_MILLET_BALE = registerBlock("nocturnal_millet_bale",
+            () -> new HayBlock(Block.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BANJO).strength(0.5F).sound(SoundType.GRASS)));
+    public static final Supplier<Block> FORGOTTEN_NOCTURNAL_MILLET_BALE = registerBlock("forgotten_nocturnal_millet_bale",
+            () -> new ForgottenNocturnalMilletBaleBlock(BlockBehaviour.Properties.ofFullCopy(NOCTURNAL_MILLET_BALE.get())));
+
 
     // food blocks
     @SuppressWarnings("all")
     public static final Supplier<Block> LUNAR_BERRY_PIE = registerBlock("lunar_berry_pie",
             () -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE), () -> ESDItems.LUNAR_BERRY_PIE_SLICE.get()));  // Fabricだと初期化順の仕様上() -> get()式にしないと失敗する
 
+    @SuppressWarnings("all")
     public static final Supplier<Block> SHADOW_SNAIL_PIE = registerBlock("shadow_snail_pie",
-            () -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE), ESDItems.SHADOW_SNAIL_PIE_SLICE)
+            () -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE), () -> ESDItems.SHADOW_SNAIL_PIE_SLICE.get())
             {
                 @Override
                 public @NotNull ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
