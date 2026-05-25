@@ -1,0 +1,6 @@
+{
+  "type": "farmersdelight:add_features_by_filter",
+  "allowed_biomes": "eternal_starlight:lucent_mycelium_isle",
+  "features": "eternal_starlight_delight:patch_red_mushroom_colony",
+  "step": "vegetal_decoration"
+}
