@@ -10,6 +10,7 @@ public class ESDConfig {
     private Boolean boomerangUsableKnife;
     private Boolean mendableAmaramberToolsInDispenser;
     private Boolean placeableShadowSnailPie;
+    private Boolean eatableMushroomColonies;
     private ESDConfig() {
     }
     public static ESDConfig defaultESDConfig(){
@@ -18,6 +19,7 @@ public class ESDConfig {
         config.boomerangUsableKnife = true;
         config.mendableAmaramberToolsInDispenser = true;
         config.placeableShadowSnailPie = true;
+        config.eatableMushroomColonies = true;
         return config;
     }
     public static class OverrideList {
@@ -72,6 +74,10 @@ public class ESDConfig {
             placeableShadowSnailPie = defaultESDConfig().placeableShadowSnailPie;
             bl = true;
         }
+        if(eatableMushroomColonies == null){
+            eatableMushroomColonies = defaultESDConfig().eatableMushroomColonies;
+            bl = true;
+        }
         return bl;
     }
     public OverrideList getOverrideList(){
@@ -85,6 +91,9 @@ public class ESDConfig {
     }
     public Boolean getPlaceableShadowSnailPie(){
         return getOrDefault(this.placeableShadowSnailPie, defaultESDConfig().placeableShadowSnailPie);
+    }
+    public Boolean getEatableMushroomColonies(){
+        return getOrDefault(this.eatableMushroomColonies, defaultESDConfig().eatableMushroomColonies);
     }
     @NotNull
     private static <T> T getOrDefault(@Nullable T value, @NotNull T defaultValue){

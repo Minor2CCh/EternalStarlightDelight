@@ -6,6 +6,7 @@ import cn.leolezury.eternalstarlight.common.item.combat.ESItemTiers;
 import cn.leolezury.eternalstarlight.common.item.combat.EnergyBoomerangItem;
 import cn.leolezury.eternalstarlight.common.registry.ESFoods;
 import cn.leolezury.eternalstarlight.common.registry.ESItems;
+import cn.leolezury.eternalstarlight.common.util.ESTags;
 import com.minor2cch.eternalstarlightdelight.config.ESDConfigLoader;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
 import com.minor2cch.eternalstarlightdelight.registry.*;
@@ -57,7 +58,6 @@ public final class EternalStarlightDelight {
             ESDPlatform.INSTANCE.modifyItemComponentEntry(ESItems.CRINOA_PORRIDGE, DataComponents.FOOD, ESDUtils.extraFoodEffects(ESFoods.CRINOA_PORRIDGE.get(), List.of(ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(ModEffects.NOURISHMENT, 3600, 0, false, false, false), 1.0F))));
             ESDPlatform.INSTANCE.modifyItemComponentEntry(ESItems.BOULDERSHROOM_STEW, DataComponents.FOOD, ESDUtils.extraFoodEffects(ESFoods.BOULDERSHROOM_STEW.get(), List.of(ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(ModEffects.NOURISHMENT, 2400, 0, false, false, false), 1.0F))));
         }
-        // new FoodProperties.Builder().nutrition(ESFoods.CRINOA_PORRIDGE.get().nutrition()).saturationModifier(ESFoods.CRINOA_PORRIDGE.get().saturation() / Math.max(ESFoods.CRINOA_PORRIDGE.get().nutrition(), 1) / 2).effect(new MobEffectInstance(ModEffects.NOURISHMENT, 3600, 0, false, false, false), 1.0F).usingConvertsTo(Items.BOWL).build()
         ESDPlatform.INSTANCE.modifyItemComponentEntry(ESDItems.DEEPSILVER_SKILLET, DataComponents.MAX_DAMAGE, ESItemTiers.DEEPSILVER.getUses());//SkilletItemを継承する場合、後付で変える必要がある
         ESDPlatform.INSTANCE.removeItemComponentEntry(ESDItems.KNIFE_OF_HUNGER, DataComponents.MAX_DAMAGE);//耐久値はない扱い
         //ESDPlatform.INSTANCE.modifyItemComponentEntry(() -> Items.GLISTERING_MELON_SLICE, DataComponents.FOOD, new FoodProperties.Builder().nutrition(6).saturationModifier(1.2F).build());
@@ -74,6 +74,9 @@ public final class EternalStarlightDelight {
         if(ESDConfigLoader.getConfig().getBoomerangUsableKnife()){
             ESDPlatform.INSTANCE.injectTag(CommonTags.Items.TOOLS_KNIFE, ESItems.ENERGY_BOOMERANG.get());
             ESDPlatform.INSTANCE.injectTag(ModTags.Items.KNIVES, ESItems.ENERGY_BOOMERANG.get());
+        }
+        if(ESDConfigLoader.getConfig().getEatableMushroomColonies()){
+            ESDPlatform.INSTANCE.injectTag(ESTags.Items.CONSUMABLE_WHEN_WEARING_FUNGUS_AMULET, ModTags.Items.MUSHROOM_COLONIES);
         }
     }
 }
