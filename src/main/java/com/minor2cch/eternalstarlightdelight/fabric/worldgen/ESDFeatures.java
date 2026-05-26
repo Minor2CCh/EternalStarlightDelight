@@ -1,7 +1,7 @@
 package com.minor2cch.eternalstarlightdelight.fabric.worldgen;
 
 import com.minor2cch.eternalstarlightdelight.EternalStarlightDelight;
-import com.minor2cch.eternalstarlightdelight.util.ESDBiomeTags;
+import com.minor2cch.eternalstarlightdelight.util.ESDTags;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -19,33 +19,48 @@ public final class ESDFeatures {
     private static final ResourceKey<PlacedFeature> WILD_TOMATOES = register("patch_wild_tomatoes");
     private static final ResourceKey<PlacedFeature> WILD_POTATOES = register("patch_wild_potatoes");
     private static final ResourceKey<PlacedFeature> WILD_RICE = register("patch_wild_rice");
+    private static final ResourceKey<PlacedFeature> ESD_BROWN_MUSHROOM_COLONY = register("patch_brown_mushroom_colony");
+    private static final ResourceKey<PlacedFeature> ESD_BOULDERSHROOM_COLONY = register("patch_bouldershroom_colony");
+    private static final ResourceKey<PlacedFeature> ESD_GLOWING_MUSHROOM_COLONY = register("patch_glowing_mushroom_colony");
+    private static final ResourceKey<PlacedFeature> ESD_RED_MUSHROOM_COLONY = register("patch_red_mushroom_colony");
+    private static final ResourceKey<PlacedFeature> ESD_SHINING_MUSHROOM_COLONY = register("patch_shining_mushroom_colony");
     public static ResourceKey<PlacedFeature> register(String id) {
         ResourceLocation oreID = EternalStarlightDelight.of(id);
         return ResourceKey.create(Registries.PLACED_FEATURE, oreID);
     }
     public static void init() {
-        BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(ESDBiomeTags.WILD_CABBAGE_WHITELIST),
+        BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(ESDTags.Biomes.WILD_CABBAGE_WHITELIST),
                 GenerationStep.Decoration.VEGETAL_DECORATION, WILD_CABBAGE);
 
-        BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(ESDBiomeTags.WILD_BEETROOT_WHITELIST),
+        BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(ESDTags.Biomes.WILD_BEETROOT_WHITELIST),
                 GenerationStep.Decoration.VEGETAL_DECORATION, WILD_BEETROOT);
         BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(0.4f, 0.9f,
-                        ESDBiomeTags.IN_ETERNAL_STARLIGHT, null),
+                        ESDTags.Biomes.IN_ETERNAL_STARLIGHT, null),
                 GenerationStep.Decoration.VEGETAL_DECORATION, WILD_CARROTS);
 
         BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(0.4f, 0.9f,
-                        ESDBiomeTags.IN_ETERNAL_STARLIGHT, null),
+                        ESDTags.Biomes.IN_ETERNAL_STARLIGHT, null),
                 GenerationStep.Decoration.VEGETAL_DECORATION, WILD_ONIONS);
 
         BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(-0.5f, 0.3f,
-                        ESDBiomeTags.IN_ETERNAL_STARLIGHT, null),
+                        ESDTags.Biomes.IN_ETERNAL_STARLIGHT, null),
                 GenerationStep.Decoration.VEGETAL_DECORATION, WILD_POTATOES);
         BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(-4, 4,
-                        ESDBiomeTags.WILD_RICE_WHITELIST, null),
+                        ESDTags.Biomes.WILD_RICE_WHITELIST, null),
                 GenerationStep.Decoration.VEGETAL_DECORATION, WILD_RICE);
         BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(-4f, 4f,
-                        ESDBiomeTags.WILD_TOMATOES_WHITELIST, null),
+                        ESDTags.Biomes.WILD_TOMATOES_WHITELIST, null),
                 GenerationStep.Decoration.VEGETAL_DECORATION, WILD_TOMATOES);
+        BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(ESDTags.Biomes.MUSHROOM_COLONIES_WHITELIST),
+                GenerationStep.Decoration.VEGETAL_DECORATION, ESD_BOULDERSHROOM_COLONY);
+        BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(ESDTags.Biomes.MUSHROOM_COLONIES_WHITELIST),
+                GenerationStep.Decoration.VEGETAL_DECORATION, ESD_BROWN_MUSHROOM_COLONY);
+        BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(ESDTags.Biomes.MUSHROOM_COLONIES_WHITELIST),
+                GenerationStep.Decoration.VEGETAL_DECORATION, ESD_GLOWING_MUSHROOM_COLONY);
+        BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(ESDTags.Biomes.MUSHROOM_COLONIES_WHITELIST),
+                GenerationStep.Decoration.VEGETAL_DECORATION, ESD_RED_MUSHROOM_COLONY);
+        BiomeModifications.addFeature(new ModBiomeModifiers.FDBiomeSelector(ESDTags.Biomes.MUSHROOM_COLONIES_WHITELIST),
+                GenerationStep.Decoration.VEGETAL_DECORATION, ESD_SHINING_MUSHROOM_COLONY);
 
     }
 }
