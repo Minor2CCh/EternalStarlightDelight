@@ -33,7 +33,9 @@ public final class EternalStarlightDelightFabricClient implements ClientModIniti
                 ESDBlocks.BOULDERSHROOM_COLONY.get(),
                 ESDBlocks.GLOWING_MUSHROOM_COLONY.get(),
                 ESDBlocks.MARIMOLD_COLONY.get(),
-                ESDBlocks.DEEPSILVER_COOKING_POT.get());
+                ESDBlocks.SHINING_MUSHROOM_COLONY.get(),
+                ESDBlocks.DEEPSILVER_COOKING_POT.get(),
+                ESDBlocks.DEEPSILVER_SKILLET.get());
 
         ItemTooltipCallback.EVENT.register((ItemStack stack, Item.TooltipContext context, TooltipFlag tooltipType, java.util.List<Component> lines) ->
                 EternalStarlightDelightClient.TOOLTIP_FUNCTIONS.forEach((consumer) ->
