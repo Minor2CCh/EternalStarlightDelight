@@ -50,6 +50,7 @@ import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.function.TriFunction;
 import vectorwing.farmersdelight.common.Configuration;
+import vectorwing.farmersdelight.common.block.AbstractStoveBlock;
 import vectorwing.farmersdelight.common.item.component.ItemStackWrapper;
 import vectorwing.farmersdelight.common.registry.ModDataComponents;
 
@@ -226,6 +227,26 @@ public class FabricPlatform implements ESDPlatform {
 
     @Override
     public void smokeParticles(StarlightStoveBlockEntity blockEntity) {
+        assert blockEntity.getLevel() != null;
+
+        var items = blockEntity.getItems();
+        for (int i = 0; i < items.getSlotCount(); ++i) {
+            if (items.getStackInSlot(i).isEmpty()) continue;
+            if (blockEntity.getLevel().random.nextFloat() >= 0.2F) continue;
+            Vec2 itemOffset = blockEntity.getStoveItemOffset(i);
+            Direction direction = blockEntity.getBlockState().getValue(AbstractStoveBlock.FACING);
+            if (direction.get2DDataValue() % 2 != 0) {
+                itemOffset = new Vec2(itemOffset.y, itemOffset.x);
+            }
+
+            double x = (blockEntity.getBlockPos().getX() + 0.5D) - (direction.getStepX() * itemOffset.x) + (direction.getClockWise().getStepX() * itemOffset.x);
+            double y = blockEntity.getBlockPos().getY() + 1.0D;
+            double z = (blockEntity.getBlockPos().getZ() + 0.5D) - (direction.getStepZ() * itemOffset.y) + (direction.getClockWise().getStepZ() * itemOffset.y);
+
+            for (int k = 0; k < 3; ++k) {
+                blockEntity.getLevel().addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 5.0E-4D, 0.0D);
+            }
+        }
     }
 
     @Override

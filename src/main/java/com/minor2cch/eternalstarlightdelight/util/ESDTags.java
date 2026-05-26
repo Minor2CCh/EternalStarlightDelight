@@ -24,6 +24,7 @@ public final class ESDTags {
         public static final TagKey<Biome> WILD_TOMATOES_WHITELIST = of("wild_tomato_whitelist");
         public static final TagKey<Biome> WILD_CABBAGE_WHITELIST = of("wild_cabbage_whitelist");
         public static final TagKey<Biome> WILD_BEETROOT_WHITELIST = of("wild_beetroot_whitelist");
+        public static final TagKey<Biome> MUSHROOM_COLONIES_WHITELIST = of("mushroom_colonies_whitelist");
         private static TagKey<Biome> of(String id) {
             return TagKey.create(Registries.BIOME, EternalStarlightDelight.of(id));
         }

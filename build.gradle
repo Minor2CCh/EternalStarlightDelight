@@ -80,6 +80,7 @@ processResources {
     inputs.property "mod_name", project.mod_name
     inputs.property "mod_license", project.mod_license
     inputs.property "mod_authors", project.mod_authors
+    inputs.property "mod_version", project.mod_version
     filteringCharset = "UTF-8"
 
     filesMatching("fabric.mod.json") {
@@ -90,7 +91,8 @@ processResources {
                 "mod_description": project.mod_description,
                 "mod_name": project.mod_name,
                 "mod_license": project.mod_license,
-                "mod_authors": project.mod_authors
+                "mod_authors": project.mod_authors,
+                "mod_version": project.mod_version
     }
 }
 
