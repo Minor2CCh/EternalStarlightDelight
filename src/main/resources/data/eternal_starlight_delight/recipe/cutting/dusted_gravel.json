@@ -21,8 +21,15 @@
     }
   ],
   "tool": {
-    "type": "farmersdelight:item_ability",
-    "fabric:type": "farmersdelight:item_ability",
-    "action": "shovel_dig"
+    "fabric:type": "fabric:any",
+    "ingredients": [
+      {
+        "fabric:type": "farmersdelight:item_ability",
+        "action": "shovel_dig"
+      },
+      {
+        "tag": "minecraft:shovels"
+      }
+    ]
   }
 }
