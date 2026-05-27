@@ -1,23 +1,25 @@
-![ESDelight Meals (1.1.0)](https://cdn.modrinth.com/data/YylITkmH/images/8115a72cf9cecef49bbc75907c7ff4aa27fd77fe.png)
+![ESDelight Meals (1.3.0)](https://cdn.modrinth.com/data/YylITkmH/images/680d1591224579b3aed02a1ca3d060c7a7b56563.png)
 # About
 This is a mod that adds foods fitting the atmosphere of Farmer's Delight and the worldview of Eternal Starlight, along with code and data to ensure compatibility between these two.<br>
 
-## Extra foods (now 1.1.0)<br>
+## Extra foods (now 1.3.0)<br>
 ・3 drying foods<br>
-・14 cut foods<br>
+・15 cut foods<br>
 ・10 light meals<br>
 ・2 ingredients<br>
-・7 meals<br>
+・8 meals<br>
 
 ## New Blocks<br>
-### 3 mushrooms Colony<br>
+### 4 mushrooms Colony<br>
 ・Bouldershroom<br>
 ・Glowing Mushroom<br>
 ・Marimold<br>
+・Shining Mushroom<br>
 Bouldershroom will form a colony if Rich Soil is present at its base.
 ### 7 Cabinets<br>
 ### 4? Crates<br>
 ### Frozen Tube Bale<br>
+### (Forgotten) Nouturnal Millet Bale<br>
 ### 3 Cooking Tools
 ・Starlight Stove<br>
 ・Deepsilver Cooking Pot<br>
@@ -39,4 +41,8 @@ The Starlight Stove, Deepsilver Cooking Pot, and Deepsilver Skillet double the c
 ・Some mobs in Eternal Starlight grant a drop bonus when defeated with a knife.<br>
 ・Can plant Pungency Fruit in Rich Soil Farmland (Only Fabric).<br>
 ・The effects of some Farmer's Delight seeds will be changed in Seeds Launcher.<br>
-・The stack limit for Eternal Starlight's stew-type items will be 16.
+・The stack limit for Eternal Starlight's stew-type items will be 16.<br>
+・Equipping the Fungus Amulet allows you to eat Mushroom Colonies.<br>
+・Put Nocturnal Millet into the “forgotten” state by planting it in Rich Soil.<br>
+・Plants growing on Rich Soil or Rich Soil Farmland mitigate the effect that eliminates Nocturnal Millet crops.
+
