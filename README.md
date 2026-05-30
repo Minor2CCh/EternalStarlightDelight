@@ -1,6 +1,6 @@
 ![ESDelight Meals (1.3.0)](https://cdn.modrinth.com/data/YylITkmH/images/680d1591224579b3aed02a1ca3d060c7a7b56563.png)
 # About
-This is a mod that adds foods fitting the atmosphere of Farmer's Delight and the worldview of Eternal Starlight, along with code and data to ensure compatibility between these two.<br>
+This is a mod that adds foods fitting the atmosphere of [Farmer's Delight](https://github.com/vectorwing/FarmersDelight) and the worldview of [Eternal Starlight](https://github.com/LeoMinecraftModding/eternal-starlight), along with code and data to ensure compatibility between these two.<br>
 
 ## Extra foods (now 1.3.0)<br>
 ・3 drying foods<br>
