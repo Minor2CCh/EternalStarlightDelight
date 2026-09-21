@@ -39,7 +39,7 @@ side = "BOTH"
 [[dependencies."${mod_id}"]]
 modId = "eternal_starlight"
 type = "required"
-versionRange = "[0.7.0,)"
+versionRange = "[0.9.1,)"
 ordering = "AFTER"
 side = "BOTH"
 

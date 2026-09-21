@@ -66,8 +66,9 @@ public interface ESDPlatform {
         H accept(A a, B b, C c, D d, E e, F f, G g);
     }
     List<ResourceLocation> REMOVE_RECIPE_LIST = new ArrayList<>();
-    List<Map.Entry<TagKey<Item>, Item>> TAG_INJECT_ITEM_LIST = new ArrayList<>();
-    List<Map.Entry<TagKey<Item>, TagKey<Item>>> TAG_INJECT_TAG_LIST = new ArrayList<>();
+    List<Map.Entry<TagKey<Item>, Item>> ITEM_TAG_INJECT_ITEM_LIST = new ArrayList<>();
+    List<Map.Entry<TagKey<Item>, TagKey<Item>>> ITEM_TAG_INJECT_TAG_LIST = new ArrayList<>();
+    List<Map.Entry<TagKey<Item>, ResourceLocation>> ITEM_TAG_INJECT_RESOURCELOCATION_LIST = new ArrayList<>();
     ModLoader getModLoader();
     <T extends Block> Supplier<T> blockRegister(String id, Supplier<T> block);
     <T extends Item> Supplier<T> itemRegister(String id, Supplier<T> item);
@@ -83,11 +84,14 @@ public interface ESDPlatform {
     default void removeRecipe(ResourceLocation recipeId){
         REMOVE_RECIPE_LIST.add(recipeId);
     }
-    default void injectTag(TagKey<Item> baseTag, Item item){
-        TAG_INJECT_ITEM_LIST.addLast(Map.entry(baseTag, item));
+    default void injectItemTag(TagKey<Item> baseTag, Item item){
+        ITEM_TAG_INJECT_ITEM_LIST.addLast(Map.entry(baseTag, item));
     }
-    default void injectTag(TagKey<Item> baseTag, TagKey<Item> injectedTag){
-        TAG_INJECT_TAG_LIST.addLast(Map.entry(baseTag, injectedTag));
+    default void injectItemTag(TagKey<Item> baseTag, TagKey<Item> injectedTag){
+        ITEM_TAG_INJECT_TAG_LIST.addLast(Map.entry(baseTag, injectedTag));
+    }
+    default void injectItemTag(TagKey<Item> baseTag, ResourceLocation rl){
+        ITEM_TAG_INJECT_RESOURCELOCATION_LIST.addLast(Map.entry(baseTag, rl));
     }
     void useItemCallBack(TriFunction<Player, Level, InteractionHand, InteractionResultHolder<ItemStack>> function);
     void compostItemRegister(Item item, float value);

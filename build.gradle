@@ -2,7 +2,7 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'idea'
-    id 'net.neoforged.moddev' version '2.0.141'
+    id 'net.neoforged.moddev' version '2.0.143'
 }
 
 version = platform+"-"+mod_version
@@ -130,18 +130,19 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
     compileOnly "com.google.auto.service:auto-service:1.1.0"
     annotationProcessor "com.google.auto.service:auto-service:1.1.0"
-    implementation("curse.maven:farmers-delight-398521:8083481")
-    implementation("curse.maven:eternal-starlight-1080592:8109479")
+    implementation("curse.maven:farmers-delight-398521:8765184")
+    implementation("curse.maven:eternal-starlight-1080592:8931080")
     // compile against the JEI API but do not include it at runtime
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     // at runtime, use the full JEI jar for NeoForge
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
-    runtimeOnly("curse.maven:jade-324717:6853386")
-    runtimeOnly("curse.maven:appleskin-248787:6616291")
-    runtimeOnly("curse.maven:just-enough-effect-descriptions-jeed-532286:7346553")
+    runtimeOnly("curse.maven:jade-324717:8591319")
+    runtimeOnly("curse.maven:appleskin-248787:7854442")
+    runtimeOnly("curse.maven:just-enough-effect-descriptions-jeed-532286:8906178")
     runtimeOnly("curse.maven:food-effect-tooltips-forge-776426:5730649")
     runtimeOnly("curse.maven:cloth-config-348521:5729127")
-    runtimeOnly("curse.maven:advanced-loot-info-1205426:7938903")
+    runtimeOnly("curse.maven:advanced-loot-info-1205426:8906321")
+    runtimeOnly("curse.maven:advanced-core-info-1661923:8906316")
     //runtimeOnly("lol.bai:badpackets:neo-${badpackets_version}")
     //runtimeOnly("curse.maven:wthit-forge-455982:7546161")
 }

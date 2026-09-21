@@ -41,6 +41,10 @@
     {
       "id": "eternal_starlight:grim_shore",
       "required": false
+    },
+    {
+      "id": "eternal_starlight:solaris_isles",
+      "required": false
     }
   ]
 }

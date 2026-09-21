@@ -38,6 +38,7 @@ public final class ESDUtils {
     private static final Supplier<FoodProperties.PossibleEffect> MARIMOLD_COLONY_EFFECT = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 3600, 0, false, true, true), 1.0F));
     private static final Supplier<FoodProperties.PossibleEffect> GLOWING_MUSHROOM_EFFECT = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(MobEffects.GLOWING, 3600, 0, false, true, true), 1.0F));
     private static final Supplier<FoodProperties.PossibleEffect> SHINING_MUSHROOM_EFFECT = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 3600, 0, false, true, true), 1.0F));
+    private static final Supplier<FoodProperties.PossibleEffect> CLOUDSHROOM_MUSHROOM_EFFECT = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 3600, 0, false, true, true), 1.0F));
     public static boolean isESItem(ItemStack stack){
         ResourceLocation rl = ResourceLocation.tryParse(stack.getItemHolder().getRegisteredName());
         if(rl == null){
@@ -164,6 +165,8 @@ public final class ESDUtils {
             return Optional.of(MARIMOLD_COLONY_EFFECT.get());
         } else if(BuiltInRegistries.ITEM.getKey(stack.getItem()).equals(ResourceLocation.fromNamespaceAndPath("twilightdelight","mushgloom_colony"))){
             return Optional.of(SHINING_MUSHROOM_EFFECT.get());
+        } else if(BuiltInRegistries.ITEM.getKey(stack.getItem()).equals(ResourceLocation.fromNamespaceAndPath("delighto_flight","cloudshroom_colony"))){
+            return Optional.of(CLOUDSHROOM_MUSHROOM_EFFECT.get());
         }
         return Optional.empty();
     }

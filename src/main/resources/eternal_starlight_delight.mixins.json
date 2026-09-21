@@ -18,6 +18,7 @@
     "ESItemTiersMixin",
     "LootTableMixin",
     "MarimoldBlockInvoker",
+    "NocturnalMilletBottomBlockMixin",
     "NocturnalMilletTopBlockMixin",
     "PlaceShadowSnailPieMixin",
     "PlayerMixin",
