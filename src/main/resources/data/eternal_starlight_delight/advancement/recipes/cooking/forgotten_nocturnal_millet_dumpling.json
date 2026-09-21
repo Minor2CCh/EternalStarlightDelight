@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_forgotten_nocturnal_millet": {
+    "has_item": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "eternal_starlight_delight:forgotten_nocturnal_millet_bale"
+        "recipe": "eternal_starlight_delight:cooking/forgotten_nocturnal_millet_dumpling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_forgotten_nocturnal_millet"
+      "has_item"
     ]
   ],
   "rewards": {
     "recipes": [
-      "eternal_starlight_delight:forgotten_nocturnal_millet_bale"
+      "eternal_starlight_delight:cooking/forgotten_nocturnal_millet_dumpling"
     ]
   }
 }
