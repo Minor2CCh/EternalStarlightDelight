@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 0.5,
+  "cookingtime": 100,
+  "ingredients": [
+    {
+      "item": "eternal_starlight:forgotten_nocturnal_millet"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "c:foods/dough/wheat"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "count": 2,
+    "id": "eternal_starlight_delight:forgotten_nocturnal_millet_dumpling"
+  }
+}

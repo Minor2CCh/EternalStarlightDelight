@@ -173,6 +173,8 @@ public final class ESDItems {
             () -> new ConsumableItem(bowlFoodItem(ESDFoods.STARLIT_SALAD.get()), true, false));
     public static final Supplier<Item> NOCTURNAL_MILLET_RICE = registerItem("nocturnal_millet_rice",
             () -> new ConsumableItem(bowlFoodItem(ESDFoods.NOCTURNAL_MILLET_RICE.get()), true, false));
+    public static final Supplier<Item> FORGOTTEN_NOCTURNAL_MILLET_DUMPLING = registerItem("forgotten_nocturnal_millet_dumpling",
+            () -> new ConsumableItem(basicItem().food(ESDFoods.FORGOTTEN_NOCTURNAL_MILLET_DUMPLING.get()), true, false));
 
 
     // food blocks

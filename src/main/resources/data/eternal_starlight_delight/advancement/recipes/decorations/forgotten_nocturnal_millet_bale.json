@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_forgotten_nocturnal_bale": {
+    "has_forgotten_nocturnal_millet": {
       "conditions": {
         "items": [
           {

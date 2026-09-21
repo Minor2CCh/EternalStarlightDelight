@@ -106,6 +106,7 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.LUNAR_BERRY_PIE_SLICE.get());
                 output.accept(ESDItems.STARLIT_SALAD.get());
                 output.accept(ESDItems.NOCTURNAL_MILLET_RICE.get());
+                output.accept(ESDItems.FORGOTTEN_NOCTURNAL_MILLET_DUMPLING.get());
                 // accessories
                 output.accept(ESDItems.THERMAL_SPRINGBLADE_STRAP.get());
                 output.accept(ESDItems.STARFIRE_FLOWER_STRAP.get());

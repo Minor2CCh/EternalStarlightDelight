@@ -13,5 +13,8 @@ public final class ESDCompostablePuts {
         ESDPlatform.INSTANCE.compostItemRegister(ESDItems.PUNGENCY_FRUIT_SLICE.get(), 0.5F);
         ESDPlatform.INSTANCE.compostItemRegister(ESDItems.LUNAR_BERRY_PIE_SLICE.get(), 0.85F);
         ESDPlatform.INSTANCE.compostItemRegister(ESDItems.LUNAR_BERRY_PIE.get(), 1.0F);
+        ESDPlatform.INSTANCE.compostItemRegister(ESDItems.NOCTURNAL_MILLET_BALE.get(), 0.85F);
+        ESDPlatform.INSTANCE.compostItemRegister(ESDItems.FORGOTTEN_NOCTURNAL_MILLET_BALE.get(), 0.85F);
+        ESDPlatform.INSTANCE.compostItemRegister(ESDItems.FORGOTTEN_NOCTURNAL_MILLET_DUMPLING.get(), 1.0F);
     }
 }
