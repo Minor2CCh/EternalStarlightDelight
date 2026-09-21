@@ -35,13 +35,13 @@ public class TagLoaderMixin {
                                  CallbackInfoReturnable<Map<ResourceLocation, Collection<T>>> cir) {
 
         if (!Registries.tagsDirPath(Registries.ITEM).equals(directory)) return;
-        for(Map.Entry<TagKey<Item>, Item> itemList : ESDPlatform.TAG_INJECT_ITEM_LIST){
+        for(Map.Entry<TagKey<Item>, Item> itemList : ESDPlatform.ITEM_TAG_INJECT_ITEM_LIST){
             ResourceLocation target = itemList.getKey().location();
             List<TagLoader.EntryWithSource> entries = map.get(target);
             if (entries != null) {
                 Item item = itemList.getValue();
                 ResourceLocation itemId = BuiltInRegistries.ITEM.getKey(item);
-                EternalStarlightDelight.LOGGER.info("target:{},item:{}", target, item);
+                EternalStarlightDelight.LOGGER.info("Target:{},Item:{}", target, item);
                 if (item == Items.AIR) continue; // require=false
 
                 // EntryWithSource の追加（TagLoader が自動で Holder に変換する）
@@ -50,15 +50,29 @@ public class TagLoaderMixin {
                 entries.add(ews);
             }
         }
-        for(Map.Entry<TagKey<Item>, TagKey<Item>> itemList : ESDPlatform.TAG_INJECT_TAG_LIST){
+        for(Map.Entry<TagKey<Item>, TagKey<Item>> itemList : ESDPlatform.ITEM_TAG_INJECT_TAG_LIST){
             ResourceLocation target = itemList.getKey().location();
             List<TagLoader.EntryWithSource> entries = map.get(target);
             if (entries != null) {
                 TagKey<Item> injectedTag = itemList.getValue();
                 TagEntry entry = TagEntry.tag(injectedTag.location());
-                EternalStarlightDelight.LOGGER.info("target:{},tag:{}", target, injectedTag);
+                EternalStarlightDelight.LOGGER.info("Target:{},Tag:{}", target, injectedTag);
                 TagLoader.EntryWithSource ews = new TagLoader.EntryWithSource(entry, EternalStarlightDelight.of(target.getPath()+".to."+injectedTag.location().getPath()).toString());
                 entries.add(ews);
+            }
+        }
+        for(Map.Entry<TagKey<Item>, ResourceLocation> itemList : ESDPlatform.ITEM_TAG_INJECT_RESOURCELOCATION_LIST){
+            ResourceLocation target = itemList.getKey().location();
+            List<TagLoader.EntryWithSource> entries = map.get(target);
+            if (entries != null) {
+                ResourceLocation injectItemId = itemList.getValue();
+                Item item = BuiltInRegistries.ITEM.get(injectItemId);
+                if (item == Items.AIR) continue; // require=false
+                TagEntry entry = TagEntry.element(injectItemId); // JSON 相当のアイテム指定
+                EternalStarlightDelight.LOGGER.info("Target:{},ResourceLocation:{}", target, injectItemId);
+                TagLoader.EntryWithSource ews = new TagLoader.EntryWithSource(entry, EternalStarlightDelight.of(target.getPath()+".to."+injectItemId.getPath()).toString());
+                entries.add(ews);
+
             }
         }
     }
