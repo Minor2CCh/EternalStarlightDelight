@@ -1,7 +1,5 @@
 package com.minor2cch.eternalstarlightdelight;
 
-import cn.leolezury.eternalstarlight.common.block.AlloyFurnaceBlock;
-import cn.leolezury.eternalstarlight.common.block.AlloyFurnaceCoolingItem;
 import cn.leolezury.eternalstarlight.common.item.combat.ESItemTiers;
 import cn.leolezury.eternalstarlight.common.item.combat.EnergyBoomerangItem;
 import cn.leolezury.eternalstarlight.common.registry.ESFoods;
@@ -40,7 +38,6 @@ public final class EternalStarlightDelight {
         ESDDataComponents.init();
         ESDPlatform.INSTANCE.delayedInit(ESDCompostablePuts::init);
         ESDPlatform.INSTANCE.delayedInit(EternalStarlightDelight::modifyItemComponent);
-        ESDPlatform.INSTANCE.delayedInit(EternalStarlightDelight::registerCoolingItem);
         ESDPlatform.INSTANCE.removeRecipe(ResourceLocation.fromNamespaceAndPath("fces","torreya_log"));//Farmer's Cutting: Eternal Starlightがある場合は上書き
         ESDPlatform.INSTANCE.delayedInit(EternalStarlightDelight::extraTag);
         ESDItemUseEvents.init();
@@ -66,17 +63,18 @@ public final class EternalStarlightDelight {
             ESDPlatform.INSTANCE.modifyItemComponentEntry(ESItems.ENERGY_BOOMERANG, DataComponents.TOOL, ((EnergyBoomerangItem)(ESItems.ENERGY_BOOMERANG.get())).getTier().createToolProperties(ModTags.Blocks.MINEABLE_WITH_KNIFE));
         }
     }
-    private static void registerCoolingItem(){
-        AlloyFurnaceBlock.registerCoolingItem(ESDItems.FROZEN_TUBE_BALE.get(), new AlloyFurnaceCoolingItem(16000, 4));
-        AlloyFurnaceBlock.registerCoolingItem(ESDItems.GLACITE_KNIFE.get(), new AlloyFurnaceCoolingItem(300, 4));
-    }
     private static void extraTag(){
         if(ESDConfigLoader.getConfig().getBoomerangUsableKnife()){
-            ESDPlatform.INSTANCE.injectTag(CommonTags.Items.TOOLS_KNIFE, ESItems.ENERGY_BOOMERANG.get());
-            ESDPlatform.INSTANCE.injectTag(ModTags.Items.KNIVES, ESItems.ENERGY_BOOMERANG.get());
+            ESDPlatform.INSTANCE.injectItemTag(CommonTags.Items.TOOLS_KNIFE, ESItems.ENERGY_BOOMERANG.get());
+            ESDPlatform.INSTANCE.injectItemTag(ModTags.Items.KNIVES, ESItems.ENERGY_BOOMERANG.get());
         }
         if(ESDConfigLoader.getConfig().getEatableMushroomColonies()){
-            ESDPlatform.INSTANCE.injectTag(ESTags.Items.CONSUMABLE_WHEN_WEARING_FUNGUS_AMULET, ModTags.Items.MUSHROOM_COLONIES);
+            ESDPlatform.INSTANCE.injectItemTag(ESTags.Items.CONSUMABLE_WHEN_WEARING_FUNGUS_AMULET, ModTags.Items.MUSHROOM_COLONIES);
+            if(ESDPlatform.INSTANCE.isModLoaded("delighto_flight")){
+                ESDPlatform.INSTANCE.injectItemTag(ESTags.Items.CONSUMABLE_WHEN_WEARING_FUNGUS_AMULET, ResourceLocation.fromNamespaceAndPath("delighto_flight", "cloudshroom_colony"));
+                ESDPlatform.INSTANCE.injectItemTag(ModTags.Items.MUSHROOM_COLONIES, ResourceLocation.fromNamespaceAndPath("delighto_flight", "cloudshroom_colony"));
+            }
+            ESDPlatform.INSTANCE.injectItemTag(ESTags.Items.CONSUMABLE_WHEN_WEARING_FUNGUS_AMULET, ResourceLocation.fromNamespaceAndPath("minecraft", "dirt"));
         }
     }
 }
