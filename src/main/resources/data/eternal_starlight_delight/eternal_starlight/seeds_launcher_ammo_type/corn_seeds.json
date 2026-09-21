@@ -1,0 +1,20 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "corn_delight"
+      ]
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "corn_delight"
+    }
+  ],
+  "cooldown": 0.9,
+  "damage_multiplier": 1.0,
+  "item": "corn_delight:corn_seeds",
+  "speed_multiplier": 1.3
+}
