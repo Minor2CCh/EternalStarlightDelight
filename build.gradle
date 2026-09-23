@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.16-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom-remap' version '1.18-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -29,8 +29,8 @@ repositories {
         }
     }
     maven {
-        name = "Greenhouse Maven"
-        url = 'https://maven.greenhouse.lgbt/releases/'
+        name = "Cassian's Maven"
+        url = 'https://maven.cassian.cc'
     }
     maven {
         // location of the maven that hosts JEI files since January 2023
@@ -60,39 +60,48 @@ dependencies {
     modCompileOnly("mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}")
     // at runtime, use the full JEI jar for Fabric
     modRuntimeOnly("mezz.jei:jei-${minecraft_version}-fabric:${jei_version}")
-    modRuntimeOnly("curse.maven:jade-324717:6738760")
+    modRuntimeOnly("curse.maven:jade-324717:8591528")
     modRuntimeOnly("curse.maven:just-enough-effect-descriptions-jeed-532286:7346554")
     modRuntimeOnly("curse.maven:food-effect-tooltips-695850:6024177")
     modRuntimeOnly("curse.maven:cloth-config-348521:5729125")
     modRuntimeOnly("curse.maven:appleskin-248787:5864741")
-    modRuntimeOnly("curse.maven:advanced-loot-info-1205426:8002072")
+    modRuntimeOnly("curse.maven:advanced-loot-info-1205426:8906320")
+    modRuntimeOnly("curse.maven:advanced-core-info-1661923:8906315")
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
-    modImplementation("curse.maven:eternal-starlight-1080592:8102436")
+    modImplementation("curse.maven:eternal-starlight-1080592:8931266")
 
 }
-
+def modVersion = project.version
+def minecraftVersion = project.minecraft_version
+def loaderVersion = project.fabric_loader_version
+def modId = project.mod_id
+def modDescription = project.mod_description
+def modName = project.mod_name
+def modLicense = project.mod_license
+def modAuthors = project.mod_authors
+def modVersionProperty = project.mod_version
 processResources {
-    inputs.property "version", project.version
-    inputs.property "minecraft_version", project.minecraft_version
-    inputs.property "loader_version", project.fabric_loader_version
-    inputs.property "mod_id", project.mod_id
-    inputs.property "mod_description", project.mod_description
-    inputs.property "mod_name", project.mod_name
-    inputs.property "mod_license", project.mod_license
-    inputs.property "mod_authors", project.mod_authors
-    inputs.property "mod_version", project.mod_version
+    inputs.property "version", modVersion
+    inputs.property "minecraft_version", minecraftVersion
+    inputs.property "loader_version", loaderVersion
+    inputs.property "mod_id", modId
+    inputs.property "mod_description", modDescription
+    inputs.property "mod_name", modName
+    inputs.property "mod_license", modLicense
+    inputs.property "mod_authors", modAuthors
+    inputs.property "mod_version", modVersionProperty
     filteringCharset = "UTF-8"
 
     filesMatching("fabric.mod.json") {
-        expand "version": project.version,
-                "minecraft_version": project.minecraft_version,
-                "loader_version": project.fabric_loader_version,
-                "mod_id": project.mod_id,
-                "mod_description": project.mod_description,
-                "mod_name": project.mod_name,
-                "mod_license": project.mod_license,
-                "mod_authors": project.mod_authors,
-                "mod_version": project.mod_version
+        expand "version": modVersion,
+                "minecraft_version": minecraftVersion,
+                "loader_version": loaderVersion,
+                "mod_id": modId,
+                "mod_description": modDescription,
+                "mod_name": modName,
+                "mod_license": modLicense,
+                "mod_authors": modAuthors,
+                "mod_version": modVersionProperty
     }
 }
 
