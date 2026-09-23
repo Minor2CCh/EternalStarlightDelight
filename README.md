@@ -5,7 +5,7 @@ This is a mod that adds foods fitting the atmosphere of [Farmer's Delight](https
 ## Extra foods (now 1.3.0)<br>
 ・3 drying foods<br>
 ・15 cut foods<br>
-・10 light meals<br>
+・11 light meals<br>
 ・2 ingredients<br>
 ・8 meals<br>
 
