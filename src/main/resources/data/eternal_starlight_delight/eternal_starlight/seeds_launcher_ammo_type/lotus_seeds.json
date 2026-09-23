@@ -1,0 +1,20 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "delighto_flight"
+      ]
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "delighto_flight"
+    }
+  ],
+  "cooldown": 1.0,
+  "damage_multiplier": 1.0,
+  "item": "delighto_flight:lotus_seeds",
+  "speed_multiplier": 1.6
+}
