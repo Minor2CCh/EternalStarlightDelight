@@ -23,6 +23,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.Objects;
 
@@ -40,7 +41,7 @@ public class PlayerMixin {
     @Inject(method = "eat", at = @At("HEAD"), cancellable = true)
     private void extraEatFungus(Level level, ItemStack food, FoodProperties foodProperties, CallbackInfoReturnable<ItemStack> cir) {
         Player player = (Player) (Object) this;
-        if(ESDConfigLoader.getConfig().getEatableMushroomColonies() && ESAccessoryUtil.getActiveAccessoriesOnArmors(player).contains(ESItems.FUNGUS_AMULET.get()) && food.is(ESTags.Items.CONSUMABLE_WHEN_WEARING_FUNGUS_AMULET) && Objects.equals(foodProperties, ESFoods.FUNGUS.get())){
+        if(ESDConfigLoader.getConfig().getEatableMushroomColonies() && ESAccessoryUtil.getActiveAccessoriesOnArmors(player).contains(ESItems.FUNGUS_AMULET.get()) && food.is(ESTags.Items.CONSUMABLE_WHEN_WEARING_FUNGUS_AMULET) && food.is(ModTags.Items.MUSHROOM_COLONIES) && Objects.equals(foodProperties, ESFoods.FUNGUS.get())){
             ESDUtils.getExtraColonyEffect(food).ifPresent((effect) -> player.addEffect(effect.effect()));
             cir.setReturnValue(player.eat(level, food, ESDFoods.FUNGUS_COLONY.get()));
             cir.cancel();

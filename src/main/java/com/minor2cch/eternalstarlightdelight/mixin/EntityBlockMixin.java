@@ -32,7 +32,7 @@ public interface EntityBlockMixin {
                 original.tick(lv, blockPos, state, (T) be);
             }
             if(be instanceof DispenserBlockEntity){
-                mendingAmaramberTools_inDispenser(lv, blockPos, state, be);
+                esd$mendingAmaramberToolsInDispenser(lv, blockPos, state, be);
             }
         });
 
@@ -40,7 +40,7 @@ public interface EntityBlockMixin {
     }
     @Unique
     @SuppressWarnings("unused")
-    private static void mendingAmaramberTools_inDispenser(Level level, BlockPos blockPos, BlockState blockState, BlockEntity be){
+    private static void esd$mendingAmaramberToolsInDispenser(Level level, BlockPos blockPos, BlockState blockState, BlockEntity be){
         if(be instanceof DispenserBlockEntity dispenserBlockEntity){
             if (!level.isClientSide && level.getGameTime() % 600 == 0) {
                 for(int i=0;i<dispenserBlockEntity.getContainerSize();i++) {

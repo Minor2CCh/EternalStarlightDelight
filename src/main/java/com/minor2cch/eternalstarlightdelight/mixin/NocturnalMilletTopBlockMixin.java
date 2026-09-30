@@ -6,6 +6,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import vectorwing.farmersdelight.common.block.*;
@@ -23,14 +24,7 @@ public abstract class NocturnalMilletTopBlockMixin {
             ServerLevel instance, BlockPos pos, boolean dropBlock
     ) {
         Block block = instance.getBlockState(pos).getBlock();
-        Block belowBlock = instance.getBlockState(new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ())).getBlock();
-        Block below2Block = instance.getBlockState(new BlockPos(pos.getX(), pos.getY() - 2, pos.getZ())).getBlock();
-        Block below3Block = instance.getBlockState(new BlockPos(pos.getX(), pos.getY() - 3, pos.getZ())).getBlock();
-        if((belowBlock instanceof RichSoilBlock || belowBlock instanceof RichSoilFarmlandBlock)
-             || belowBlock instanceof CropBlock && (below2Block instanceof RichSoilBlock || below2Block instanceof RichSoilFarmlandBlock)
-                || belowBlock instanceof CropBlock && below2Block instanceof CropBlock && (below3Block instanceof RichSoilBlock || below3Block instanceof RichSoilFarmlandBlock)
-                || block instanceof RicePaniclesBlock && belowBlock instanceof RiceBlock && (below2Block instanceof RichSoilBlock || below2Block instanceof RichSoilFarmlandBlock)
-                || block instanceof RicePaniclesBlock && belowBlock instanceof RiceBlock && below2Block instanceof CropBlock && (below3Block instanceof RichSoilBlock || below3Block instanceof RichSoilFarmlandBlock)){
+        if(esd$isBelowRichBlock(instance, pos)) {
             if(block instanceof CropBlock cropBlock){
                 if(cropBlock.getAge(instance.getBlockState(pos)) > 0){
                     Block aboveBlock = instance.getBlockState(pos.above()).getBlock();
@@ -42,5 +36,18 @@ public abstract class NocturnalMilletTopBlockMixin {
             return false;
         }
         return instance.destroyBlock(pos, dropBlock, null);
+    }
+    @Unique
+    private static boolean esd$isBelowRichBlock(ServerLevel instance, BlockPos pos) {
+        Block block = instance.getBlockState(pos).getBlock();
+        for(int i = 1; i < 16; ++i) {
+            Block belowBlock = instance.getBlockState(new BlockPos(pos.getX(), pos.getY() - i, pos.getZ())).getBlock();
+            if(belowBlock instanceof RichSoilBlock || belowBlock instanceof RichSoilFarmlandBlock){
+                return true;
+            }else if(!(belowBlock instanceof RiceBlock || belowBlock instanceof CropBlock || block instanceof RicePaniclesBlock)){
+                return false;
+            }
+        }
+        return false;
     }
 }
