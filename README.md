@@ -1,23 +1,25 @@
-![ESDelight Meals (Alpha.2)](https://cdn.modrinth.com/data/YylITkmH/images/2ba3d34330e2c08928129e0a2fb6cd6a4eaf2276.png)
+![ESDelight Meals (1.4.0)](https://cdn.modrinth.com/data/YylITkmH/images/680d1591224579b3aed02a1ca3d060c7a7b56563.png)
 # About
-This is a mod that adds foods fitting the atmosphere of Farmer's Delight and the worldview of Eternal Starlight, along with code and data to ensure compatibility between these two.<br>
+This is a mod that adds foods fitting the atmosphere of [Farmer's Delight](https://github.com/vectorwing/FarmersDelight) and the worldview of [Eternal Starlight](https://github.com/LeoMinecraftModding/eternal-starlight), along with code and data to ensure compatibility between these two.<br>
 
-## Extra foods (now 1.0.0)<br>
-・2 drying foods<br>
-・12 cut foods<br>
-・9 light meals<br>
+## Extra foods (now 1.4.0)<br>
+・3 drying foods<br>
+・15 cut foods<br>
+・11 light meals<br>
 ・2 ingredients<br>
-・6 meals<br>
+・8 meals<br>
 
 ## New Blocks<br>
-### 3 mushrooms Colony<br>
+### 4 mushrooms Colony<br>
 ・Bouldershroom<br>
 ・Glowing Mushroom<br>
 ・Marimold<br>
+・Shining Mushroom<br>
 Bouldershroom will form a colony if Rich Soil is present at its base.
 ### 7 Cabinets<br>
 ### 4? Crates<br>
 ### Frozen Tube Bale<br>
+### (Forgotten) Nouturnal Millet Bale<br>
 ### 3 Cooking Tools
 ・Starlight Stove<br>
 ・Deepsilver Cooking Pot<br>
@@ -28,6 +30,8 @@ The Starlight Stove, Deepsilver Cooking Pot, and Deepsilver Skillet double the c
 ・If the original material has special effects, they will also be applied to the knife.<br>
 ### Add 1 knife's Accessory<br>
 ・Thermal Springblade Strap<br>
+### Add 1 Skillet's Accessory<br>
+・Starfire Flower Strap<br>
 ## Other Changes<br>
 ### Add a recipe to the cutting board<br>
 ・The recipe for the cutting board was provided by [Farmer's Cutting: Eternal Starlight](https://modrinth.com/datapack/farmers-cutting-eternal-starlight).<br>
@@ -35,6 +39,10 @@ The Starlight Stove, Deepsilver Cooking Pot, and Deepsilver Skillet double the c
 ・Wild crops from Farmers' Delight now appear in the Eternal Starlight biome.<br>
 ・Throwing the Energy Boomerang onto a cutting board causes it to behave as if sliced by a knife.<br>
 ・Some mobs in Eternal Starlight grant a drop bonus when defeated with a knife.<br>
-・Can plant Pungency Fruit in Rich Soil Farmland (Fabric)<br>
+・Can plant Pungency Fruit in Rich Soil Farmland (Only Fabric).<br>
 ・The effects of some Farmer's Delight seeds will be changed in Seeds Launcher.<br>
-・The stack limit for Eternal Starlight's stew-type items will be 16.
+・The stack limit for Eternal Starlight's stew-type items will be 16.<br>
+・Equipping the Fungus Amulet allows you to eat Mushroom Colonies.<br>
+・Put Nocturnal Millet into the “forgotten” state by planting it in Rich Soil.<br>
+・Plants growing on Rich Soil or Rich Soil Farmland mitigate the effect that eliminates Nocturnal Millet crops.
+
