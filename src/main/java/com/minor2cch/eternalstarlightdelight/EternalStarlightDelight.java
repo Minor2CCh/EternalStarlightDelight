@@ -74,7 +74,6 @@ public final class EternalStarlightDelight {
                 ESDPlatform.INSTANCE.injectItemTag(ESTags.Items.CONSUMABLE_WHEN_WEARING_FUNGUS_AMULET, ResourceLocation.fromNamespaceAndPath("delighto_flight", "cloudshroom_colony"));
                 ESDPlatform.INSTANCE.injectItemTag(ModTags.Items.MUSHROOM_COLONIES, ResourceLocation.fromNamespaceAndPath("delighto_flight", "cloudshroom_colony"));
             }
-            ESDPlatform.INSTANCE.injectItemTag(ESTags.Items.CONSUMABLE_WHEN_WEARING_FUNGUS_AMULET, ResourceLocation.fromNamespaceAndPath("minecraft", "dirt"));
         }
     }
 }
