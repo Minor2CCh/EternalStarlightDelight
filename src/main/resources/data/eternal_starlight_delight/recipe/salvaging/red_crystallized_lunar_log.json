@@ -1,0 +1,28 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "eternal_starlight:red_crystallized_lunar_log"
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:item_ability",
+    "fabric:type": "farmersdelight:item_ability",
+    "action": "hoe_dig"
+  },
+  "result": [
+    {
+      "item": {
+        "count": 1,
+        "id": "eternal_starlight:dead_lunar_log"
+      }
+    },
+    {
+      "chance": 0.2,
+      "item": {
+        "count": 1,
+        "id": "eternal_starlight:red_starlight_crystal_shard"
+      }
+    }
+  ]
+}
