@@ -19,10 +19,10 @@
     "ingredients": [
       {
         "fabric:type": "farmersdelight:item_ability",
-        "action": "axe_dig"
+        "action": "pickaxe_dig"
       },
       {
-        "tag": "minecraft:axes"
+        "tag": "minecraft:pixkaxes"
       }
     ]
   }

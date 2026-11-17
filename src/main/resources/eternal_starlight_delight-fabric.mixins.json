@@ -9,7 +9,8 @@
     "CookingPotBlockEntityMixinFabric",
     "CuttingBoardBlockEntityMixinFabric",
     "PungencyFruitVinesBlockMixin",
-    "SkilletItemMixin"
+    "SkilletItemMixin",
+    "PoisonMobEffectMixin"
   ],
   "injectors": {
     "defaultRequire": 1

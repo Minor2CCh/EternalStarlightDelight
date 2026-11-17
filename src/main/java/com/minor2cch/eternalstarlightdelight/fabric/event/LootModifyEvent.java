@@ -28,6 +28,8 @@ public class LootModifyEvent {
     private static final ResourceKey<LootTable> ENTITIES_ZOMBIFIED_RATLIN = esKey("entities/zombified_ratlin");
     private static final ResourceKey<LootTable> BOSSES_STARLIGHT_GOLEM = esKey("bosses/starlight_golem");
     private static final ResourceKey<LootTable> BOSSES_GATEKEEPER = esKey("bosses/the_gatekeeper");
+    private static final ResourceKey<LootTable> CHESTS_CURSED_GARDEN = esKey("chests/cursed_garden");
+    private static final ResourceKey<LootTable> CHESTS_GOLEM_FORGE = esKey("chests/golem_forge");
     @SuppressWarnings("all")
     private static ResourceKey<LootTable> key(String name, String path) {
         return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(name, path));
@@ -61,6 +63,11 @@ public class LootModifyEvent {
             tableBuilder.withPool(LootPool.lootPool().add(LootItem.lootTableItem(ESDItems.GLISTERING_KNIFE.get())
 
             ).conditionally(LootItemRandomChanceCondition.randomChance(15 / 100.0F).build()));
+        }
+        if (key == CHESTS_CURSED_GARDEN || key == CHESTS_GOLEM_FORGE) {
+            tableBuilder.withPool(LootPool.lootPool().add(LootItem.lootTableItem(ESDItems.STARLIGHT_FLOWER_HEADDRESS.get())
+
+            ).conditionally(LootItemRandomChanceCondition.randomChance(3 / 100.0F).build()));
         }
 
     }
