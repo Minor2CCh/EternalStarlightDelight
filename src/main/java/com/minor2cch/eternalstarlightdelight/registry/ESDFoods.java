@@ -15,7 +15,8 @@ public final class ESDFoods {
     // MODのエフェクトを使う場合はSupplierにする必要あり
     public static final Supplier<FoodProperties> DRIED_ROOKFISH = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(4).saturationModifier(0.8F).effect(new MobEffectInstance(ModEffects.NOURISHMENT, 600, 0, false, false, false), 1.0F).build());
     public static final Supplier<FoodProperties> PUNGENCY_FRUIT_SLICE = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(2).saturationModifier(0.6F).effect(new MobEffectInstance(MobEffects.CONFUSION, 120, 0), 0.8F).build());
-    public static final Supplier<FoodProperties> STARLIGHT_SOUP = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(7).saturationModifier(0.6F).effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600, 0), 1.0F).build());
+    public static final Supplier<FoodProperties> STARLIGHT_SOUP = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(7).saturationModifier(0.6F).effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600, 0), 1.0F).effect(new MobEffectInstance(ESDMobEffects.STARLIGHT_BLESSING, 600, 0), 1.0F).build());
+    public static final Supplier<FoodProperties> SACRED_STARLIGHT_SOUP = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(7).saturationModifier(0.6F).effect(new MobEffectInstance(MobEffects.JUMP, 600, 0), 1.0F).effect(new MobEffectInstance(ESDMobEffects.STARLIGHT_BLESSING, 600, 0), 1.0F).build());
     public static final Supplier<FoodProperties> SHADOW_SNAIL_PIE_SLICE = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(3).saturationModifier(0.6F).fast()
             .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 0, false, false), 1.0F).build());
     public static final Supplier<FoodProperties> ABYSSAL_JUICE = Suppliers.memoize(() -> new FoodProperties.Builder().alwaysEdible().effect(new MobEffectInstance(MobEffects.WATER_BREATHING, 1200, 0), 1.0F).build());
@@ -47,6 +48,7 @@ public final class ESDFoods {
             .nutrition(8).saturationModifier(0.6f).effect(new MobEffectInstance(ESDMobEffects.STARLIGHT_BLESSING, 1200, 0), 1.0f).effect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 1200, 0), 1.0f).build());
     public static final Supplier<FoodProperties> NOCTURNAL_MILLET_RICE = Suppliers.memoize(() -> new FoodProperties.Builder()
             .nutrition(10).saturationModifier(0.6f).effect(new MobEffectInstance(ModEffects.NOURISHMENT, 1200, 0), 1.0f).build());
-    public static final Supplier<FoodProperties> FUNGUS_COLONY = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(12).saturationModifier(0.8F).effect(new MobEffectInstance(ModEffects.NOURISHMENT, 3600, 0, false, false, false), 1.0F).build());
     public static final Supplier<FoodProperties> FORGOTTEN_NOCTURNAL_MILLET_DUMPLING = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(6).saturationModifier(0.6F).effect(new MobEffectInstance(ESMobEffects.OBLIVION.asHolder(), 600, 0), 1.0F).effect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600, 0), 1.0F).fast().alwaysEdible().build());
+    public static final Supplier<FoodProperties> FUNGUS_COLONY = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(12).saturationModifier(0.8F).effect(new MobEffectInstance(ModEffects.NOURISHMENT, 3600, 0, false, false, false), 1.0F).build());
+    public static final Supplier<FoodProperties> SMALL_FLOWERS = Suppliers.memoize(() -> new FoodProperties.Builder().nutrition(4).saturationModifier(0.6F).alwaysEdible().build());
 }

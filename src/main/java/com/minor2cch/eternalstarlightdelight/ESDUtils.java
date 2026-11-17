@@ -7,6 +7,7 @@ import com.google.common.base.Suppliers;
 import com.minor2cch.eternalstarlightdelight.platform.ESDPlatform;
 import com.minor2cch.eternalstarlightdelight.registry.ESDDataComponents;
 import com.minor2cch.eternalstarlightdelight.registry.ESDItems;
+import com.minor2cch.eternalstarlightdelight.registry.ESDMobEffects;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.core.Holder;
@@ -39,6 +40,7 @@ public final class ESDUtils {
     private static final Supplier<FoodProperties.PossibleEffect> GLOWING_MUSHROOM_EFFECT = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(MobEffects.GLOWING, 3600, 0, false, true, true), 1.0F));
     private static final Supplier<FoodProperties.PossibleEffect> SHINING_MUSHROOM_EFFECT = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 3600, 0, false, true, true), 1.0F));
     private static final Supplier<FoodProperties.PossibleEffect> CLOUDSHROOM_MUSHROOM_EFFECT = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 3600, 0, false, true, true), 1.0F));
+    private static final Supplier<FoodProperties.PossibleEffect> FIDDLEHEAD_CLUMP_EFFECT = Suppliers.memoize(() -> ESDPlatform.INSTANCE.createPossibleEffect(new MobEffectInstance(MobEffects.ABSORPTION, 3600, 1, false, true, true), 1.0F));
     public static boolean isESItem(ItemStack stack){
         ResourceLocation rl = ResourceLocation.tryParse(stack.getItemHolder().getRegisteredName());
         if(rl == null){
@@ -142,6 +144,9 @@ public final class ESDUtils {
         newEffects.addAll(effects);
         return new FoodProperties(food.nutrition(), food.saturation(), food.canAlwaysEat(), food.eatSeconds(), food.usingConvertsTo(), newEffects);
     }
+    public static MobEffectInstance getExtraStarlightBlessingEffect(){
+        return new MobEffectInstance(ESDMobEffects.STARLIGHT_BLESSING, 1200, 0, false, true);
+    }
     public static boolean hasSameFoodEffect(FoodProperties food, Holder<MobEffect> effect){
         List<FoodProperties.PossibleEffect> newEffects = new ArrayList<>(food.effects());
         if(newEffects.isEmpty()){
@@ -167,6 +172,8 @@ public final class ESDUtils {
             return Optional.of(SHINING_MUSHROOM_EFFECT.get());
         } else if(BuiltInRegistries.ITEM.getKey(stack.getItem()).equals(ResourceLocation.fromNamespaceAndPath("delighto_flight","cloudshroom_colony"))){
             return Optional.of(CLOUDSHROOM_MUSHROOM_EFFECT.get());
+        } else if(BuiltInRegistries.ITEM.getKey(stack.getItem()).equals(ResourceLocation.fromNamespaceAndPath("twilightdelight","fiddlehead_clump"))){
+            return Optional.of(FIDDLEHEAD_CLUMP_EFFECT.get());
         }
         return Optional.empty();
     }

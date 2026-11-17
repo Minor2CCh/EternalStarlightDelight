@@ -1,0 +1,10 @@
+{
+  "values": [
+    "minecraft:wither",
+    "eternal_starlight:crystal_infection",
+    {
+      "id": "#neoforge:is_poison",
+      "required": false
+    }
+  ]
+}

@@ -71,6 +71,7 @@ public final class ESDCreativeTabs {
                 output.accept(ESDItems.DRIED_ROOKFISH.get());
                 output.accept(ESDItems.PUNGENCY_FRUIT_SLICE.get());
                 output.accept(ESDItems.STARLIGHT_SOUP.get());
+                output.accept(ESDItems.SACRED_STARLIGHT_SOUP.get());
                 output.accept(ESDItems.LUMINARIS_SLICE.get());
                 output.accept(ESDItems.COOKED_LUMINARIS_SLICE.get());
                 output.accept(ESDItems.LUMINOFISH_SLICE.get());
@@ -110,6 +111,7 @@ public final class ESDCreativeTabs {
                 // accessories
                 output.accept(ESDItems.THERMAL_SPRINGBLADE_STRAP.get());
                 output.accept(ESDItems.STARFIRE_FLOWER_STRAP.get());
+                output.accept(ESDItems.STARLIGHT_FLOWER_HEADDRESS.get());
             }
 
     );
