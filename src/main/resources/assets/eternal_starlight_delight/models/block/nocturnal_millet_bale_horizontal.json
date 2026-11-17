@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column_horizontal",
   "textures": {
-    "end": "minecraft:block/nocturnal_millet_bale_top",
-    "side": "minecraft:block/nocturnal_millet_bale_side"
+    "end": "eternal_starlight_delight:block/nocturnal_millet_bale_top",
+    "side": "eternal_starlight_delight:block/nocturnal_millet_bale_side"
   }
 }

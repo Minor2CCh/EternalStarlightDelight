@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
+    "client.ItemInHandRendererMixin"
   ],
   "mixins": [
     "AbstractArrowMixin",
@@ -16,6 +17,8 @@
     "EnchantmentMixin",
     "EntityBlockMixin",
     "ESItemTiersMixin",
+    "ItemMixin",
+    "LivingEntityMixin",
     "LootTableMixin",
     "MarimoldBlockInvoker",
     "NocturnalMilletBottomBlockMixin",

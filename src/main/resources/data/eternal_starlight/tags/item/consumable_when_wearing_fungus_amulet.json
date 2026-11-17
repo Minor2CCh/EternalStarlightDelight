@@ -3,6 +3,10 @@
     {
       "id": "tofucraft:zundatofu_mushroom",
       "required": false
+    },
+    {
+      "id": "minecraft:shelf_mushroom",
+      "required": false
     }
   ]
 }

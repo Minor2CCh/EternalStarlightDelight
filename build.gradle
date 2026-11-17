@@ -138,13 +138,12 @@ dependencies {
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
     runtimeOnly("curse.maven:jade-324717:8591319")
     runtimeOnly("curse.maven:appleskin-248787:7854442")
-    runtimeOnly("curse.maven:just-enough-effect-descriptions-jeed-532286:8906178")
+    runtimeOnly("curse.maven:just-enough-effect-descriptions-jeed-532286:9079612")
     runtimeOnly("curse.maven:food-effect-tooltips-forge-776426:5730649")
     runtimeOnly("curse.maven:cloth-config-348521:5729127")
-    runtimeOnly("curse.maven:advanced-loot-info-1205426:8906321")
-    runtimeOnly("curse.maven:advanced-core-info-1661923:8906316")
-    //runtimeOnly("lol.bai:badpackets:neo-${badpackets_version}")
-    //runtimeOnly("curse.maven:wthit-forge-455982:7546161")
+    runtimeOnly("curse.maven:advanced-loot-info-1205426:9212286")
+    runtimeOnly("curse.maven:advanced-core-info-1661923:9212278")
+    runtimeOnly("curse.maven:lambdynamiclights-393442:8780227")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

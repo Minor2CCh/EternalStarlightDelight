@@ -103,6 +103,8 @@ public final class ESDItems {
             () -> new Item(basicItem().food(ESDFoods.PUNGENCY_FRUIT_SLICE.get())));
     public static final Supplier<Item> STARLIGHT_SOUP = registerItem("starlight_soup",
             () -> new ConsumableItem(bowlFoodItem(ESDFoods.STARLIGHT_SOUP.get()), true, false));
+    public static final Supplier<Item> SACRED_STARLIGHT_SOUP = registerItem("sacred_starlight_soup",
+            () -> new ConsumableItem(bowlFoodItem(ESDFoods.SACRED_STARLIGHT_SOUP.get()), true, false));
     public static final Supplier<Item> LUMINARIS_SLICE = registerItem("luminaris_slice",
             () -> new Item(basicItem().food(FoodValues.SALMON_SLICE)));
     public static final Supplier<Item> COOKED_LUMINARIS_SLICE = registerItem("cooked_luminaris_slice",
@@ -217,6 +219,25 @@ public final class ESDItems {
                             ),
                             Optional.of(Style.EMPTY.withColor(0xFF7D3D)),
                             Optional.of(EternalStarlightDelight.of("textures/accessory/starfire_flower_strap_overlay"))
+                    ))
+                    .stacksTo(1)));
+    public static final Supplier<Item> STARLIGHT_FLOWER_HEADDRESS = registerItem("starlight_flower_headdress",
+            () -> new Item(new Item.Properties()
+                    .rarity(Rarity.RARE)
+                    .component(ESDataComponents.ACCESSORY.get(), new Accessory(
+                            ESDTags.Items.HELMET_ACCESSORY_APPLICABLE,
+                            Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".accessory_combination_target.helmet").withStyle(ChatFormatting.BLUE),
+                            ItemAttributeModifiers.builder()
+                                    .add(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(EternalStarlightDelight.of("starlight_flower_headdress_armor_toughness"), 4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.HEAD)
+                                    .add(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(EternalStarlightDelight.of("starlight_flower_headdress_armor_toughness_muitlplied"), 0.2, AttributeModifier.Operation.ADD_MULTIPLIED_BASE), EquipmentSlotGroup.HEAD)
+                                    .build(),
+                            List.of(
+                                    Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".starlight_flower_headdress").withStyle(ChatFormatting.BLUE),
+                                    Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".starlight_flower_headdress.desc.0").withStyle(ChatFormatting.BLUE),
+                                    Component.translatable("tooltip." + EternalStarlightDelight.MOD_ID + ".starlight_flower_headdress.desc.1").withStyle(ChatFormatting.BLUE)
+                            ),
+                            Optional.of(Style.EMPTY.withColor(0x9CFFFF)),
+                            Optional.of(EternalStarlightDelight.of("textures/accessory/starlight_flower_headdress_overlay"))
                     ))
                     .stacksTo(1)));
     public static final Supplier<Item> DEBUG_SHADOW_SNAIL_PIE = registerItem("debug_shadow_snail_pie",

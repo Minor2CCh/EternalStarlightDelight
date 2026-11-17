@@ -1,0 +1,33 @@
+{
+  "values": [
+    "eternal_starlight:deepsilver_block",
+    "eternal_starlight:raw_deepsilver_block",
+    "#c:ores/deepsilver",
+    "eternal_starlight:golem_steel_block",
+    "eternal_starlight:waxed_golem_steel_block",
+    "eternal_starlight:oxidized_golem_steel_block",
+    "eternal_starlight:golem_steel_tiles",
+    "eternal_starlight:waxed_golem_steel_tiles",
+    "eternal_starlight:oxidized_golem_steel_tiles",
+    "eternal_starlight:golem_steel_pillar",
+    "eternal_starlight:waxed_golem_steel_pillar",
+    "eternal_starlight:oxidized_golem_steel_pillar",
+    "eternal_starlight:chiseled_golem_steel_block",
+    "eternal_starlight:waxed_chiseled_golem_steel_block",
+    "eternal_starlight:oxidized_chiseled_golem_steel_block",
+    "eternal_starlight:unrealium_block",
+    "eternal_starlight:thermal_springstone",
+    "eternal_starlight:thermal_springstone_bricks",
+    "eternal_starlight:springstone",
+    "eternal_starlight:springstone_bricks",
+    "eternal_starlight:polished_springstone",
+    "eternal_starlight:chiseled_springstone",
+    "eternal_starlight:raw_amaramber_block",
+    "eternal_starlight:amaramber_bricks",
+    "eternal_starlight:torreya_tiles",
+    "eternal_starlight:raw_aethersent_block",
+    "eternal_starlight:aethersent_block",
+    "eternal_starlight:raw_flowglaze",
+    "eternal_starlight:flowglaze_bricks"
+  ]
+}

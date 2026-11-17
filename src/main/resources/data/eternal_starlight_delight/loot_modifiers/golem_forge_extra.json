@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_table",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "eternal_starlight:chests/golem_forge"
+    }
+  ],
+  "table": "eternal_starlight_delight:extras/accessories_extra"
+}
