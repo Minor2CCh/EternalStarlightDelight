@@ -85,7 +85,12 @@ public final class ESDBlocks {
     // food blocks
     @SuppressWarnings("all")
     public static final Supplier<Block> LUNAR_BERRY_PIE = registerBlock("lunar_berry_pie",
-            () -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE), () -> ESDItems.LUNAR_BERRY_PIE_SLICE.get()));  // Fabricだと初期化順の仕様上() -> get()式にしないと失敗する
+            () -> new PieBlock(Block.Properties.ofFullCopy(Blocks.CAKE).lightLevel(state -> {
+                if(state.getBlock() instanceof PieBlock pieBlock){
+                    return 15 - (state.getValue(PieBlock.BITES) * 15 / pieBlock.getMaxBites());
+                }
+                return 15;
+            }), () -> ESDItems.LUNAR_BERRY_PIE_SLICE.get()));  // Fabricだと初期化順の仕様上() -> get()式にしないと失敗する
 
     @SuppressWarnings("all")
     public static final Supplier<Block> SHADOW_SNAIL_PIE = registerBlock("shadow_snail_pie",

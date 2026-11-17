@@ -14,37 +14,13 @@
     "eternal_starlight:the_abyss",
     "eternal_starlight:torreya_forest",
     "eternal_starlight:warm_shore",
-    {
-      "id": "eternal_starlight:umbral_plains",
-      "required": false
-    },
-    {
-      "id": "eternal_starlight:glimmer_scrubland",
-      "required": false
-    },
-    {
-      "id": "eternal_starlight:permafrost_peaks",
-      "required": false
-    },
-    {
-      "id": "eternal_starlight:starlight_taiga",
-      "required": false
-    },
-    {
-      "id": "eternal_starlight:lucent_mycelium_isle",
-      "required": false
-    },
-    {
-      "id": "eternal_starlight:icy_sea",
-      "required": false
-    },
-    {
-      "id": "eternal_starlight:grim_shore",
-      "required": false
-    },
-    {
-      "id": "eternal_starlight:solaris_isles",
-      "required": false
-    }
+    "eternal_starlight:umbral_plains",
+    "eternal_starlight:glimmer_scrubland",
+    "eternal_starlight:permafrost_peaks",
+    "eternal_starlight:starlight_taiga",
+    "eternal_starlight:lucent_mycelium_isle",
+    "eternal_starlight:icy_sea",
+    "eternal_starlight:grim_shore",
+    "eternal_starlight:solaris_isles"
   ]
 }
