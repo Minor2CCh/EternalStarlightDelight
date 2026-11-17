@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sacred_starlight_flower": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eternal_starlight:sacred_starlight_flower"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eternal_starlight_delight:cooking/sacred_starlight_soup"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sacred_starlight_flower"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eternal_starlight_delight:cooking/sacred_starlight_soup"
+    ]
+  }
+}
